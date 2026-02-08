@@ -1,0 +1,153 @@
+@extends('admin')
+@section('title','ORCA | Organisation for Research on China and Asia')
+@section('meta_keywords', 'ORCA')
+@section('meta_description', 'ORCA')
+
+@section('content')
+<!-- Start #main -->
+<main id="main" class="main">
+    <section class="section">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex align-items-center">
+                    <h5 class="card-title">Edit Article</h5>
+                    @if($article->status=='processing' || $article->status=='draft')
+                    <form method="POST" action="{{url('yn-admin/approved')}}">
+                        @csrf
+                        @method('PUT')
+                        <input type="hidden" name="status" value="$article->status">
+                        <input type="hidden" name="id" value="{{$article->id}}">
+                        <button class="btn btn-primary rounded-pill btn-sm ms-2" type="submit">Approve</button>
+                    </form>
+                    @endif
+                </div>
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+                <form class="row g-3" id="article" enctype="multipart/form-data" method="POST" action="{{url("yn-admin/articles/{$article->id}")}}">
+                    @csrf
+                    @method('PUT')
+                    <div class="col-12 col-md-6">
+                        <label for="#title" class="form-label">Title</label>
+                        <input type="text" class="form-control" id="title" name="title" value="{{$article->title}}">
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <label for="#subtitle" class="form-label">Subtitle</label>
+                        <input type="text" class="form-control" id="subtitle" name="subtitle" value="{{$article->subtitle}}">
+                    </div>                    
+                    <div class="col-12 col-md-6 th_input">
+                        <label for="#formFile" class="form-label">Thumbnail Image</label>
+                        <input class="form-control" type="file" id="formFile" name="title_image" accept="image/*" value="{{$article->title_image}}">
+                        <img class="w-100" src="{{url('images/article/'.$article->title_image)}}" alt="">
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <label for="#caption" class="form-label">Image Caption</label>
+                        <input type="text" class="form-control" id="caption" name="image_caption" value="{{$article->image_caption}}">
+                    </div>
+                    <div class="col-md-6 col-12">
+                        <label for="#date" class="form-label">Date Added</label>
+                        <input type="date" class="form-control" id="date" name="created_at" value="<?=date_format(date_create($article->created_at), "Y-m-d")?>">
+                    </div>
+                    <div class="col-md-6 col-12">
+                        <label for="#keywords" class="form-label">Keywords</label>
+                        <input type="text" class="form-control" id="keywords" name="keywords" value="{{$article->keywords}}">
+                    </div>
+                    <div class="col-12 col-md-6 th_input_half">
+                        <label for="#formFile1" class="form-label">Half Image</label>
+                        <input accept="image/*" class="form-control" type="file" id="formFile1" name="half_image">
+                        <img class="w-100" src="{{url('images/article/'.$article->half_image)}}" alt="">
+                    </div>
+                    <div class="col-12 col-md-6 th_input_content">
+                        <label for="#formFile2" class="form-label">Content Image</label>
+                        <input accept="image/*" class="form-control" type="file" id="formFile2" name="content_image">
+                        <img class="w-100" src="{{url('images/article/'.$article->content_image)}}" alt="">
+                    </div>
+                    <div class="col-12">
+                        <label for="#author_multiSelect" class="form-label">Author(s)</label>
+                        <select class="form-select" id="author_multiSelect" name="author_id[]" required="" multiple>
+                            @foreach($authors as $author)
+                            @if($author_ids != null && in_array($author->id, $author_ids))
+                            <option value="{{$author->id}}" selected>
+                                {{$author->name}}
+                            </option>
+                            @else
+                            <option value="{{$author->id}}">{{$author->name}}</option>
+                            @endif
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <label for="#category" class="form-label">Category</label>
+                        <select class="form-select" id="category" name="category" required="">
+                            @foreach($categories as $category)
+                            @if( $article->category == $category->id)
+                            <option value="{{$category->id}}" selected>
+                                {{$category->category}}
+                            </option>
+                            @else
+                            <option value="{{$category->id}}">
+                                {{$category->category}}
+                            </option>
+                            @endif
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <label for="#tag_multiSelect" class="form-label">Tags</label>
+                        <select class="form-select" id="tag_multiSelect" name="tags[]" required="" multiple>
+                            @foreach($tags as $tag)
+                            @if($tag_ids != null && in_array($tag->id, $tag_ids))
+                            <option value="{{$tag->id}}" selected>
+                                {{$tag->tag}}
+                            </option>
+                            @else
+                            <option value="{{$tag->id}}">{{$tag->tag}}</option>
+                            @endif
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="col-12">
+                        <label for="#introduction" class="form-label">Synopsis</label>
+                        <textarea id="introduction" name="introduction" class="form-control" style="height: 100px">{{$article->introduction}}</textarea>
+                    </div>
+
+                    <div><h4>Only for Special Reports</h4></div>
+
+<div class="col-12 col-md-6">
+    <label for="p_color" class="form-label">Paragraph Text Color</label>
+    <input type="color" class="form-control form-control-color" id="p_color" name="p_color" value="{{ $article->p_color ?? '#ffffff' }}">
+</div>
+
+<div class="col-12 col-md-6">
+    <label for="a_color" class="form-label">Link / Accent Color</label>
+    <input type="color" class="form-control form-control-color" id="a_color" name="a_color" value="{{ $article->a_color ?? '#e41e25' }}">
+</div>
+
+<div class="col-12 col-md-6">
+    <label for="section_bg" class="form-label">Section & Overlay Background Color</label>
+    <input type="color" class="form-control form-control-color" id="section_bg" name="section_bg" value="{{ $article->section_bg ?? '#000000' }}">
+</div>
+
+
+                    <div class="col-12">
+                        <label for="#introduction" class="form-label">Article</label>
+                        <textarea id="introduction" name="content" class="tinymce-editor form-control">{{$article->content}}</textarea>
+                    </div>
+                    <input type="hidden" name="wordcount" value="0">
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="reset" class="btn btn-secondary">Reset</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</main>
+<!-- End #main -->
+@endsection

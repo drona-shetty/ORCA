@@ -1,0 +1,136 @@
+.media-wrapper img {
+    height: 300px;
+    object-fit: cover;
+}
+.heading-2.event-title {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.media-grid {
+    column-count: 3;
+    column-gap: 16px;
+}
+
+#media-grid .grid-4 {
+    width: 100%;
+    display: block;
+    margin-bottom: 16px;
+    break-inside: avoid;
+}
+
+.media-item img {
+    border-radius: 20px;
+}
+
+.lgx-banner {
+    position: relative;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/24banner.jpg) top center no-repeat;
+}
+
+.lgx-page-inner {
+    padding: 17rem 0 9rem;
+}
+
+.lgx-heading {
+    text-align: center;
+    margin-bottom: 6.8rem;
+    overflow: hidden;
+    display: block;
+    margin-top: -1.6rem;
+}
+
+.lgx-heading .heading {
+    font-family: Poppins, sans-serif;
+    font-size: 3rem;
+    line-height: 6rem;
+    color: #1b273d;
+    font-weight: 900;
+    margin: 0 0 1rem;
+    text-transform: uppercase;
+}
+
+.lgx-heading .subheading {
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+    color: #1b273d;
+    color: rgba(50, 51, 51, .8);
+    font-weight: 400;
+    margin: 0;
+    font-family: Oswald, sans-serif;
+}
+
+.lgx-heading-white .heading,
+.lgx-heading-white .subheading {
+    color: #fff;
+}
+
+.lgx-page-wrapper,
+.lgx-post-wrapper {
+    padding: 11rem 0;
+}
+
+.newspeaker {
+    border-radius: 20px;
+    max-width: 275px;
+    min-width: 375px;
+    max-height: 300px;
+    min-height: 300px;
+    object-fit: cover;
+}
+
+.lgx-post-wrapper article footer,
+.lgx-post-wrapper article header .text-area,
+.lgx-post-wrapper article section {
+    max-width: 767px;
+    margin: 0 auto;
+}
+
+.lgx-post-wrapper article header {
+    margin-bottom: 4.2rem;
+    text-align: center;
+}
+
+figure {
+    margin: 0;
+}
+
+.lgx-post-wrapper .speaker-info {
+    margin-bottom: 2rem;
+}
+
+.lgx-post-wrapper .speaker-info .title {
+    color: #1b273d;
+    font-family: Oswald, sans-serif;
+}
+
+.lgx-post-wrapper article header .title {
+    font-size: 2.75rem;
+    font-weight: 700;
+    line-height: 3.5rem;
+}
+
+.lgx-post-wrapper .speaker-info .subtitle {
+    font-family: Poppins, sans-serif;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    font-weight: 400;
+    margin: 0;
+    color: #efa506;
+}
+
+.lgx-post-wrapper article section {
+    margin-bottom: 4.2rem;
+}
+
+.lgx-post-wrapper article section p {
+    font-family: Poppins, sans-serif;
+    font-size: 1rem;
+    padding: 0;
+    margin: 0;
+    color: rgba(50, 51, 51, .8);
+    line-height: 1.5rem;
+    text-align: justify;
+}
