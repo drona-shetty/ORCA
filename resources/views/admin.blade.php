@@ -482,7 +482,7 @@
     <!-- ======= Footer ======= -->
     <footer id="footer" class="footer">
         <div class="credits">
-            Designed by <a href="https://kwad.in">KWAD</a>
+            Designed by <a href="#">Rakesh</a>
         </div>
     </footer><!-- End Footer -->
 

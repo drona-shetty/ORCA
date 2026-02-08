@@ -437,8 +437,7 @@
                     </div>
                 </div>
                 <div class="footer_bottom v2">
-                    <div class="footer_copyrights-txt v2">Copyright © 2025, ORCA. All rights reserved | Designed by <a
-                            href="https://kwad.in/" class="kwad">Kwad</a>
+                    <div class="footer_copyrights-txt v2">Copyright © 2026, ORCA. All rights reserved.
                     </div>
                     <div class="footer_icons">
                         <a href="https://www.linkedin.com/company/orca-s-global-conference-on-new-sinology/"

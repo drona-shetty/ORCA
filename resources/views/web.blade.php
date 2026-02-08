@@ -1460,8 +1460,7 @@ if (Auth::check()) {
             </div>
         </div>
         <div class="bottom-bar">
-            <div class="text">ORCA © <?php echo date('Y'); ?> - All rights reserved. Designed by <a
-                    href="https://kwad.in" class="link gray primary-hover"><u>Kwad</u></a>.</div>
+            <div class="text">ORCA © <?php echo date('Y'); ?> - All rights reserved.</div>
         </div>
     </footer>
     <!-- Cursor -->

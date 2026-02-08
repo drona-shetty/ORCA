@@ -91,7 +91,7 @@
                             </div>
 
                             <div class="credits">
-                                Designed by <a href="https://kwad.in/">KWAD</a>
+                                
                             </div>
 
                         </div>

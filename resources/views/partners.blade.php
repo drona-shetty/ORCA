@@ -175,22 +175,6 @@
                                     the world.</p>
                             </div>
                             <div class="col-lg-4">
-                                <a href="https://www.kwad.in/" target="_blank" class="item hover-filter">
-                                    <div class="image-wrapper" style="height: 515.5px">
-                                        <div class="overlay has-border rounded black"></div>
-                                        <img style=" padding: 3rem!important;position: absolute;
-                                        top: 50%;
-                                        left: 50%;
-                                        transform: translate(-50%, -50%);"
-                                            src="{{ URL::asset('images/kwad_logo_blue.png') }}"
-                                            class="image p-1 fit-cover" />
-                                    </div>
-                                </a>
-                                <p class="mt-1 mb-1 text-center"><strong>KWAD:
-                                    </strong>KWAD is a software consulting firm that specializes in web-app, iOS & Android
-                                    mobile application design and website development.</p>
-                            </div>
-                            <div class="col-lg-4">
                                 <a href="https://www.stratnewsglobal.com/" target="_blank" class="item hover-filter">
                                     <div class="image-wrapper" style="height: 515.5px">
                                         <div class="overlay has-border rounded black"></div>

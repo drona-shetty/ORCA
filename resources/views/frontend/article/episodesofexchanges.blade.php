@@ -313,8 +313,7 @@
                 }
             </style>
             <div class="footer-civil">
-                <p class="footer-text">ORCA © 2024 - All rights reserved. Designed by <a href="https://kwad.in/"
-                        class="link">Kwad</a> </p>
+                <p class="footer-text">ORCA © 2026 - All rights reserved.</p>
             </div>
         </div>
     </div>
