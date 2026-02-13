@@ -43,7 +43,7 @@
                     
                         <!-- Image -->
                         <div class="image-wrapper hover-up-down">
-                        <img src="{{URL::asset('images/article/'.$article->title_image)}}" alt="Image name" class="image" />
+                        <x-webp-image src="{{URL::asset('images/article/'.$article->title_image)}}" alt="Image name" class="image" />
                         </div>
                         <!-- Body -->
                         <div class="card-body align-v-bottom">
@@ -200,7 +200,7 @@
                         </span>
                         <!-- Image -->
                         <div class="image-wrapper rounded-top hover-zoom">
-                        <img src="{{URL::asset('images/article/'.$article->title_image)}}" alt="Image name" class="image" />
+                        <x-webp-image src="{{URL::asset('images/article/'.$article->title_image)}}" alt="Image name" class="image" />
                         </div>
                         <!-- Body -->
                         <div class="card-body rounded-bottom bg-color white">
@@ -279,7 +279,7 @@
                         <!-- Image -->
                         <div class="image-wrapper hover-scale">
                         <a href="{{url($article->slug)}}">
-                            <img src="{{URL::asset('images/article/'.$article->title_image)}}" alt="Image name" class="image" />
+                            <x-webp-image src="{{URL::asset('images/article/'.$article->title_image)}}" alt="Image name" class="image" />
                         </a>
                         </div>
                         <!-- Body -->
@@ -357,7 +357,7 @@
                   <div class="card has-full-image vh-65 small-shadow rounded parent">
                     <!-- Image -->
                     <div class="image-wrapper hover-up-down">
-                      <img src="{{URL::asset('images/article/'.$article->title_image)}}" alt="Image name" class="image" />
+                      <x-webp-image src="{{URL::asset('images/article/'.$article->title_image)}}" alt="Image name" class="image" />
                     </div>
                     <!-- Body -->
                     <div class="card-body align-v-bottom">
@@ -409,7 +409,7 @@
                   <div class="card has-full-image vh-65 small-shadow rounded parent">
                     <!-- Image -->
                     <div class="image-wrapper hover-up-down">
-                        <img src="{{URL::asset('images/article/'.$article->title_image)}}" alt="Image name" class="image" />
+                        <x-webp-image src="{{URL::asset('images/article/'.$article->title_image)}}" alt="Image name" class="image" />
                     </div>
                     <!-- Body -->
                     <div class="card-body align-v-bottom">
@@ -481,7 +481,7 @@
              
               <!-- Image -->
               <div class="image-wrapper hover-up-down">
-                <img src="{{URL::asset('images/article/'.$issueArticles[0]->title_image)}}" alt="Image name" class="image" />
+                <x-webp-image src="{{URL::asset('images/article/'.$issueArticles[0]->title_image)}}" alt="Image name" class="image" />
               </div>
               <!-- Body -->
               <div class="card-body align-v-bottom">
@@ -521,7 +521,7 @@
             <div class="card has-full-image is-featured-right small-shadow rounded parent">
               <!-- Image -->
               <div class="image-wrapper hover-up-down">
-                <img src="{{URL::asset('images/article/'.$issueArticles[1]->title_image)}}" alt="Image name" class="image" />
+                <x-webp-image src="{{URL::asset('images/article/'.$issueArticles[1]->title_image)}}" alt="Image name" class="image" />
               </div>
               <!-- Body -->
               <div class="card-body align-v-bottom">
@@ -559,7 +559,7 @@
             <div class="card has-full-image is-featured-right small-shadow rounded parent">
               <!-- Image -->
               <div class="image-wrapper hover-up-down">
-                <img src="{{URL::asset('images/article/'.$issueArticles[2]->title_image)}}" alt="Image name" class="image" />
+                <x-webp-image src="{{URL::asset('images/article/'.$issueArticles[2]->title_image)}}" alt="Image name" class="image" />
               </div>
               <!-- Body -->
               <div class="card-body align-v-bottom">

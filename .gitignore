@@ -70,7 +70,3 @@ Thumbs.db
 # Laravel Debug / Tools
 # =========================
 telescope.php
-
-# Large media files (never commit)
-*.pdf
-*.mp4

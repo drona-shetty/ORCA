@@ -39,7 +39,7 @@
                     <div class="card has-full-image vh-65 small-shadow rounded parent">
                         <!-- Image -->
                         <div class="image-wrapper hover-up-down">
-                        <img src="{{URL::asset('images/article/'.$article->title_image)}}" alt="Image name" class="image" />
+                        <x-webp-image src="{{URL::asset('images/article/'.$article->title_image)}}" alt="Image name" class="image" />
                         </div>
                         <!-- Body -->
                         <div class="card-body align-v-bottom">

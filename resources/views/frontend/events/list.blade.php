@@ -50,7 +50,7 @@
                     <div class="col-4" data-aos="fade-up" data-aos-delay="600">
                         <a href="{{ URL::asset('images/png/event.jpg') }}" class="item lightbox-link">
                             <div class="image-wrapper shadow rounded hover-zoom" data-lax="v-bottom">
-                                <img src="{{ URL::asset('images/png/events-1.png') }}" alt="Event 1"
+                                <x-webp-image src="{{ URL::asset('images/png/events-1.png') }}" alt="Event 1"
                                     class="image fit-cover" />
                                 <div class="overlay primary-25"></div>
                             </div>
@@ -59,7 +59,7 @@
                     <div class="col-4" data-aos="fade-up" data-aos-delay="900">
                         <a href="{{ URL::asset('images/png/event.jpg') }}" class="item lightbox-link">
                             <div class="image-wrapper shadow rounded hover-zoom" data-lax="v-top">
-                                <img src="{{ URL::asset('images/png/events-2.png') }}" alt="Event 2"
+                                <x-webp-image src="{{ URL::asset('images/png/events-2.png') }}" alt="Event 2"
                                     class="image fit-cover" />
                                 <div class="overlay primary-25"></div>
                             </div>
@@ -68,7 +68,7 @@
                     <div class="col-4" data-aos="fade-up" data-aos-delay="1200">
                         <a href="{{ URL::asset('images/png/event.jpg') }}" class="item lightbox-link">
                             <div class="image-wrapper shadow rounded hover-zoom" data-lax="v-bottom">
-                                <img src="{{ URL::asset('images/png/events-3.png') }}" alt="Event 3"
+                                <x-webp-image src="{{ URL::asset('images/png/events-3.png') }}" alt="Event 3"
                                     class="image fit-cover" />
                                 <div class="overlay primary-25"></div>
                             </div>

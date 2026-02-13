@@ -57,8 +57,7 @@
 
                 </h1>
                 <div class="description gray">
-                    <p>Our Podcast The ORCA Files holds conversations with our Community of Scholars for a greater
-                        understanding of all things China.</p>
+                    <p>Our Podcast 'The ORCA Files' features nuanced and in-depth conversations with leading scholars, policymakers, and practitioners for a greater understanding of all things China.</p>
                 </div>
             </div>
         </div>

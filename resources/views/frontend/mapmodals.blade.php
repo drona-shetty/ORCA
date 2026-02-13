@@ -8,7 +8,7 @@
       <div class="card boxed parent">
         <!-- Image -->
         <div class="image-wrapper">
-          <img src="{{ URL::asset('/images/chinamap/anhui.svg') }}" alt="Anhui" class="image min-vh-50 fit-cover" />
+          <x-webp-image src="{{ URL::asset('/images/chinamap/anhui.svg') }}" alt="Anhui" class="image min-vh-50 fit-cover" />
         </div>
         <!-- Box -->
         <div class="px-5 py-3 card-body box shadow rounded" data-bg-color="#000">
@@ -43,7 +43,7 @@
       <div class="card boxed parent">
         <!-- Image -->
         <div class="image-wrapper">
-          <img src="{{ URL::asset('/images/chinamap/beijing.svg') }}" alt="Beijing" class="image min-vh-50 fit-cover" />
+          <x-webp-image src="{{ URL::asset('/images/chinamap/beijing.svg') }}" alt="Beijing" class="image min-vh-50 fit-cover" />
         </div>
         <!-- Box -->
         <div class="px-5 py-3 card-body box shadow rounded" data-bg-color="#000">
@@ -78,7 +78,7 @@
       <div class="card boxed parent">
         <!-- Image -->
         <div class="image-wrapper">
-          <img src="{{ URL::asset('/images/chinamap/chongqing.svg') }}" alt="Chongqing" class="image min-vh-50 fit-cover" />
+          <x-webp-image src="{{ URL::asset('/images/chinamap/chongqing.svg') }}" alt="Chongqing" class="image min-vh-50 fit-cover" />
         </div>
         <!-- Box -->
         <div class="px-5 py-3 card-body box shadow rounded" data-bg-color="#000">
@@ -113,7 +113,7 @@
       <div class="card boxed parent">
         <!-- Image -->
         <div class="image-wrapper">
-          <img src="{{ URL::asset('/images/chinamap/fujian.svg') }}" alt="Fujian" class="image min-vh-50 fit-cover" />
+          <x-webp-image src="{{ URL::asset('/images/chinamap/fujian.svg') }}" alt="Fujian" class="image min-vh-50 fit-cover" />
         </div>
         <!-- Box -->
         <div class="px-5 py-3 card-body box shadow rounded" data-bg-color="#000">
@@ -147,7 +147,7 @@
       <div class="card boxed parent">
         <!-- Image -->
         <div class="image-wrapper">
-          <img src="{{ URL::asset('/images/chinamap/gansu.svg') }}" alt="Gansu" class="image min-vh-50 fit-cover" />
+          <x-webp-image src="{{ URL::asset('/images/chinamap/gansu.svg') }}" alt="Gansu" class="image min-vh-50 fit-cover" />
         </div>
         <!-- Box -->
         <div class="px-5 py-3 card-body box shadow rounded" data-bg-color="#000">
@@ -181,7 +181,7 @@
       <div class="card boxed parent">
         <!-- Image -->
         <div class="image-wrapper">
-          <img src="{{ URL::asset('/images/chinamap/guangdong.svg') }}" alt="Guangdong" class="image min-vh-50 fit-cover" />
+          <x-webp-image src="{{ URL::asset('/images/chinamap/guangdong.svg') }}" alt="Guangdong" class="image min-vh-50 fit-cover" />
         </div>
         <!-- Box -->
         <div class="px-5 py-3 card-body box shadow rounded" data-bg-color="#000">
@@ -216,7 +216,7 @@
       <div class="card boxed parent">
         <!-- Image -->
         <div class="image-wrapper">
-          <img src="{{ URL::asset('/images/chinamap/guangxi.svg') }}" alt="Guangxi" class="image min-vh-50 fit-cover" />
+          <x-webp-image src="{{ URL::asset('/images/chinamap/guangxi.svg') }}" alt="Guangxi" class="image min-vh-50 fit-cover" />
         </div>
         <!-- Box -->
         <div class="px-5 py-3 card-body box shadow rounded" data-bg-color="#000">
@@ -250,7 +250,7 @@
       <div class="card boxed parent">
         <!-- Image -->
         <div class="image-wrapper">
-          <img src="{{ URL::asset('/images/chinamap/guizhou.svg') }}" alt="Guizhou" class="image min-vh-50 fit-cover" />
+          <x-webp-image src="{{ URL::asset('/images/chinamap/guizhou.svg') }}" alt="Guizhou" class="image min-vh-50 fit-cover" />
         </div>
         <!-- Box -->
         <div class="px-5 py-3 card-body box shadow rounded" data-bg-color="#000">
@@ -285,7 +285,7 @@
       <div class="card boxed parent">
         <!-- Image -->
         <div class="image-wrapper">
-          <img src="{{ URL::asset('/images/chinamap/hainan.svg') }}" alt="Hainan" class="image min-vh-50 fit-cover" />
+          <x-webp-image src="{{ URL::asset('/images/chinamap/hainan.svg') }}" alt="Hainan" class="image min-vh-50 fit-cover" />
         </div>
         <!-- Box -->
         <div class="px-5 py-3 card-body box shadow rounded" data-bg-color="#000">
@@ -321,7 +321,7 @@
       <div class="card boxed parent">
         <!-- Image -->
         <div class="image-wrapper">
-          <img src="{{ URL::asset('/images/chinamap/henan.svg') }}" alt="Henan" class="image min-vh-50 fit-cover" />
+          <x-webp-image src="{{ URL::asset('/images/chinamap/henan.svg') }}" alt="Henan" class="image min-vh-50 fit-cover" />
         </div>
         <!-- Box -->
         <div class="px-5 py-3 card-body box shadow rounded" data-bg-color="#000">
@@ -356,7 +356,7 @@
       <div class="card boxed parent">
         <!-- Image -->
         <div class="image-wrapper">
-          <img src="{{ URL::asset('/images/chinamap/hebei.svg') }}" alt="Hebei" class="image min-vh-50 fit-cover" />
+          <x-webp-image src="{{ URL::asset('/images/chinamap/hebei.svg') }}" alt="Hebei" class="image min-vh-50 fit-cover" />
         </div>
         <!-- Box -->
         <div class="px-5 py-3 card-body box shadow rounded" data-bg-color="#000">
@@ -390,7 +390,7 @@
       <div class="card boxed parent">
         <!-- Image -->
         <div class="image-wrapper">
-          <img src="{{ URL::asset('/images/chinamap/heilongjiang.svg') }}" alt="Heilongjiang" class="image min-vh-50 fit-cover" />
+          <x-webp-image src="{{ URL::asset('/images/chinamap/heilongjiang.svg') }}" alt="Heilongjiang" class="image min-vh-50 fit-cover" />
         </div>
         <!-- Box -->
         <div class="px-5 py-3 card-body box shadow rounded" data-bg-color="#000">
@@ -424,7 +424,7 @@
       <div class="card boxed parent">
         <!-- Image -->
         <div class="image-wrapper">
-          <img src="{{ URL::asset('/images/chinamap/hubei.svg') }}" alt="Hubei" class="image min-vh-50 fit-cover" />
+          <x-webp-image src="{{ URL::asset('/images/chinamap/hubei.svg') }}" alt="Hubei" class="image min-vh-50 fit-cover" />
         </div>
         <!-- Box -->
         <div class="px-5 py-3 card-body box shadow rounded" data-bg-color="#000">
@@ -459,7 +459,7 @@
       <div class="card boxed parent">
         <!-- Image -->
         <div class="image-wrapper">
-          <img src="{{ URL::asset('/images/chinamap/hunan.svg') }}" alt="Hunan" class="image min-vh-50 fit-cover" />
+          <x-webp-image src="{{ URL::asset('/images/chinamap/hunan.svg') }}" alt="Hunan" class="image min-vh-50 fit-cover" />
         </div>
         <!-- Box -->
         <div class="px-5 py-3 card-body box shadow rounded" data-bg-color="#000">
@@ -493,7 +493,7 @@
       <div class="card boxed parent">
         <!-- Image -->
         <div class="image-wrapper">
-          <img src="{{ URL::asset('/images/chinamap/jiangsu.svg') }}" alt="Jiangsu" class="image min-vh-50 fit-cover" />
+          <x-webp-image src="{{ URL::asset('/images/chinamap/jiangsu.svg') }}" alt="Jiangsu" class="image min-vh-50 fit-cover" />
         </div>
         <!-- Box -->
         <div class="px-5 py-3 card-body box shadow rounded" data-bg-color="#000">
@@ -529,7 +529,7 @@
       <div class="card boxed parent">
         <!-- Image -->
         <div class="image-wrapper">
-          <img src="{{ URL::asset('/images/chinamap/innermongolia.svg') }}" alt="Inner Mongolia" class="image min-vh-50 fit-cover" />
+          <x-webp-image src="{{ URL::asset('/images/chinamap/innermongolia.svg') }}" alt="Inner Mongolia" class="image min-vh-50 fit-cover" />
         </div>
         <!-- Box -->
         <div class="px-5 py-3 card-body box shadow rounded" data-bg-color="#000">
@@ -564,7 +564,7 @@
       <div class="card boxed parent">
         <!-- Image -->
         <div class="image-wrapper">
-          <img src="{{ URL::asset('/images/chinamap/jiangxi.svg') }}" alt="Jiangxi" class="image min-vh-50 fit-cover" />
+          <x-webp-image src="{{ URL::asset('/images/chinamap/jiangxi.svg') }}" alt="Jiangxi" class="image min-vh-50 fit-cover" />
         </div>
         <!-- Box -->
         <div class="px-5 py-3 card-body box shadow rounded" data-bg-color="#000">
@@ -598,7 +598,7 @@
       <div class="card boxed parent">
         <!-- Image -->
         <div class="image-wrapper">
-          <img src="{{ URL::asset('/images/chinamap/jilin.svg') }}" alt="Jilin" class="image min-vh-50 fit-cover" />
+          <x-webp-image src="{{ URL::asset('/images/chinamap/jilin.svg') }}" alt="Jilin" class="image min-vh-50 fit-cover" />
         </div>
         <!-- Box -->
         <div class="px-5 py-3 card-body box shadow rounded" data-bg-color="#000">
@@ -632,7 +632,7 @@
       <div class="card boxed parent">
         <!-- Image -->
         <div class="image-wrapper">
-          <img src="{{ URL::asset('/images/chinamap/liaoning.svg') }}" alt="Liaoning" class="image min-vh-50 fit-cover" />
+          <x-webp-image src="{{ URL::asset('/images/chinamap/liaoning.svg') }}" alt="Liaoning" class="image min-vh-50 fit-cover" />
         </div>
         <!-- Box -->
         <div class="px-5 py-3 card-body box shadow rounded" data-bg-color="#000">
@@ -666,7 +666,7 @@
       <div class="card boxed parent">
         <!-- Image -->
         <div class="image-wrapper">
-          <img src="{{ URL::asset('/images/chinamap/ningxia.svg') }}" alt="Ningxia" class="image min-vh-50 fit-cover" />
+          <x-webp-image src="{{ URL::asset('/images/chinamap/ningxia.svg') }}" alt="Ningxia" class="image min-vh-50 fit-cover" />
         </div>
         <!-- Box -->
         <div class="px-5 py-3 card-body box shadow rounded" data-bg-color="#000">
@@ -701,7 +701,7 @@
       <div class="card boxed parent">
         <!-- Image -->
         <div class="image-wrapper">
-          <img src="{{ URL::asset('/images/chinamap/quinghai.svg') }}" alt="Qinghai" class="image min-vh-50 fit-cover" />
+          <x-webp-image src="{{ URL::asset('/images/chinamap/quinghai.svg') }}" alt="Qinghai" class="image min-vh-50 fit-cover" />
         </div>
         <!-- Box -->
         <div class="px-5 py-3 card-body box shadow rounded" data-bg-color="#000">
@@ -736,7 +736,7 @@
       <div class="card boxed parent">
         <!-- Image -->
         <div class="image-wrapper">
-          <img src="{{ URL::asset('/images/chinamap/shaanxi.svg') }}" alt="Shaanxi" class="image min-vh-50 fit-cover" />
+          <x-webp-image src="{{ URL::asset('/images/chinamap/shaanxi.svg') }}" alt="Shaanxi" class="image min-vh-50 fit-cover" />
         </div>
         <!-- Box -->
         <div class="px-5 py-3 card-body box shadow rounded" data-bg-color="#000">
@@ -770,7 +770,7 @@
       <div class="card boxed parent">
         <!-- Image -->
         <div class="image-wrapper">
-          <img src="{{ URL::asset('/images/chinamap/shandong.svg') }}" alt="Shandong" class="image min-vh-50 fit-cover" />
+          <x-webp-image src="{{ URL::asset('/images/chinamap/shandong.svg') }}" alt="Shandong" class="image min-vh-50 fit-cover" />
         </div>
         <!-- Box -->
         <div class="px-5 py-3 card-body box shadow rounded" data-bg-color="#000">
@@ -804,7 +804,7 @@
       <div class="card boxed parent">
         <!-- Image -->
         <div class="image-wrapper">
-          <img src="{{ URL::asset('/images/chinamap/shanghai.svg') }}" alt="Shanghai" class="image min-vh-50 fit-cover" />
+          <x-webp-image src="{{ URL::asset('/images/chinamap/shanghai.svg') }}" alt="Shanghai" class="image min-vh-50 fit-cover" />
         </div>
         <!-- Box -->
         <div class="px-5 py-3 card-body box shadow rounded" data-bg-color="#000">
@@ -838,7 +838,7 @@
       <div class="card boxed parent">
         <!-- Image -->
         <div class="image-wrapper">
-          <img src="{{ URL::asset('/images/chinamap/shanxi.svg') }}" alt="Shanxi" class="image min-vh-50 fit-cover" />
+          <x-webp-image src="{{ URL::asset('/images/chinamap/shanxi.svg') }}" alt="Shanxi" class="image min-vh-50 fit-cover" />
         </div>
         <!-- Box -->
         <div class="px-5 py-3 card-body box shadow rounded" data-bg-color="#000">
@@ -872,7 +872,7 @@
       <div class="card boxed parent">
         <!-- Image -->
         <div class="image-wrapper">
-          <img src="{{ URL::asset('/images/chinamap/sichuan.svg') }}" alt="Sichuan" class="image min-vh-50 fit-cover" />
+          <x-webp-image src="{{ URL::asset('/images/chinamap/sichuan.svg') }}" alt="Sichuan" class="image min-vh-50 fit-cover" />
         </div>
         <!-- Box -->
         <div class="px-5 py-3 card-body box shadow rounded" data-bg-color="#000">
@@ -906,7 +906,7 @@
       <div class="card boxed parent">
         <!-- Image -->
         <div class="image-wrapper">
-          <img src="{{ URL::asset('/images/chinamap/tianjin.svg') }}" alt="Tianjin" class="image min-vh-50 fit-cover" />
+          <x-webp-image src="{{ URL::asset('/images/chinamap/tianjin.svg') }}" alt="Tianjin" class="image min-vh-50 fit-cover" />
         </div>
         <!-- Box -->
         <div class="px-5 py-3 card-body box shadow rounded" data-bg-color="#000">
@@ -940,7 +940,7 @@
       <div class="card boxed parent">
         <!-- Image -->
         <div class="image-wrapper">
-          <img src="{{ URL::asset('/images/chinamap/tibet.svg') }}" alt="Tibet" class="image min-vh-50 fit-cover" />
+          <x-webp-image src="{{ URL::asset('/images/chinamap/tibet.svg') }}" alt="Tibet" class="image min-vh-50 fit-cover" />
         </div>
         <!-- Box -->
         <div class="px-5 py-3 card-body box shadow rounded" data-bg-color="#000">
@@ -977,7 +977,7 @@
         <div class="card boxed parent">
           <!-- Image -->
           <div class="image-wrapper">
-            <img src="{{ URL::asset('/images/chinamap/xinjiang.svg') }}" alt="Image name" class="image min-vh-50 fit-cover" />
+            <x-webp-image src="{{ URL::asset('/images/chinamap/xinjiang.svg') }}" alt="Image name" class="image min-vh-50 fit-cover" />
           </div>
           <!-- Box -->
           <div class="px-5 py-3 card-body box shadow rounded" data-bg-color="#000">
@@ -1011,7 +1011,7 @@
       <div class="card boxed parent">
         <!-- Image -->
         <div class="image-wrapper">
-          <img src="{{ URL::asset('/images/chinamap/yunan.svg') }}" alt="Yunnan" class="image min-vh-50 fit-cover" />
+          <x-webp-image src="{{ URL::asset('/images/chinamap/yunan.svg') }}" alt="Yunnan" class="image min-vh-50 fit-cover" />
         </div>
         <!-- Box -->
         <div class="px-5 py-3 card-body box shadow rounded" data-bg-color="#000">
@@ -1045,7 +1045,7 @@
       <div class="card boxed parent">
         <!-- Image -->
         <div class="image-wrapper">
-          <img src="{{ URL::asset('/images/chinamap/zhejiang.svg') }}" alt="Zhejiang" class="image min-vh-50 fit-cover" />
+          <x-webp-image src="{{ URL::asset('/images/chinamap/zhejiang.svg') }}" alt="Zhejiang" class="image min-vh-50 fit-cover" />
         </div>
         <!-- Box -->
         <div class="px-5 py-3 card-body box shadow rounded" data-bg-color="#000">

@@ -239,7 +239,7 @@
                                     <div class="item">
                                         <a href="{{ url('author/' . $author_meta['slug']) }}"
                                             class="link gray primary-hover d-flex">
-                                            <img style="margin-right: 5px;border-radius:50%;" width="25"
+                                            <x-webp-image style="margin-right: 5px;border-radius:50%;" width="25"
                                                 src="{{ asset('images/author/' . $author_meta->avatar) }}"
                                                 alt="{{ $author['name'] }}">
                                             {{ $author['name'] }}
@@ -298,7 +298,7 @@
                                                 <div class="card has-full-image vh-50 small-shadow rounded parent">
                                                     <!-- Image -->
                                                     <div class="image-wrapper hover-up-down">
-                                                        <img src="{{ URL::asset('images/article/' . $article->title_image) }}"
+                                                        <x-webp-image src="{{ URL::asset('images/article/' . $article->title_image) }}"
                                                             alt="Image name" class="image" />
                                                     </div>
                                                     <!-- Body -->

@@ -69,7 +69,7 @@ class CategoryController extends Controller
     {   
         $category = Category::where('slug', $slug)->first();
         if($slug == 'cicm'){
-            $users = User::whereIn('id', [74, 141, 73, 75, 263])->get();
+            $users = User::whereIn('id', [74, 313, 73, 75, 263])->get();
             $currentDate = date("Y-m-d");
             $firstDateOfMonth  = date('Y-m-01 H:i:s', strtotime($currentDate));
             

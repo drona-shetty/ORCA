@@ -65,7 +65,7 @@
 
             <!-- Image -->
             <div class="image-wrapper">
-                <img src="{{ URL::asset('images/article/' . $article->title_image) }}" class="image vh-100 fit-cover"
+                <x-webp-image src="{{ URL::asset('images/article/' . $article->title_image) }}" class="image vh-100 fit-cover"
                     alt="This is an example description for this item." />
             </div>
             <!-- Overlay -->

@@ -53,7 +53,7 @@
                         </span>
                         <!-- Image -->
                         <div class="image-wrapper rounded-top hover-zoom">
-                        <img src="{{URL::asset('images/article/'.$article->title_image)}}" alt="Image name" class="image" />
+                        <x-webp-image src="{{URL::asset('images/article/'.$article->title_image)}}" alt="Image name" class="image" />
                         </div>
                         <!-- Body -->
                         <div class="card-body rounded-bottom bg-color white">

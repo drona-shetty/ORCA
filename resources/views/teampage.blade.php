@@ -42,7 +42,7 @@
                             <a href="#" data-bs-toggle="modal" data-bs-target="#modal-{{ $authorSlug }}"
                                 class="item hover-zoom">
                                 <div class="image-wrapper small-shadow rounded-top">
-                                    <img src="{{ URL::asset('images/graph/' . $team->image) }}" class="image"
+                                    <x-webp-image src="{{ URL::asset('images/graph/' . $team->image) }}" class="image"
                                         alt="{{ $team->name }}" />
 
                                 </div>
@@ -131,7 +131,7 @@
                                 <div class="col-12 col-md-5">
                                     <!-- Image -->
                                     <div class="image-wrapper" data-lax="inertia-top">
-                                        <img style="border-radius: 0.375rem;"
+                                        <x-webp-image style="border-radius: 0.375rem;"
                                             src="{{ URL::asset('images/graph/' . $team->image) }}" class="image"
                                             alt="Image name" />
                                     </div>

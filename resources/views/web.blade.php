@@ -75,7 +75,7 @@ if (Auth::check()) {
 </head>
 <!-- Preloader -->
 <div id="preloader" class="preloader" data-delay="0" data-limit="3000">
-    <img src="{{ URL::asset('images/ORCALogo PNG.png') }}" class="emblem" alt="Emblem" hidden="hidden" />
+    <x-webp-image src="{{ URL::asset('images/ORCALogo PNG.png') }}" class="emblem" alt="Emblem" hidden="hidden" />
 </div>
 <style>
     /*  .shock-header .navbar .navbar-nav .nav-link {
@@ -125,11 +125,11 @@ if (Auth::check()) {
                 <!-- Brand -->
                 <a class="navbar-brand" href="{{ url('https://orcasia.org') }}">
                     <!-- <div class="site-title">Site Title</div> -->
-                    <img src="{{ URL::asset('images/ORCA Website Banner Logo PNG.png') }}" alt="ORCA"
+                    <x-webp-image src="{{ URL::asset('images/ORCA Website Banner Logo PNG.png') }}" alt="ORCA"
                         class="logo main-logo" />
-                    <img src="{{ URL::asset('images/ORCA Website Banner Logo PNG.png') }}" alt="ORCA"
+                    <x-webp-image src="{{ URL::asset('images/ORCA Website Banner Logo PNG.png') }}" alt="ORCA"
                         class="logo sticky-logo" />
-                    <img src="{{ URL::asset('images/ORCA Website Banner Logo PNG.png') }}" alt="ORCA"
+                    <x-webp-image src="{{ URL::asset('images/ORCA Website Banner Logo PNG.png') }}" alt="ORCA"
                         class="logo mobile-logo" />
                     <!-- <span class="logo-after-text">SHOCK</span> -->
                 </a>
@@ -153,7 +153,7 @@ if (Auth::check()) {
                                 @csrf
                                 <div class="form-row row has-icon">
                                     <div class="form-col mb-0 form-floating">
-                                        <button class="button overlay-button"><img class="overlay-image-icon"
+                                        <button class="button overlay-button"><x-webp-image class="overlay-image-icon"
                                                 src="{{ URL::asset('svg/send-outline.svg') }}" alt="Icon name"
                                                 data-shock-icon="32" /></button>
                                         <input id="InputSearchMobile" class="form-control focus-trigger-field"
@@ -174,7 +174,7 @@ if (Auth::check()) {
                         </li>
                         <li class="nav-item dropdown has-megamenu hover">
                             <a class="nav-link dropdown-toggle has-icon" href="#" data-bs-toggle="dropdown">
-                                <span class="text">About</span><img class="image-icon dropdown-icon"
+                                <span class="text">About</span><x-webp-image class="image-icon dropdown-icon"
                                     src="{{ URL::asset('svg/chevron-down-outline.svg') }}" alt="Icon name"
                                     data-shock-icon="32" />
                             </a>
@@ -242,8 +242,8 @@ if (Auth::check()) {
                                             <div class="col-12 col-md-6 col-lg-6">
                                                 <div class="megamenu-item has-side-image image-absolute-right">
                                                     <a href="{{ url('pages/team') }}" class="megamenu-image black">
-                                                        <img src="{{ URL::asset('images/teampic.jpeg') }}"
-                                                            alt="Image name" class="image">
+                                                        <x-webp-image src="{{ URL::asset('images/teampic.jpeg') }}"
+                                                            alt="Image name" class="image"/>
 
                                                     </a>
                                                 </div>
@@ -255,7 +255,7 @@ if (Auth::check()) {
                         </li>
                         <li class="nav-item dropdown has-megamenu hover">
                             <a class="nav-link dropdown-toggle has-icon" href="#" data-bs-toggle="dropdown">
-                                <span class="text">Publications</span><img class="image-icon dropdown-icon"
+                                <span class="text">Publications</span><x-webp-image class="image-icon dropdown-icon"
                                     src="{{ URL::asset('svg/chevron-down-outline.svg') }}" alt="Icon name"
                                     data-shock-icon="32" />
                             </a>
@@ -367,13 +367,12 @@ if (Auth::check()) {
                                                 ?>
                                                 <div class="col-12 col-md-6 col-lg-3">
                                                     <div class="megamenu-item">
-                                                        <!-- <a href="{{ url('article/' . $article->id . '/' . $article->slug) }}" target="_blank" class="megamenu-image secondary"> -->
                                                         <div
                                                             class="card has-full-image vh-50 small-shadow rounded parent">
                                                             <!-- Image -->
                                                             <div class="image-wrapper hover-up-down">
-                                                                <img src="{{ URL::asset('images/article/' . $article->title_image) }}"
-                                                                    alt="Image name" class="image">
+                                                                <x-webp-image src="{{ URL::asset('images/article/' . $article->title_image) }}"
+                                                                    alt="Image name" class="image"/>
                                                             </div>
                                                             <!-- Body -->
                                                             <div class="card-body align-v-bottom">
@@ -424,7 +423,7 @@ if (Auth::check()) {
                         </li>
                         <li class="nav-item dropdown has-megamenu hover">
                             <a class="nav-link dropdown-toggle has-icon" href="#" data-bs-toggle="dropdown">
-                                <span class="text">Projects</span><img class="image-icon dropdown-icon"
+                                <span class="text">Projects</span><x-webp-image class="image-icon dropdown-icon"
                                     src="{{ URL::asset('svg/chevron-down-outline.svg') }}" alt="Icon name"
                                     data-shock-icon="32" />
                             </a>
@@ -553,8 +552,8 @@ if (Auth::check()) {
                                                                         class="card has-full-image vh-30 small-shadow rounded parent">
                                                                         <!-- Image -->
                                                                         <div class="image-wrapper hover-up-down">
-                                                                            <img src="{{ URL::asset('images/article/' . $article->title_image) }}"
-                                                                                alt="Image name" class="image">
+                                                                            <x-webp-image src="{{ URL::asset('images/article/' . $article->title_image) }}"
+                                                                                alt="Image name" class="image"/>
                                                                         </div>
                                                                         <!-- Body -->
                                                                         <div class="card-body align-v-bottom">
@@ -617,9 +616,9 @@ if (Auth::check()) {
                                                                                     bis_skin_checked="1">
                                                                                     <div class="overlay black-50"
                                                                                         bis_skin_checked="1"></div>
-                                                                                    <img src="{{ URL::asset('images/jpg/dashboard1.png') }}"
+                                                                                    <x-webp-image src="{{ URL::asset('images/jpg/dashboard1.png') }}"
                                                                                         class="image"
-                                                                                        alt="India China Trade Dashboard">
+                                                                                        alt="India China Trade Dashboard"/>
                                                                                 </div>
                                                                                 <a href="{{ url('pages/india-china-trade-dashboard') }}"
                                                                                     class="full-link"></a>
@@ -649,9 +648,9 @@ if (Auth::check()) {
                                                                                     bis_skin_checked="1">
                                                                                     <div class="overlay black-50"
                                                                                         bis_skin_checked="1"></div>
-                                                                                    <img src="{{ URL::asset('images/jpg/dashboard2.png') }}"
+                                                                                    <x-webp-image src="{{ URL::asset('images/jpg/dashboard2.png') }}"
                                                                                         class="image"
-                                                                                        alt="India China Trade Dashboard">
+                                                                                        alt="India China Trade Dashboard"/>
                                                                                 </div>
                                                                                 <a href="{{ url('pages/china-census-dashboard') }}"
                                                                                     class="full-link"></a>
@@ -681,9 +680,9 @@ if (Auth::check()) {
                                                                                     bis_skin_checked="1">
                                                                                     <div class="overlay black-50"
                                                                                         bis_skin_checked="1"></div>
-                                                                                    <img src="{{ URL::asset('images/jpg/dashboard3.png') }}"
+                                                                                    <x-webp-image src="{{ URL::asset('images/jpg/dashboard3.png') }}"
                                                                                         class="image"
-                                                                                        alt="India China Trade Dashboard">
+                                                                                        alt="India China Trade Dashboard"/>
                                                                                 </div>
                                                                                 <a href="{{ url('pages/china-provinces-dashboard') }}"
                                                                                     class="full-link"></a>
@@ -713,9 +712,9 @@ if (Auth::check()) {
                                                                                     bis_skin_checked="1">
                                                                                     <div class="overlay black-50"
                                                                                         bis_skin_checked="1"></div>
-                                                                                    <img src="{{ URL::asset('images/jpg/dashboard4.png') }}"
+                                                                                    <x-webp-image src="{{ URL::asset('images/jpg/dashboard4.png') }}"
                                                                                         class="image"
-                                                                                        alt="India China Trade Dashboard">
+                                                                                        alt="India China Trade Dashboard"/>
                                                                                 </div>
                                                                                 <a href="{{ url('pages/china-public-diplomacy-dashboard') }}"
                                                                                     class="full-link"></a>
@@ -793,8 +792,8 @@ if (Auth::check()) {
                                                                 bis_skin_checked="1">
                                                                 <div class="overlay black-50" bis_skin_checked="1">
                                                                 </div>
-                                                                <img src="{{ URL::asset('images/Popuppanel.jpeg') }}"
-                                                                    class="image" alt="India China Trade Dashboard">
+                                                                <x-webp-image src="{{ URL::asset('images/Popuppanel.jpeg') }}"
+                                                                    class="image" alt="India China Trade Dashboard"/>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -822,8 +821,8 @@ if (Auth::check()) {
                                                                             class="card has-full-image vh-30 small-shadow rounded parent">
                                                                             <!-- Image -->
                                                                             <div class="image-wrapper hover-up-down">
-                                                                                <img src="{{ URL::asset('images/article/' . $article->title_image) }}"
-                                                                                    alt="Image name" class="image">
+                                                                                <x-webp-image src="{{ URL::asset('images/article/' . $article->title_image) }}"
+                                                                                    alt="Image name" class="image"/>
                                                                             </div>
                                                                             <!-- Body -->
                                                                             <div class="card-body align-v-bottom">
@@ -842,9 +841,6 @@ if (Auth::check()) {
                                                                                     <hr class="gray-25">
                                                                                     <!-- Metadata -->
                                                                                     <div class="card-metadata">
-                                                                                        <!--  <div class="item">
-                                                      <a href="{{ url('article/' . $article->id . '/' . $article->slug) }}" class="link gray primary-hover"><i class="fa-solid fa-user icon"></i>{{ $author->name }}</a>
-                                                      </div> -->
                                                                                         <div class="item">
                                                                                             <a href="{{ url('article/' . $article->id . '/' . $article->slug) }}"
                                                                                                 class="link gray primary-hover"><i
@@ -901,7 +897,7 @@ if (Auth::check()) {
                                                                     <!-- Image -->
                                                                     <div
                                                                         class="image-wrapper imageheighter hover-zoom">
-                                                                        <img src="{{ URL::asset('images/article/' . $article->title_image) }}"
+                                                                        <x-webp-image src="{{ URL::asset('images/article/' . $article->title_image) }}"
                                                                             alt="Image name" class="image" />
                                                                     </div>
                                                                     <!-- Body -->
@@ -971,7 +967,7 @@ if (Auth::check()) {
                                                                     <!-- Image -->
                                                                     <div
                                                                         class="image-wrapper imageheighter hover-zoom">
-                                                                        <img src="{{ $spr->introduction }}"
+                                                                        <x-webp-image src="{!! $spr->introduction !!}"
                                                                             style="max-height:250px;"
                                                                             alt="{{ $spr->title }}"
                                                                             class="image" />
@@ -1026,7 +1022,7 @@ if (Auth::check()) {
                         </li>
                         <li class="nav-item dropdown has-megamenu hover">
                             <a class="nav-link dropdown-toggle has-icon" href="#" data-bs-toggle="dropdown">
-                                <span class="text">GCNS</span><img class="image-icon dropdown-icon"
+                                <span class="text">GCNS</span><x-webp-image class="image-icon dropdown-icon"
                                     src="{{ URL::asset('svg/chevron-down-outline.svg') }}" alt="Icon name"
                                     data-shock-icon="32" />
                             </a>
@@ -1075,8 +1071,8 @@ if (Auth::check()) {
                                             <div class="col-12 col-md-6 col-lg-6">
                                                 <div class="megamenu-item has-side-image image-absolute-right">
                                                     <a href="#" class="megamenu-image black">
-                                                        <img src="{{ URL::asset('images/IMG_0049-2.jpg') }}"
-                                                            alt="Image name" class="image">
+                                                        <x-webp-image src="{{ URL::asset('images/IMG_0049-2.jpg') }}"
+                                                            alt="Image name" class="image"/>
 
                                                     </a>
                                                 </div>
@@ -1094,7 +1090,7 @@ if (Auth::check()) {
 
                         <li class="nav-item dropdown has-megamenu hover">
                             <a class="nav-link dropdown-toggle has-icon" href="#" data-bs-toggle="dropdown">
-                                <span class="text">Contact</span><img class="image-icon dropdown-icon"
+                                <span class="text">Contact</span><x-webp-image class="image-icon dropdown-icon"
                                     src="{{ URL::asset('svg/chevron-down-outline.svg') }}" alt="Icon name"
                                     data-shock-icon="32" />
                             </a>
@@ -1239,7 +1235,7 @@ if (Auth::check()) {
                                                 @csrf
                                                 <div class="form-row row has-icon">
                                                     <div class="form-col form-floating">
-                                                        <button type="submit" class="button overlay-button"><img
+                                                        <button type="submit" class="button overlay-button"><x-webp-image
                                                                 class="overlay-image-icon"
                                                                 src="{{ URL::asset('svg/send-outline.svg') }}"
                                                                 alt="Icon name" data-shock-icon="32" /></button>
@@ -1358,7 +1354,7 @@ if (Auth::check()) {
                             <!-- Brand -->
                             <a href="#" class="footer-brand">
                                 <!-- <div class="site-title">Site Title</div> -->
-                                <img src="{{ URL::asset('images/whiteORCA Website Banner Logo PNG.png') }}"
+                                <x-webp-image src="{{ URL::asset('images/whiteORCA Website Banner Logo PNG.png') }}"
                                     alt="ORCA" class="logo main-logo" />
 
                             </a>
@@ -1373,8 +1369,8 @@ if (Auth::check()) {
                                 <ul class="icon-h-list">
                                     <li class="item ms-0">
                                         <a href="https://orcasia.substack.com/"
-                                            class="link gray primary-hover hover-rotate"><img class="substacksymbol"
-                                                src="{{ URL::asset('svg/substack-logo.svg') }}"></a>
+                                            class="link gray primary-hover hover-rotate"><x-webp-image class="substacksymbol"
+                                                src="{{ URL::asset('svg/substack-logo.svg') }}"/></a>
                                     </li>
 
                                     <li class="item">

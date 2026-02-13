@@ -54,7 +54,7 @@
                             </span>
                             <!-- Image -->
                             <div class="image-wrapper rounded-top hover-zoom">
-                                <img src="{{ URL::asset('images/article/' . $article->title_image) }}" alt="Image name"
+                                <x-webp-image src="{{ URL::asset('images/article/' . $article->title_image) }}" alt="Image name"
                                     class="image" />
                             </div>
                             <!-- Body -->

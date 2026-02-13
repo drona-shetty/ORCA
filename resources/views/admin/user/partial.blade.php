@@ -23,7 +23,7 @@
             <?php $user_meta = App\Models\UserMeta::where('user_id', $user->id)->first(); ?>
             @if ($user_meta != null)
                 <tr>
-                    <th><?= $count ?></th>
+                    <th data-id="{{ $user->id }}"><?= $count ?></th>
                     <td>
                         <img width="40" height="40" class="rounded-circle"
                             src="{{ URL::asset('images/author/' . $user_meta->avatar) }}" alt="">

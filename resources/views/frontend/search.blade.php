@@ -45,7 +45,7 @@
             
             <!-- Image -->
             <div class="image-wrapper hover-scale">
-              <img src="{{URL::asset('images/article/'.$article->title_image)}}" alt="Image name" class="image" />
+              <x-webp-image src="{{URL::asset('images/article/'.$article->title_image)}}" alt="Image name" class="image" />
             </div>
             <!-- Body -->
             <div class="card-body bg-color white">

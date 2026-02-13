@@ -29,7 +29,7 @@
             <!-- Image -->
             <div class="image-wrapper">
                 <img src="{{ URL::asset('images/jpg/AdobeStock_215045010.jpeg') }}" class="image vh-85 fit-cover"
-                    alt="This is an example description for this item." />
+                    alt="AdobeStock_215045010.jpeg" />
             </div>
             <!-- Overlay -->
             <div class="overlay black-50"></div>

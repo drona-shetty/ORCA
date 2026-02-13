@@ -104,7 +104,7 @@ if(Auth::check()){
         <!-- Image -->
         <div class="slide-image-wrapper">
           <div class="slide-image-inner">
-            <img src="{{URL::asset('images/article/'.$article->title_image)}}" alt="Image name" class="slide-image bg-color accent" />
+            <x-webp-image bp-image bp-image bp-image bp-image bp-image bp-image src="{{URL::asset('images/article/'.$article->title_image)}}" alt="Image name" class="slide-image bg-color accent" />
           </div>
         </div>
          <!-- Action -->
@@ -160,7 +160,7 @@ if(Auth::check()){
          <!-- Image -->
         <div class="slide-image-wrapper">
           <div class="slide-image-inner">
-            <img src="{{URL::asset('images/article/'.$article->title_image)}}" alt="Image name" class="slide-image bg-color accent" />
+            <x-webp-image src="{{URL::asset('images/article/'.$article->title_image)}}" alt="Image name" class="slide-image bg-color accent" />
           </div>
         </div>
          <!-- Action -->
@@ -219,7 +219,7 @@ if(Auth::check()){
          <!-- Image -->
         <div class="slide-image-wrapper">
           <div class="slide-image-inner">
-            <img src="{{URL::asset('images/article/'.$article->title_image)}}" alt="Image name" class="slide-image bg-color accent" />
+            <x-webp-image src="{{URL::asset('images/article/'.$article->title_image)}}" alt="Image name" class="slide-image bg-color accent" />
           </div>
         </div>
          <!-- Action -->
@@ -277,7 +277,7 @@ if(Auth::check()){
          <!-- Image -->
         <div class="slide-image-wrapper">
           <div class="slide-image-inner">
-            <img src="{{URL::asset('images/article/'.$article->title_image)}}" alt="Image name" class="slide-image bg-color accent" />
+            <x-webp-image src="{{URL::asset('images/article/'.$article->title_image)}}" alt="Image name" class="slide-image bg-color accent" />
           </div>
         </div>
          <!-- Action -->

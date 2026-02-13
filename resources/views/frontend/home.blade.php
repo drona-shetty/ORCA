@@ -362,7 +362,7 @@
                 <!-- Image -->
                 <div class="slide-image-wrapper">
                     <div class="slide-image-inner">
-                        <img src="{{ URL::asset('images/article/' . $article->title_image) }}" alt="Image name"
+                        <x-webp-image src="{{ URL::asset('images/article/' . $article->title_image) }}" alt="Image name"
                             class="slide-image bg-color accent" />
                     </div>
                 </div>
@@ -430,7 +430,7 @@
                 <!-- Image -->
                 <div class="slide-image-wrapper">
                     <div class="slide-image-inner">
-                        <img src="{{ URL::asset('images/article/' . $article->title_image) }}" alt="Image name"
+                        <x-webp-image src="{{ URL::asset('images/article/' . $article->title_image) }}" alt="Image name"
                             class="slide-image bg-color accent" />
                     </div>
                 </div>
@@ -511,7 +511,7 @@
                 <!-- Image -->
                 <div class="slide-image-wrapper">
                     <div class="slide-image-inner">
-                        <img src="{{ URL::asset('images/article/' . $article->title_image) }}" alt="Image name"
+                        <x-webp-image src="{{ URL::asset('images/article/' . $article->title_image) }}" alt="Image name"
                             class="slide-image bg-color accent" />
                     </div>
                 </div>
@@ -852,7 +852,7 @@
 
                                 <!-- Image -->
                                 <div class="image-wrapper hover-up-down">
-                                    <img src="{{ URL::asset('images/article/' . $article->title_image) }}"
+                                    <x-webp-image src="{{ URL::asset('images/article/' . $article->title_image) }}"
                                         alt="Image name" class="image" />
                                 </div>
                                 <div class="card-body align-v-bottom">
@@ -905,7 +905,7 @@
                     <!-- Image -->
                     <div class="gallery image-mirror align-h-left">
                         <div class="image-wrapper">
-                            <img src="{{ URL::asset('/images/AdobeStock_165506040.jpg') }}" alt="Image name"
+                            <x-webp-image src="{{ URL::asset('/images/AdobeStock_165506040.jpg') }}" alt="Image name"
                                 class="image shadow" />
                         </div>
 

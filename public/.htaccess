@@ -5,29 +5,31 @@
 
     RewriteEngine On
 
+    # -----------------------------------
+    # Serve WebP if supported
+    # -----------------------------------
+    RewriteCond %{HTTP_ACCEPT} image/webp
+    RewriteCond %{REQUEST_FILENAME}.webp -f
+    RewriteRule ^(.+)\.(jpe?g|png)$ $1.$2.webp [T=image/webp,L]
+
+    # -----------------------------------
     # Handle Authorization Header
+    # -----------------------------------
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 
-    # Redirect Trailing Slashes If Not A Folder...
+    # Redirect Trailing Slashes If Not A Folder
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_URI} (.+)/$
     RewriteRule ^ %1 [L,R=301]
 
-    # Send Requests To Front Controller...
+    # Send Requests To Laravel Front Controller
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
-</IfModule>
 
-<IfModule mod_rewrite.c>
-RewriteEngine On
-
-RewriteCond %{HTTP_ACCEPT} image/webp
-RewriteCond %{DOCUMENT_ROOT}/$1.webp -f
-RewriteRule ^(.+)\.(jpe?g|png)$ $1.webp [T=image/webp,L]
 </IfModule>
 
 <IfModule mod_headers.c>
-Header append Vary Accept
+    Header append Vary Accept
 </IfModule>

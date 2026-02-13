@@ -5,7 +5,7 @@
             <div class="card boxed parent">
                 <!-- Image -->
                 <div class="image-wrapper cosheight" data-aos="zoom-in-up">
-                    <img src="{{ URL::asset('images/author') }}/{{ $author_meta->avatar }}" alt="Image name"
+                    <x-webp-image src="{{ URL::asset('images/author') }}/{{ $author_meta->avatar }}" alt="Image name"
                         class="image outline white cosobject" />
                     <div class="image-overlay primary accent-hover"></div>
                 </div>

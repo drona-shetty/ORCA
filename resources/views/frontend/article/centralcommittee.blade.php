@@ -53,7 +53,7 @@ li {
             <div class="extended-intro max-w-65 mb-25">
               <h1 class="title white">
                   <div class="logo-print-only">
-                            <img src="{{ URL::asset('images/ORCA Website Banner Logo PNG.png') }}" style=" width: 200px; margin-bottom:2rem; " alt="ORCA" />
+                            <x-webp-image src="{{ URL::asset('images/ORCA Website Banner Logo PNG.png') }}" style=" width: 200px; margin-bottom:2rem; " alt="ORCA" />
                         </div>
                 <span class="text-1 text-center text-style-3">{{ $article->title }}</span>
               </h1>
@@ -82,7 +82,7 @@ li {
           </div>
           <!-- Image -->
           <div class="image-wrapper">
-            <img src="{{ URL::asset('images/article/'.$article->title_image) }}" class="image vh-100 fit-cover" alt="This is an example description for this item." />
+            <x-webp-image src="{{ URL::asset('images/article/'.$article->title_image) }}" class="image vh-100 fit-cover" alt="This is an example description for this item." />
           </div>
           <!-- Overlay -->
           <div class="overlay black-50"></div>
