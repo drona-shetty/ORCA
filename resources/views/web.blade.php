@@ -4,23 +4,44 @@ if (Auth::check()) {
 } ?>
 <!DOCTYPE HTML>
 <html lang="en">
-
 <head>
-    <!-- Display -->
+    <!-- Basic -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- Identity -->
+
+    <!-- SEO -->
     <title>@yield('title', 'ORCA | Organisation for Research on China and Asia')</title>
-    <meta name="description" content="@yield('meta_description', 'default description')">
-    <meta name="author" content="Codings">
-    <meta name="keywords" content="@yield('meta_keywords', 'some default keywords')">
-    <meta name="twitter:card" content="summary_large_image">
+    <meta name="description" content="@yield('meta_description', 'ORCA (Organisation for Research on China and Asia) is a leading research initiative focused on China’s domestic discourse, India-China relations, and geopolitical developments across Asia.')">
+    <meta name="keywords" content="@yield('meta_keywords', 'ORCA, China research, Asia research, India-China relations, geopolitics, policy research, China analysis, ORCASIA')">
+    <meta name="author" content="ORCA">
+    <meta name="publisher" content="ORCA">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="{{ url()->current() }}">
+
+    <!-- Geo / Language -->
+    <meta name="language" content="English">
+    <meta name="geo.region" content="IN">
+    <meta name="geo.placename" content="India">
+
+    <!-- CSRF -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="@yield('title', 'ORCA | Organisation for Research on China and Asia')">
+    <meta property="og:description" content="@yield('meta_description')">
+    <meta property="og:image" content="@yield('og_image', asset('images/ORCALogowhite.png'))">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="@yield('title')">
+    <meta name="twitter:description" content="@yield('meta_description')">
+    <meta name="twitter:image" content="@yield('og_image', asset('images/ORCALogowhite.png'))">
 
     @yield('meta')
 
     <!-- Favicons -->
-
     <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('images/favicon/apple-icon-57x57.png') }}">
     <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('images/favicon/apple-icon-60x60.png') }}">
     <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('images/favicon/apple-icon-72x72.png') }}">
@@ -28,54 +49,80 @@ if (Auth::check()) {
     <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('images/favicon/apple-icon-114x114.png') }}">
     <link rel="apple-touch-icon" sizes="120x120" href="{{ asset('images/favicon/apple-icon-120x120.png') }}">
     <link rel="apple-touch-icon" sizes="144x144" href="{{ asset('images/favicon/apple-icon-144x144.png') }}">
-    <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('images/favicon/apple-icon-152x152.png') }}') }}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('images/favicon/apple-icon-152x152.png') }}">
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('images/favicon/apple-icon-180x180.png') }}">
-    <link rel="icon" type="image/png" sizes="192x192"
-        href="{{ asset('images/favicon/android-icon-192x192.png') }}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('images/favicon/android-icon-192x192.png') }}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/favicon/favicon-32x32.png') }}">
     <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('images/favicon/favicon-96x96.png') }}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/favicon/favicon-16x16.png') }}">
     <link rel="manifest" href="{{ asset('images/favicon/manifest.json') }}">
-    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileColor" content="#16161b">
     <meta name="msapplication-TileImage" content="{{ asset('images/favicon/ms-icon-144x144.png') }}">
-    <meta name="theme-color" content="#ffffff">
+    <meta name="theme-color" content="#16161b">
+
+    <!-- Performance -->
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="//www.googletagmanager.com">
+
+    <!-- Preload Critical CSS -->
+    <link rel="preload" href="{{ asset('css/vendor/bootstrap.min.css') }}" as="style">
+    <link rel="preload" href="{{ asset('css/theme.css') }}" as="style">
+    <link rel="preload" href="{{ asset('css/main.css') }}" as="style">
 
     <!-- Vendor CSS -->
-    <link rel="stylesheet" href="{{ asset('css/vendor/preloader.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/vendor/font-family.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/vendor/font-awesome.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/vendor/menu-engine.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/vendor/menu-grid.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/vendor/bootstrap.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/vendor/swiper.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/vendor/dynamic-slider.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/vendor/bricklayer.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/vendor/lightbox.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/vendor/aos.min.css') }}" />
-    <!-- Main CSS -->
-    <link rel="stylesheet" href="{{ asset('css/theme.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/core.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/main.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/vendor/preloader.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/vendor/font-family.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/vendor/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/vendor/menu-engine.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/vendor/menu-grid.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/vendor/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/vendor/swiper.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/vendor/dynamic-slider.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/vendor/bricklayer.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/vendor/lightbox.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/vendor/aos.min.css') }}">
 
-    <!-- Google tag (gtag.js) -->
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="{{ asset('css/theme.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/core.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+
+    <!-- Apple Enhancements -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-47RCM817YL"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
+        function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-
         gtag('config', 'G-47RCM817YL');
     </script>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Organisation for Research on China and Asia (ORCA)",
+      "url": "{{ url('/') }}",
+      "logo": "{{ asset('images/ORCALogowhite.png') }}",
+      "description": "Research initiative focused on China, Asia, and India-China relations.",
+      "sameAs": [
+        "https://twitter.com/",
+        "https://linkedin.com/",
+        "https://youtube.com/"
+      ]
+    }
+    </script>
+
+    <!-- Custom Style -->
     <style>
         .shock-header .navbar.navbar-sticky {
             box-shadow: 0 8px 15px -5px rgba(0, 0, 0, 0.15);
-        }        
+        }
     </style>
-    <!---google analytics close---->
-
 </head>
 <!-- Preloader -->
 <div id="preloader" class="preloader" data-delay="0" data-limit="3000">

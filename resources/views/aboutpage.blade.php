@@ -1,7 +1,7 @@
 @extends('web')
 @section('title', 'ORCA | Organisation for Research on China and Asia')
-@section('meta_keywords', 'ORCA')
-@section('meta_description', 'ORCA')
+@section('meta_keywords', 'ORCA, China research, Asia research, India-China relations, geopolitics, policy research, China analysis, ORCASIA')
+@section('meta_description', 'ORCA (Organisation for Research on China and Asia) is a leading research initiative focused on China’s domestic discourse, India-China relations, and geopolitical developments across Asia.')
 
 @section('content')
     <style>
@@ -464,11 +464,7 @@
                                             <div class="card-body rounded-bottom bg-color white">
                                                 <h3 class="title text-style-11 black">16 May <mark
                                                         class="animated-underline accentred">2023</mark></h3>
-                                                <p class="description">ORCAxISDP Special Issue on Tibet</p>
-                                                <!-- Button -->
-
-                                                <!-- Link -->
-
+                                                <p class="description">ORCAxISDP Special Issue on Tibet</p>                                                
                                             </div>
                                         </div>
                                     </div>
@@ -486,8 +482,4 @@
             </div>
         </div>
     </section>
-
-    <!-----timeline exit -->
-    </main>
-
 @endsection
