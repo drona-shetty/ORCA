@@ -1,9 +1,14 @@
 @extends('web')
-@section('title', 'ORCA Outputs and Ventures | Research, Publications & Dashboards')
-@section('meta_keywords', 'ORCA outputs, ORCA publications, China research newsletters, ORCA dashboards, India China
-    research, ORCASIA outputs')
-@section('meta_description', 'Explore ORCA’s outputs including newsletters, opinion pieces, issue briefs, dashboards,
-    podcasts, and research publications on China and Asia.')
+
+@section('title', 'Output and Ventures | ORCA - Organisation for Research on China and Asia')
+
+@section('meta_keywords',
+    'ORCA China research, China analysis India, Indo-Pacific research, Chinese media analysis,
+    China policy research, China newsletters, China think tank India')
+
+@section('meta_description',
+    'Explore ORCA’s Output and Ventures including newsletters, expert analysis, dashboards,
+    opinion pieces, and research on China, Asia, and the Indo-Pacific.')
 
 @section('content')
 
@@ -18,8 +23,7 @@
 
         .modal-dialog {
             max-width: 75%;
-            margin-right: auto;
-            margin-left: auto;
+            margin: auto;
         }
 
         .extended-intro .text-2 {
@@ -27,193 +31,513 @@
         }
     </style>
 
-    <!-- SEO Hidden Content -->
-    <p class="sr-only">
-        ORCA produces research outputs including newsletters, opinion pieces, dashboards, podcasts, and analytical
-        publications focused on China, Asia, and India-China relations.
-    </p>
-
     <!-- Banner -->
-    <section class="shock-section has-overlay">
+    <section class="shock-section has-overlay" aria-label="Output and Ventures Banner">
         <div class="banner">
             <div class="content-wrapper">
+                <!-- Intro -->
                 <div class="extended-intro max-w-65">
                     <h1 class="title">
                         <span class="text-1 d-block text-style-2 white-65">Output</span>
-                        <span class="text-2 d-block text-style-3 text-italic white-85">
-                            and <mark class="animated-underline primary">Ventures</mark>
-                        </span>
+                        <span class="text-2 d-block text-style-3 text-italic white-85">and <mark
+                                class="animated-underline primary">Ventures</mark></span>
                     </h1>
                 </div>
             </div>
-
-            <!-- Optimized Image -->
+            <!-- Image -->
             <div class="image-wrapper">
-                <img src="{{ asset('/images/jpg/AdobeStock_60369364.jpeg') }}" class="image vh-65 fit-cover"
-                    alt="ORCA research outputs and ventures banner" loading="eager" width="1600" height="900">
+                <img src="{{ URL::asset('/images/jpg/AdobeStock_60369364.jpeg') }}" class="image vh-65 fit-cover"
+                    alt="ORCA research and publications on China and Asia" loading="lazy" />
             </div>
-
+            <!-- Overlay -->
             <div class="overlay black-65"></div>
         </div>
     </section>
 
-    <!-- Content Tabs -->
-    <section class="shock-section pt-6 pb-6">
+    <!-- Vertical Tab: Light background -->
+    <section class="shock-section pt-6 pb-6" aria-label="ORCA Publications Categories">
         <div class="container">
+            <!-- Intro -->
 
             <div class="vertical-tab scheme-1 primary">
+                <!-- Tab navigation -->
+                <ul id="example-v-tab" class="nav nav-pills" role="tablist" aria-label="Output categories">
 
-                <!-- Tabs -->
-                <ul id="example-v-tab" class="nav nav-pills" role="tablist">
+                    @php
+                        $tabs = [
+                            ['id' => 1, 'title' => 'Daily Newsletter – Conversations in Chinese Media'],
+                            ['id' => 2, 'title' => 'Opinion Pieces'],
+                            ['id' => 11, 'title' => 'Dashboards'],
+                            ['id' => 7, 'title' => 'ORCA Files'],
+                            ['id' => 6, 'title' => 'Backgrounders'],
+                            ['id' => 8, 'title' => 'Reviewing Chinese Culture'],
+                            ['id' => 4, 'title' => 'Issue Brief'],
+                            ['id' => 5, 'title' => 'Graphs, Maps, and Infographics'],
+                        ];
+                    @endphp
 
-                    <!-- Keep structure SAME, only add SEO titles -->
-                    <li class="nav-item">
-                        <button class="nav-link active" data-bs-target="#example-v-1" data-bs-toggle="tab">
-                            Daily Newsletter – Conversations in Chinese Media
-                        </button>
-                    </li>
-
-                    <li class="nav-item">
-                        <button class="nav-link" data-bs-target="#example-v-2" data-bs-toggle="tab">
-                            Opinion Pieces
-                        </button>
-                    </li>
-
-                    <li class="nav-item">
-                        <button class="nav-link" data-bs-target="#example-v-11" data-bs-toggle="tab">
-                            Dashboards
-                        </button>
-                    </li>
-
-                    <li class="nav-item">
-                        <button class="nav-link" data-bs-target="#example-v-7" data-bs-toggle="tab">
-                            ORCA Files
-                        </button>
-                    </li>
-
-                    <li class="nav-item">
-                        <button class="nav-link" data-bs-target="#example-v-6" data-bs-toggle="tab">
-                            Backgrounders
-                        </button>
-                    </li>
-
-                    <li class="nav-item">
-                        <button class="nav-link" data-bs-target="#example-v-8" data-bs-toggle="tab">
-                            Reviewing Chinese Culture
-                        </button>
-                    </li>
-
-                    <li class="nav-item">
-                        <button class="nav-link" data-bs-target="#example-v-4" data-bs-toggle="tab">
-                            Issue Brief
-                        </button>
-                    </li>
-
-                    <li class="nav-item">
-                        <button class="nav-link" data-bs-target="#example-v-5" data-bs-toggle="tab">
-                            Graphs, Maps, and Infographics
-                        </button>
-                    </li>
+                    @foreach ($tabs as $key => $tab)
+                        <li class="nav-item" role="presentation">
+                            <button id="example-v-{{ $tab['id'] }}-tab" class="nav-link {{ $key === 0 ? 'active' : '' }}"
+                                data-bs-toggle="tab" data-bs-target="#example-v-{{ $tab['id'] }}" type="button"
+                                role="tab" aria-controls="example-v-{{ $tab['id'] }}"
+                                aria-selected="{{ $key === 0 ? 'true' : 'false' }}">
+                                {{ $tab['title'] }}
+                            </button>
+                        </li>
+                    @endforeach
 
                 </ul>
 
-                <!-- Example Tab (pattern applied to all) -->
+                <!-- Tab content -->
                 <div class="tab-content overflow-hidden">
 
-                    <div id="example-v-1" class="tab-pane fade show active">
+                    <!-- TAB 1 -->
+                    <div id="example-v-1" class="tab-pane fade show active" role="tabpanel"
+                        aria-labelledby="example-v-1-tab">
+                        <div class="max-w-85 mx-auto">
+                            <section class="shock-section p-2 bg-color gray-10">
+                                <div class="container">
+                                    <article class="basic-intro">
+                                        <header>
+                                            <a href="{{ url('category/cicm') }}"
+                                                aria-label="Daily Newsletter Conversations in Chinese Media">
+                                                <h2 class="title black">
+                                                    Daily Newsletter – Conversations in Chinese Media
+                                                </h2>
+                                            </a>
+                                        </header>
 
-                        <section class="shock-section p-2 bg-color gray-10">
-                            <div class="container">
-                                <div class="basic-intro">
-
-                                    <!-- Internal Linking Boost -->
-                                    <a href="{{ url('category/cicm') }}" title="ORCA Daily Newsletter China Media Analysis">
-                                        <h2 class="title black">
-                                            Daily Newsletter – Conversations in Chinese Media
-                                        </h2>
-                                    </a>
-
-                                    <div class="description gray">
-                                        <p>
-                                            ORCA’s CiCM newsletters analyse grassroots Chinese discourse, tracking trends on
-                                            Weibo, domestic media narratives, and their implications for India-China
-                                            relations and global geopolitics.
-                                        </p>
-                                    </div>
-
+                                        <div class="description gray">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <p>Information that comes out of China is
+                                                        extremely difficult to collect and sift
+                                                        through. While many
+                                                        think tanks across the world have set up
+                                                        dedicated China centers, there is still a
+                                                        gap present in
+                                                        looking at the grassroot level chatter in
+                                                        China and making sense of it. The CiCMs
+                                                        are divided into
+                                                        three sections —covering viral or trending
+                                                        topics on Chinese social media platforms
+                                                        such as Weibo;
+                                                        tracking local, regional, domestic and foreign
+                                                        Chinese news outlets and; an analysis
+                                                        section with a
+                                                        focus on how these developments affect Indian
+                                                        domestic and foreign policy. The CiCM
+                                                        newsletters are
+                                                        curated by our interns in totality, who are
+                                                        specifically trained to research and
+                                                        analyse accessible
+                                                        Chinese news. The CiCMs are a great tool for
+                                                        connecting seemingly unrelated news
+                                                        with that of broader
+                                                        Chinese policy developments, and a one of a
+                                                        kind output in India. </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </article>
                                 </div>
-                            </div>
-                        </section>
-
+                            </section>
+                        </div>
                     </div>
 
-                    <!-- DASHBOARDS (Important SEO Fix) -->
-                    <div id="example-v-11" class="tab-pane fade">
-
-                        <section class="shock-section p-2 bg-color gray-10">
-                            <div class="container">
-                                <div class="row g-3">
-
-                                    @php
-                                        $dashboards = [
-                                            [
-                                                'title' => 'India-China Trade Dashboard',
-                                                'img' => 'dashboard1.png',
-                                                'url' => 'india-china-trade-dashboard',
-                                            ],
-                                            [
-                                                'title' => 'China Census Dashboard',
-                                                'img' => 'dashboard2.png',
-                                                'url' => 'china-census-dashboard',
-                                            ],
-                                            [
-                                                'title' => "China's Provinces Dashboard",
-                                                'img' => 'dashboard3.png',
-                                                'url' => 'china-provinces-dashboard',
-                                            ],
-                                            [
-                                                'title' => 'China Public Diplomacy Dashboard',
-                                                'img' => 'dashboard4.png',
-                                                'url' => 'china-public-diplomacy-dashboard',
-                                            ],
-                                        ];
-                                    @endphp
-
-                                    @foreach ($dashboards as $d)
-                                        <div class="col-12 col-md-6 col-lg-6">
-                                            <a href="{{ url('pages/' . $d['url']) }}" title="{{ $d['title'] }}">
-                                                <div class="card has-full-image mt-05 vh-25 small-shadow rounded parent">
-
-                                                    <div class="image-wrapper shadow rounded">
-                                                        <div class="overlay black-50"></div>
-
-                                                        <img src="{{ asset('images/jpg/' . $d['img']) }}" class="image"
-                                                            alt="{{ $d['title'] }}" loading="lazy" width="600"
-                                                            height="400">
-                                                    </div>
-
-                                                </div>
+                    <!-- TAB 2 -->
+                    <div id="example-v-2" class="tab-pane fade" role="tabpanel" aria-labelledby="example-v-2-tab">
+                        <div class="max-w-85 mx-auto">
+                            <section class="shock-section p-2 bg-color gray-10">
+                                <div class="container">
+                                    <article class="basic-intro">
+                                        <header>
+                                            <a href="{{ url('category/opinion-pieces') }}"
+                                                aria-label="Opinion Pieces on China">
+                                                <h2 class="title black">Opinion Pieces</h2>
                                             </a>
+                                        </header>
+
+                                        <div class="description gray">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <p>Opinion pieces by scholars on China and its
+                                                        workings in Asia and beyond. These
+                                                        well-analysed, substantive pieces on China,
+                                                        Asia and the wider Indo-Pacific
+                                                        landscape with focused assessments on topics
+                                                        ranging from geopolitics in the
+                                                        Indo-Pacific to domestic Chinese politics
+                                                        allow a publication base largely catering
+                                                        to the younger scholars across the world.
+                                                        ORCA’s audience is now global, with the
+                                                        site being routinely accessed across over a
+                                                        hundred countries. Hence, publishing
+                                                        op-eds with us allows scholars –ranging from
+                                                        college students to young professionals
+                                                        –to present their views in front of a niche
+                                                        global audience focusing on all things
+                                                        China.</p>
+                                                </div>
+                                            </div>
                                         </div>
-                                    @endforeach
+                                    </article>
                                 </div>
-                            </div>
-                        </section>
+                            </section>
+                        </div>
+                    </div>
+
+                    <!-- TAB 3 -->
+                    <div id="example-v-3" class="tab-pane fade" role="tabpanel" aria-labelledby="example-v-3-tab">
+                        <div class="max-w-85 mx-auto">
+                            <section class="shock-section p-2 bg-color gray-10">
+                                <div class="container">
+                                    <article class="basic-intro">
+                                        <header>
+                                            <a href="{{ url('category/expert-speak') }}"
+                                                aria-label="Expert Speak China Analysis">
+                                                <h2 class="title black">Expert Speak</h2>
+                                            </a>
+                                        </header>
+
+                                        <div class="description gray">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <p>This section publishes columns by senior
+                                                        scholars in the field of China and Asia
+                                                        studies on issues of vital importance.
+                                                        Expertise-driven estimations on the present
+                                                        and future of China in particular and Asia at
+                                                        large is covered by leading voices in
+                                                        the field. Uniquely, our Expert Columns allow
+                                                        writers to delve into intelligence
+                                                        based critique; this allows senior scholars
+                                                        the flexibility to write in a manner
+                                                        that conventional media houses and think-tanks
+                                                        would ideally not publish, especially
+                                                        as the pieces are largely encouraged to be
+                                                        predictive in nature, drawing more from
+                                                        the scholars own research experiences and
+                                                        expertise rather than coverage found
+                                                        online/in print.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </article>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+
+                    <!-- TAB 4 -->
+                    <div id="example-v-4" class="tab-pane fade" role="tabpanel" aria-labelledby="example-v-4-tab">
+                        <div class="max-w-85 mx-auto">
+                            <section class="shock-section p-2 bg-color gray-10">
+                                <div class="container">
+                                    <article class="basic-intro">
+                                        <header>
+                                            <a href="{{ url('category/issue-brief') }}"
+                                                aria-label="Issue Brief Research China">
+                                                <h2 class="title black">Issue Brief</h2>
+                                            </a>
+                                        </header>
+
+                                        <div class="description gray">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <p>These are longer research pieces detailing the
+                                                        relevance, scope and impact of
+                                                        specific pertinent issues with implications
+                                                        for Asia and beyond. Our Issue Briefs
+                                                        are informative assessments of issues
+                                                        accompanied with policy implications. These
+                                                        are mostly written by young professionals with
+                                                        work experience or mid-career
+                                                        scholars and provide a cohesive and thorough
+                                                        understanding of the topic as well as
+                                                        deductions on how its progression can be
+                                                        expected in the near future. </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </article>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+
+                    <!-- TAB 5 -->
+                    <div id="example-v-5" class="tab-pane fade" role="tabpanel" aria-labelledby="example-v-5-tab">
+                        <div class="max-w-85 mx-auto">
+                            <section class="shock-section p-2 bg-color gray-10">
+                                <div class="container">
+                                    <article class="basic-intro">
+                                        <header>
+                                            <h2 class="title black">Graphs, Maps, and Infographics</h2>
+                                        </header>
+
+                                        <div class="description gray">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <p>This section explains China in the form of data
+                                                        visualisations. In this section
+                                                        through Maps and Graphs we present
+                                                        quantitative data to track the rise of China
+                                                        and
+                                                        make assessments according to our findings.
+                                                        The maps are prepared using QGIS and
+                                                        geo-tagging of points is accurately
+                                                        maintained. The goal of this section is to
+                                                        bridge the gap between quantitative and
+                                                        qualitative research in the field of China
+                                                        studies. This section also allows for external
+                                                        submission, guidelines for which can
+                                                        be found on the website. </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </article>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+
+                    <!-- TAB 6 -->
+                    <div id="example-v-6" class="tab-pane fade" role="tabpanel" aria-labelledby="example-v-6-tab">
+                        <div class="max-w-85 mx-auto">
+                            <section class="shock-section p-2 bg-color gray-10">
+                                <div class="container">
+                                    <article class="basic-intro">
+                                        <header>
+                                            <a href="{{ url('category/backgrounders') }}"
+                                                aria-label="China Background Research">
+                                                <h2 class="title black">Backgrounders</h2>
+                                            </a>
+                                        </header>
+
+                                        <div class="description gray">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <p>ORCA also produces detailed background
+                                                        information about Chinese domestic and
+                                                        foreign policy. A valuable resource for
+                                                        understanding the context behind how China
+                                                        got to where it currently is, in terms of its
+                                                        policies and more. This vertical is
+                                                        meant as a resource tool for scholars across
+                                                        career levels and sectors, allowing
+                                                        them a one-stop destination for finding
+                                                        references to China’s domestic and
+                                                        international history.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </article>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+
+                    <!-- TAB 7 -->
+                    <div id="example-v-7" class="tab-pane fade" role="tabpanel" aria-labelledby="example-v-7-tab">
+                        <div class="max-w-85 mx-auto">
+                            <section class="shock-section p-2 bg-color gray-10">
+                                <div class="container">
+                                    <article class="basic-intro">
+                                        <header>
+                                            <a href="{{ url('pages/orcafiles') }}" aria-label="ORCA Podcast Files">
+                                                <h2 class="title black">ORCA Files</h2>
+                                            </a>
+                                        </header>
+
+                                        <div class="description gray">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <p>The ORCA Files is ORCA’s very own podcast
+                                                        series, hosted by the team at ORCA. The
+                                                        ORCA Files holds conversations with our
+                                                        Community of Scholars for a greater
+                                                        understanding of all things China. Scholars
+                                                        deep dive into the nitty-gritties of
+                                                        their publications with us and provide
+                                                        additional context for their pieces. Beyond
+                                                        these conversations we also host spaces for
+                                                        delving into explainer series,
+                                                        interactions amongst team members as well as
+                                                        interviews with experts. Our podcast
+                                                        series is available on Spotify as well. </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </article>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+
+                    <!-- TAB 8 -->
+                    <div id="example-v-8" class="tab-pane fade" role="tabpanel" aria-labelledby="example-v-8-tab">
+                        <div class="max-w-85 mx-auto">
+                            <section class="shock-section p-2 bg-color gray-10">
+                                <div class="container">
+                                    <article class="basic-intro">
+                                        <header>
+                                            <a href="{{ url('category/reviewing-chinese-culture') }}"
+                                                aria-label="Chinese Culture Analysis">
+                                                <h2 class="title black">Reviewing Chinese Culture</h2>
+                                            </a>
+                                        </header>
+
+                                        <div class="description gray">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <p>Through these publications, ORCA will study
+                                                        Chinese leaders & policymaking by
+                                                        connecting it to China’s culture and cultural
+                                                        outputs ranging across documentaries,
+                                                        books, songs & more.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </article>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+
+                    <!-- TAB 11 -->
+                    <div id="example-v-11" class="tab-pane fade" role="tabpanel">
+                        <div class="max-w-85 mx-auto">
+                            <section class="shock-section p-2 bg-color gray-10">
+                                <div class="container">
+                                    <div class="row g-3">
+                                        <div class="col-12 col-md-6 col-lg-6">
+                                            <div class="megamenu-item">
+                                                <ul class="nav-list list-unstyled">
+                                                    <li class="nav-item">
+                                                        <a href="{{ url('pages/india-china-trade-dashboard') }}"
+                                                            class="nav-link parent">
+                                                            <span class="text">INDIA-CHINA TRADE
+                                                                DASHBOARD</span>
+                                                        </a>
+                                                        <div
+                                                            class="card has-full-image mt-05 vh-25 small-shadow rounded parent">
+                                                            <div class="bricklayer-column" bis_skin_checked="1">
+
+                                                                <div class="text-wrapper text-center"
+                                                                    bis_skin_checked="1"></div>
+                                                                <div class="image-wrapper shadow rounded"
+                                                                    bis_skin_checked="1">
+                                                                    <div class="overlay black-50" bis_skin_checked="1">
+                                                                    </div>
+                                                                    <img src="{{ URL::asset('images/jpg/dashboard1.png') }}"
+                                                                        class="image" alt="India China Trade Dashboard">
+                                                                </div>
+                                                                <a href="{{ url('pages/india-china-trade-dashboard') }}"
+                                                                    class="full-link"></a>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6 col-lg-6">
+                                            <div class="megamenu-item">
+                                                <ul class="nav-list list-unstyled">
+                                                    <li class="nav-item">
+                                                        <a href="{{ url('pages/china-census-dashboard') }}"
+                                                            class="nav-link parent">
+                                                            <span class="text">CHINA CENSUS DASHBOARD</span>
+                                                        </a>
+                                                        <div
+                                                            class="card has-full-image mt-05 vh-25 small-shadow rounded parent">
+                                                            <div class="bricklayer-column" bis_skin_checked="1">
+
+                                                                <div class="text-wrapper text-center"
+                                                                    bis_skin_checked="1"></div>
+                                                                <div class="image-wrapper shadow rounded"
+                                                                    bis_skin_checked="1">
+                                                                    <div class="overlay black-50" bis_skin_checked="1">
+                                                                    </div>
+                                                                    <img src="{{ URL::asset('images/jpg/dashboard2.png') }}"
+                                                                        class="image" alt="India China Trade Dashboard">
+                                                                </div>
+                                                                <a href="{{ url('pages/china-census-dashboard') }}"
+                                                                    class="full-link"></a>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6 col-lg-6">
+                                            <div class="megamenu-item">
+                                                <ul class="nav-list list-unstyled">
+                                                    <li class="nav-item">
+                                                        <a href="{{ url('pages/china-provinces-dashboard') }}"
+                                                            class="nav-link parent">
+                                                            <span class="text">CHINA'S PROVINCES
+                                                                DASHBOARD</span>
+                                                        </a>
+                                                        <div
+                                                            class="card has-full-image mt-05 vh-25 small-shadow rounded parent">
+                                                            <div class="bricklayer-column" bis_skin_checked="1">
+
+                                                                <div class="text-wrapper text-center"
+                                                                    bis_skin_checked="1"></div>
+                                                                <div class="image-wrapper shadow rounded"
+                                                                    bis_skin_checked="1">
+                                                                    <div class="overlay black-50" bis_skin_checked="1">
+                                                                    </div>
+                                                                    <img src="{{ URL::asset('images/jpg/dashboard3.png') }}"
+                                                                        class="image" alt="India China Trade Dashboard">
+                                                                </div>
+                                                                <a href="{{ url('pages/china-provinces-dashboard') }}"
+                                                                    class="full-link"></a>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-6 col-lg-6">
+                                            <div class="megamenu-item">
+                                                <ul class="nav-list list-unstyled">
+                                                    <li class="nav-item">
+                                                        <a href="{{ url('pages/china-public-diplomacy-dashboard') }}"
+                                                            class="nav-link parent">
+                                                            <span class="text">CHINA’S PUBLIC DIPLOMACY
+                                                                DASHBOARD</span>
+                                                        </a>
+                                                        <div
+                                                            class="card has-full-image mt-05 vh-25 small-shadow rounded parent">
+                                                            <div class="bricklayer-column" bis_skin_checked="1">
+
+                                                                <div class="text-wrapper text-center"
+                                                                    bis_skin_checked="1"></div>
+                                                                <div class="image-wrapper shadow rounded"
+                                                                    bis_skin_checked="1">
+                                                                    <div class="overlay black-50" bis_skin_checked="1">
+                                                                    </div>
+                                                                    <img src="{{ URL::asset('images/jpg/dashboard4.png') }}"
+                                                                        class="image" alt="India China Trade Dashboard">
+                                                                </div>
+                                                                <a href="{{ url('pages/china-public-diplomacy-dashboard') }}"
+                                                                    class="full-link"></a>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "WebPage",
-            "name": "ORCA Outputs and Ventures",
-            "description": "Research outputs including newsletters, dashboards, and publications on China and Asia.",
-            "url": "{{ url()->current() }}"
-        }
-    </script>
-
 @endsection

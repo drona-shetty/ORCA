@@ -1,14 +1,92 @@
 @extends('web')
+
 @section('title', $article->title)
 @section('meta_keywords', $article->keywords)
 @section('meta_description', $article->introduction)
+
 @section('meta')
+
+    <!-- SEO META -->
     <meta property="og:url" content="{{ url()->current() }}" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content="{{ $article->title }}" />
     <meta property="og:description" content="{{ $article->introduction }}" />
     <meta property="og:image" content="{{ asset('images/article/' . $article->title_image) }}" />
+
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ $article->title }}">
+    <meta name="twitter:description" content="{{ $article->introduction }}">
+    <meta name="twitter:image" content="{{ asset('images/article/' . $article->title_image) }}">
+
+    <link rel="canonical" href="{{ url()->current() }}">
+
+    <!-- ARTICLE STRUCTURED DATA (SEO BOOST) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "{{ url()->current() }}"
+      },
+      "headline": "{{ addslashes($article->title) }}",
+      "description": "{{ addslashes($article->introduction) }}",
+      "image": "{{ asset('images/article/' . $article->title_image) }}",
+      "datePublished": "{{ $article->created_at->toIso8601String() }}",
+      "dateModified": "{{ $article->updated_at->toIso8601String() }}",
+
+      "author": [
+        @foreach ($authors as $author)
+            @php
+                $author_meta = App\Models\UserMeta::where('user_id', $author->id)->first();
+            @endphp
+            {
+                "@type": "Person",
+                "name": "{{ $author->name }}",
+                "url": "{{ url('author/' . ($author_meta->slug ?? '')) }}"
+            }@if(!$loop->last),@endif
+        @endforeach
+      ],
+
+      "publisher": {
+        "@type": "Organization",
+        "name": "ORCA",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "{{ asset('images/ORCA Website Banner Logo PNG.png') }}"
+        }
+      }
+    }
+    </script>
+
+    <!-- BREADCRUMB STRUCTURED DATA -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "{{ url('/') }}"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "{{ $category->category ?? 'Article' }}",
+          "item": "{{ url('category/' . ($category->slug ?? '')) }}"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "{{ $article->title }}",
+          "item": "{{ url()->current() }}"
+        }
+      ]
+    }
+    </script>
+
 @endsection
 
 @section('content')
@@ -17,7 +95,6 @@
         img {
             max-width: 100%;
             height: auto;
-            /* background-size: contain; */
             object-fit: cover;
         }
 
@@ -27,23 +104,6 @@
 
         a {
             color: {{ $article->a_color ?? '#e41e25' }};
-        }
-
-        p.introduction {
-            text-align: justify;
-        }
-
-        .aticlesubtitle {
-            color: #fff !important;
-            text-align: center;
-        }
-
-        ul {
-            color: black;
-        }
-
-        li {
-            color: black;
         }
 
         .shock-section {
@@ -65,7 +125,6 @@
         @media (min-width: 1200px) {
             .authflex {
                 display: flex;
-                align-items: flex-start;
                 gap: 30px;
             }
 
@@ -75,39 +134,6 @@
 
             .wid30 {
                 width: 25%;
-                margin-top: 10px !important;
-            }
-
-            .thumbimg {
-                max-width: 70%;
-            }
-
-            /* Sticky author section */
-            .comments {
-                /* position: sticky; */
-                /* top: 100px; */
-                /* Space from top while scrolling */
-            }
-
-            .comments .comments-wrapper {
-                margin-bottom: 0px;
-                padding: 1rem 0rem;
-            }
-
-            .comments .comment {
-                padding: 1rem 0rem;
-            }
-
-            .shock-section .content h2 {
-                margin-bottom: 1rem;
-            }
-
-            .comments .comment .comment-content {
-                margin: 1rem 0rem;
-            }
-
-            .dpdf {
-                color: white !important;
             }
         }
 
@@ -116,165 +142,154 @@
                 -webkit-print-color-adjust: exact;
                 print-color-adjust: exact;
             }
-
-            .image-wrapper {
-                position: absolute;
-            }
-
-            .text-white {
-                color: #fff !important;
-            }
         }
     </style>
 
-    <!-- Banner -->
+    <!-- BANNER -->
     <section class="shock-section has-overlay">
         <div class="banner">
             <div class="content-wrapper">
-                <!-- Intro -->
+
                 <div class="extended-intro max-w-65 mb-25">
                     <h1 class="title white text-white">
                         <div class="logo-print-only">
                             <img src="{{ asset('images/ORCA Website Banner Logo PNG.png') }}"
-                                style=" width: 200px; margin-bottom:2rem; " alt="ORCA" />
+                                style="width: 200px; margin-bottom:2rem;" alt="ORCA" />
                         </div>
-                        <span class="text-1 text-center text-style-3 text-white">{{ $article->title }}</span>
+
+                        <span class="text-1 text-center text-style-3 text-white">
+                            {{ $article->title }}
+                        </span>
                     </h1>
-                    <!--  <p class="aticlesubtitle text-style-9 text-white">{{ $article->subtitle }}</p> -->
                 </div>
+
             </div>
-            <!-- Metadata -->
+
+            <!-- AUTHORS + META -->
             <div class="banner-metadata absolute">
+
                 @foreach ($authors as $author)
-                    <?php $author_meta = App\Models\UserMeta::where('user_id', $author->id)->first(); ?>
+                    @php
+                        $author_meta = App\Models\UserMeta::where('user_id', $author->id)->first();
+                    @endphp
+
                     <div class="item">
-                        <a href="{{ url('author/' . $author_meta->slug) }}">
+                        <a href="{{ url('author/' . $author_meta->slug) }}" rel="author">
                             <h5 class="text text-style-11 white">
                                 <i class="icon fas fa-user-circle"></i>{{ $author->name }}
                             </h5>
                         </a>
                     </div>
                 @endforeach
+
                 <div class="item">
-                    <h5 class="text text-style-11 white"><i
-                            class="icon fas fa-calendar-alt"></i><?= date_format(date_create($article->created_at), 'M j, Y') ?>
+                    <h5 class="text text-style-11 white">
+                        <i class="icon fas fa-calendar-alt"></i>
+                        {{ date_format(date_create($article->created_at), 'M j, Y') }}
                     </h5>
                 </div>
+
                 <a href="{{ url('category/' . $category->slug) }}">
                     <div class="item">
-                        <h5 class="text text-style-11 white"><i
-                                class="icon fas fa-layer-group"></i>{{ $category->category }}</h5>
+                        <h5 class="text text-style-11 white">
+                            <i class="icon fas fa-layer-group"></i>{{ $category->category }}
+                        </h5>
+                    </div>
                 </a>
+
             </div>
-        </div>
-        <!-- Image -->
-        <div class="image-wrapper">
-            <img src="{{ asset('images/article/' . $article->title_image) }}" class="image vh-100 fit-cover"
-                alt="This is an example description for this item." />
-        </div>
-        <!-- Overlay -->
-        <div class="overlay black-50 hidden-print bg-grad-c"></div>
+
+            <div class="image-wrapper">
+                <img src="{{ asset('images/article/' . $article->title_image) }}" class="image vh-100 fit-cover"
+                    alt="{{ $article->title }}" />
+            </div>
+
+            <div class="overlay black-50 hidden-print bg-grad-c"></div>
         </div>
     </section>
 
-    <!-- Post -->
+    <!-- CONTENT -->
     <section class="shock-section pt-5 pb-5">
         <div class="container max-w-75">
-            <div class="content scheme-1">
-                <div class="authflex">
-                    <div class="wid70">
-                        <!-- <p class="introduction">
-                            <strong>
-                                <em>
-                                    @if ($article->introduction != null)
-    {{ $article->introduction }}
-    @endif
-                                </em>
-                            </strong>
-                        </p> -->
 
+            <div class="content scheme-1">
+
+                <div class="authflex">
+
+                    <div class="wid70">
                         <div class="article-content">
                             {!! $article->content !!}
                         </div>
                     </div>
 
-                    <!-- Author -->
+                    <!-- AUTHOR SIDEBAR -->
                     <div class="comments mt-2 wid30">
-                        <h2>Author</span></h2>
-                        <div class="comments-wrapper">
-                            <!-- Comment -->
-                            <?php $i = 1; ?>
-                            @foreach ($authors as $author)
-                                <?php $author_meta = App\Models\UserMeta::where('user_id', $author->id)->first(); ?>
-                                <div id="comment-{{ $i }}" class="comment">
-                                    <div class="comment-metadata">
-                                        <div class="comment-author">
-                                            <div class="author-photo">
-                                                <img src="{{ asset('images/author') }}/{{ $author_meta->avatar }}"
-                                                    class="image shadow" alt="Image name">
-                                            </div>
-                                            <a href="{{ url('author/' . $author_meta->slug) }}"
-                                                class="link gray primary-hover">
-                                                <h5 class="author-name">{{ $author->name }}</h5>
-                                            </a>
-                                        </div>
 
+                        <h2>Author</h2>
+
+                        <div class="comments-wrapper">
+                            @foreach ($authors as $author)
+                                @php
+                                    $author_meta = App\Models\UserMeta::where('user_id', $author->id)->first();
+                                @endphp
+
+                                <div class="comment">
+                                    <div class="comment-author">
+                                        <img src="{{ asset('images/author/' . $author_meta->avatar) }}"
+                                            class="image shadow" alt="{{ $author->name }}">
+
+                                        <a href="{{ url('author/' . $author_meta->slug) }}" rel="author">
+                                            <h5 class="author-name">{{ $author->name }}</h5>
+                                        </a>
                                     </div>
+
                                     <div class="comment-content">
                                         <p>{{ $author_meta->about }}</p>
                                     </div>
                                 </div>
-                                <?php $i++; ?>
                             @endforeach
                         </div>
 
+                        <!-- PDF -->
                         <div class="pdf img">
-                            <h5 class="dpdf">Download PDF</span></h5>
+                            <h5 class="dpdf">Download PDF</h5>
+
                             <a target="_blank" data-id="{{ $article->id }}" id="pdfLink"
                                 href="{{ $article->subtitle }}">
-                                <img class="thumbimg"
-                                    src="@if ($article->introduction != null) {{ $article->introduction }} @endif">
+                                <img class="thumbimg" src="{{ $article->introduction }}">
                             </a>
-
                         </div>
 
-                    </div>
-
-                </div>
-
-                <!-- Tag Cloud -->
-                <div class="block-section">
-                    <h2>Tags</h2>
-                    <div class="tag-cloud">
-                        @foreach ($tags as $tag)
-                            <a href="{{ url('tag/' . $tag['slug']) }}" class="link">
-                                <span class="badge outline gray-50 primary-hover">
-                                    <span class="badge-text gray white-hover">{{ $tag['tag'] }}</span>
-                                </span>
-                            </a>
-                        @endforeach
                     </div>
                 </div>
 
             </div>
+
         </div>
     </section>
 
-    <!-- Side Widget -->
+    <!-- SOCIAL -->
     <div class="side-widget to-left invert-color mix-blend-difference d-only-desktop">
         <div class="item">
             <span class="widget label-icons">
-                <a href="https://www.facebook.com/sharer.php?u={{ url()->current() }}" class="link black black-hover"><i
-                        class="icon fab fa-facebook-f"></i></a>
-                <a href="https://twitter.com/share?&text={{ $article->title }}&url={{ url()->current() }}"
-                    class="link black black-hover"><i class="icon fab fa-twitter"></i></a>
-                <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ url()->current() }}"
-                    class="link black black-hover"><i class="icon fab fa-linkedin-in"></i></a>
-                <span class="label-line black"></span>
+                <a href="https://www.facebook.com/sharer.php?u={{ url()->current() }}" class="link black">
+                    <i class="icon fab fa-facebook-f"></i>
+                </a>
+
+                <a href="https://twitter.com/share?text={{ $article->title }}&url={{ url()->current() }}"
+                    class="link black">
+                    <i class="icon fab fa-twitter"></i>
+                </a>
+
+                <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ url()->current() }}" class="link black">
+                    <i class="icon fab fa-linkedin-in"></i>
+                </a>
             </span>
         </div>
     </div>
+
 @endsection
+
 @section('scripts')
     <script>
         $.ajaxSetup({
@@ -282,28 +297,25 @@
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
+
         $('#pdfLink').on('click', function(e) {
             e.preventDefault();
-            let url = $(this).attr('href');
-            let id = $(this).attr('data-id');
 
-            $.ajax({
-                url: '{{ url('pdf-log') }}', // your Laravel API route
-                method: 'POST',
-                data: {
-                    id: id
-                },
-                success: function() {
-                    // After logging, open the PDF in new tab
-                    window.open(url, '_blank');
-                }
+            let url = $(this).attr('href');
+            let id = $(this).data('id');
+
+            $.post('{{ url('pdf-log') }}', {
+                id: id
+            }, function() {
+                window.open(url, '_blank');
             });
         });
     </script>
 @endsection
-<?php
-$art = App\Models\Article::where('id', $article->id);
-$art->update([
-    'views' => $article->views + 1,
-]);
-?>
+
+@php
+    $art = App\Models\Article::where('id', $article->id);
+    $art->update([
+        'views' => $article->views + 1,
+    ]);
+@endphp
