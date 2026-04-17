@@ -110,9 +110,9 @@ if (Auth::check()) {
       "logo": "{{ asset('images/ORCALogowhite.png') }}",
       "description": "Research initiative focused on China, Asia, and India-China relations.",
       "sameAs": [
-        "https://twitter.com/",
-        "https://linkedin.com/",
-        "https://youtube.com/"
+        "https://orcasia.substack.com/",
+        "https://twitter.com/ORCA_India",
+        "https://www.linkedin.com/company/orcasia/"
       ]
     }
     </script>
