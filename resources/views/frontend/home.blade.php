@@ -275,15 +275,14 @@
     <!-- Dynamic slider -->
     <section id="home" class="shock-section dynamic-slider scheme-1" data-autoplay="10000">
 
-        {{-- Slide Index --}}
+        <!-- Index -->
         <div id="slide-index" class="slide-index">
             <span class="slide-index-current">
                 <span class="slide-index-inner"></span>
             </span>
             <span class="slide-index-total"></span>
         </div>
-
-        {{-- Navigation --}}
+        <!-- Navigation -->
         <nav class="slide-navigation">
             <a href="#home" class="slide-navigation-item-prev">
                 <span class="arrow-button prev scheme-1 primary">
@@ -306,80 +305,235 @@
                 </span>
             </a>
         </nav>
-
-        {{-- Info Toggle --}}
+        <!-- Info toggle -->
         <div class="slide-info-menu parent">
             <div id="slide-info-toggle" class="slide-info-toggle">
-                <span class="arrow-button cross scheme-2 primary"></span>
+                <span class="arrow-button cross scheme-2 primary">
+
+                </span>
             </div>
             <span class="slide-info-menu-close"></span>
         </div>
-
-        @php
-            // Merge all articles into one collection
-            $allSlides = collect()->merge($cat23)->merge($cat38)->merge($multiCategory)->values();
-        @endphp
-
-        {{-- Slides --}}
-        @foreach ($allSlides as $article)
+        <?php $latest_articles = App\Models\Article::select('id', 'author_id', 'category', 'read_time', 'title', 'slug', 'subtitle', 'title_image', 'created_at', 'introduction')
+            ->whereIn('category', ['23'])
+            ->where('status', 'approved')
+            ->orderBy('created_at', 'desc')
+            ->take(3)
+            ->get();
+        ?>
+        @foreach ($latest_articles as $article)
+            <?php $category = App\Models\Category::where('id', $article->category)->first();
+            $author_id = unserialize($article->author_id);
+            $author = App\Models\User::where('id', $author_id)->first();
+            ?>
+            <!-- Slide 2 -->
             <div class="slide-item side-intro bgblackslider {{ $loop->first ? 'current-slide' : '' }}">
-
-                {{-- Content --}}
+                <!-- Intro -->
                 <div class="slide-content">
+
                     <div class="slide-description">
+                        <a href="{{ url('article/' . $article->id) }}/{{ $article->slug }}"> <span
+                                class="text-2 text-style-7 text-italic white">{{ $article->title }}</span></a>
+                        <div class="description gray">
+                            <p class="subtitledesign">{{ $article->subtitle }}</p>
+                        </div>
+                        <div class="description gray line-clamp-3">
 
-                        {{-- Title (SEO optimized) --}}
-                        <a href="{{ route('article.show', $article->slug) }}">
-                            <h2 class="text-2 text-style-7 text-italic white">
-                                {{ $article->title }}
-                            </h2>
-                        </a>
-
-                        {{-- Subtitle --}}
-                        @if (!empty($article->subtitle))
-                            <p class="subtitledesign gray">
-                                {{ $article->subtitle }}
-                            </p>
-                        @endif
-
-                        {{-- Introduction --}}
-                        @if (!empty($article->introduction))
-                            <p class="gray line-clamp-3">
-                                {{ \Illuminate\Support\Str::limit(strip_tags($article->introduction), 150) }}
-                            </p>
-                        @endif
-
+                            <p>{{ $article->introduction }}</p>
+                        </div>
                     </div>
+                    <span class="slide-title text-1 text-style-1 black">&nbsp;</span>
                 </div>
+                <!-- Image -->
 
-                {{-- Image --}}
+                <!-- Image -->
                 <div class="slide-image-wrapper">
                     <div class="slide-image-inner">
-                        <x-webp-image src="{{ asset('images/article/' . $article->title_image) }}"
-                            alt="{{ $article->title }}" class="slide-image bg-color accent"
-                            loading="{{ $loop->first ? 'eager' : 'lazy' }}"
-                            fetchpriority="{{ $loop->first ? 'high' : 'auto' }}" />
+                        <x-webp-image src="{{ asset('images/article/' . $article->title_image) }}" alt="Image name"
+                            class="slide-image bg-color accent" />
+                    </div>
+                </div>
+                <!-- Action -->
+                <div class="slide-action">
+                    <div class="slide-action-inner">
+
                     </div>
                 </div>
 
-                {{-- Sidebar / Info --}}
+                <?php
+                $latest_articles = App\Models\Article::select('id', 'author_id', 'category', 'read_time', 'title', 'slug', 'subtitle', 'title_image', 'created_at', 'introduction')
+                    ->whereIn('category', ['20'])
+                    ->where('status', 'approved')
+                    ->orderBy('created_at', 'desc')
+                
+                    ->get();
+                ?>
+
+                <!-- Info menu -->
                 <div class="slide-info">
-                    @foreach ($sidebarArticles as $side)
-                        <a href="{{ route('article.show', $side->slug) }}" class="slide-info-item">
-                            <h3 class="slide-info-title">
-                                {{ $side->title }}
-                                <i class="fas fa-chevron-right icon"></i>
-                            </h3>
-                            @if ($side->subtitle)
-                                <span class="slide-info-detail">
-                                    {{ $side->subtitle }}
-                                </span>
-                            @endif
-                        </a>
-                    @endforeach
+                    <?php $articles = $latest_articles->take(5); ?>
+                    <?php $count = 0; ?>
+
+                    <?php if ($count < $articles->count()): ?>
+                    <?php $article = $articles->get($count); ?>
+                    <a href="{{ url('article/' . $article->id) }}/{{ $article->slug }}" class="slide-info-item">
+                        <h3 class="slide-info-title">{{ $article->title }} <i class="fas fa-chevron-right icon"></i></h3>
+                        <span class="slide-info-detail">{{ $article->subtitle }}</span>
+                    </a>
+                    <?php $count++; ?>
+                    <?php endif; ?>
+
+                </div>
+                <!-- Expander -->
+                <div class="slide-expander"></div>
+
+            </div>
+        @endforeach
+
+        <?php $latest_articles = App\Models\Article::select('id', 'author_id', 'category', 'read_time', 'title', 'slug', 'subtitle', 'title_image', 'created_at', 'introduction')
+            ->whereIn('category', ['38'])
+            ->where('status', 'approved')
+            ->orderBy('created_at', 'desc')
+            ->take(2)
+            ->get();
+        ?>
+        @foreach ($latest_articles as $article)
+            <?php $category = App\Models\Category::where('id', $article->category)->first();
+            $author_id = unserialize($article->author_id);
+            $author = App\Models\User::where('id', $author_id)->first();
+            ?>
+            <!-- Slide 1 -->
+            <div class="slide-item side-intro bgblackslider">
+                <!-- Intro -->
+                <div class="slide-content">
+                    <div class="slide-description">
+                        <a href="{{ url('article/' . $article->id) }}/{{ $article->slug }}"><span
+                                class="text-2 text-style-7 text-italic white">{{ $article->title }}</span></a>
+
+                    </div>
+                    <span class="slide-title text-1 text-style-1 black">&nbsp;</span>
+
+                </div>
+                <!-- Image -->
+                <div class="slide-image-wrapper">
+                    <div class="slide-image-inner">
+                        <x-webp-image src="{{ asset('images/article/' . $article->title_image) }}" alt="Image name"
+                            class="slide-image bg-color accent" />
+                    </div>
+                </div>
+                <!-- Action -->
+                <div class="slide-action">
+                    <div class="slide-action-inner">
+
+                    </div>
                 </div>
 
-                {{-- Expander --}}
+                <?php
+                $latest_articles = App\Models\Article::select('id', 'author_id', 'category', 'read_time', 'title', 'slug', 'subtitle', 'title_image', 'created_at', 'introduction')
+                    ->whereIn('category', ['20'])
+                    ->where('status', 'approved')
+                    ->orderBy('created_at', 'desc')
+                
+                    ->get();
+                ?>
+
+                <!-- Info menu -->
+                <div class="slide-info">
+                    <?php $articles = $latest_articles->take(5); ?>
+                    <?php $count = 0; ?>
+
+                    <?php if ($count < $articles->count()): ?>
+                    <?php $article = $articles->get($count); ?>
+                    <a href="{{ url('article/' . $article->id) }}/{{ $article->slug }}" class="slide-info-item">
+                        <h3 class="slide-info-title">{{ $article->title }} <i class="fas fa-chevron-right icon"></i></h3>
+                        <span class="slide-info-detail">{{ $article->subtitle }}</span>
+                    </a>
+                    <?php $count++; ?>
+                    <?php endif; ?>
+
+                </div>
+                <!-- Expander -->
+                <div class="slide-expander"></div>
+
+            </div>
+        @endforeach
+
+        <?php
+        $categories = [18, 22, 21, 36, 27, 26, 35];
+        $latest_articles = collect();
+        
+        foreach ($categories as $catId) {
+            $article = App\Models\Article::select('id', 'author_id', 'category', 'read_time', 'title', 'slug', 'subtitle', 'title_image', 'created_at', 'introduction')->where('category', $catId)->where('status', 'approved')->orderBy('created_at', 'desc')->first();
+        
+            if ($article) {
+                $latest_articles->push($article);
+            }
+        }
+        ?>
+        @foreach ($latest_articles as $article)
+            <?php $category = App\Models\Category::where('id', $article->category)->first();
+            $author_id = unserialize($article->author_id);
+            $author = App\Models\User::where('id', $author_id)->first();
+            ?>
+            <!-- Slide 2 -->
+            <div class="slide-item side-intro bgblackslider">
+                <!-- Intro -->
+                <div class="slide-content">
+
+                    <div class="slide-description">
+                        <a href="{{ url('article/' . $article->id) }}/{{ $article->slug }}"> <span
+                                class="text-2 text-style-7 text-italic white">{{ $article->title }}</span></a>
+                        <div class="description gray">
+                            <p class="subtitledesign">{{ $article->subtitle }}</p>
+                        </div>
+                        <div class="description gray line-clamp-3">
+
+                            <p>{{ $article->introduction }}</p>
+                        </div>
+                    </div>
+                    <span class="slide-title text-1 text-style-1 black">&nbsp;</span>
+                </div>
+                <!-- Image -->
+
+                <!-- Image -->
+                <div class="slide-image-wrapper">
+                    <div class="slide-image-inner">
+                        <x-webp-image src="{{ asset('images/article/' . $article->title_image) }}" alt="Image name"
+                            class="slide-image bg-color accent" />
+                    </div>
+                </div>
+                <!-- Action -->
+                <div class="slide-action">
+                    <div class="slide-action-inner">
+
+                    </div>
+                </div>
+
+                <?php
+                $latest_articles = App\Models\Article::select('id', 'author_id', 'category', 'read_time', 'title', 'slug', 'subtitle', 'title_image', 'created_at', 'introduction')
+                    ->whereIn('category', ['20'])
+                    ->where('status', 'approved')
+                    ->orderBy('created_at', 'desc')
+                
+                    ->get();
+                ?>
+
+                <!-- Info menu -->
+                <div class="slide-info">
+                    <?php $articles = $latest_articles->take(5); ?>
+                    <?php $count = 0; ?>
+
+                    <?php if ($count < $articles->count()): ?>
+                    <?php $article = $articles->get($count); ?>
+                    <a href="{{ url('article/' . $article->id) }}/{{ $article->slug }}" class="slide-info-item">
+                        <h3 class="slide-info-title">{{ $article->title }} <i class="fas fa-chevron-right icon"></i></h3>
+                        <span class="slide-info-detail">{{ $article->subtitle }}</span>
+                    </a>
+                    <?php $count++; ?>
+                    <?php endif; ?>
+
+                </div>
+                <!-- Expander -->
                 <div class="slide-expander"></div>
 
             </div>

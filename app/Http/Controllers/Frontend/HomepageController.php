@@ -4,63 +4,67 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Article;
+use Illuminate\Support\Facades\Cache;
 
 class HomepageController extends Controller
 {
     public function index()
     {
-        // Category 23 (Top 3)
-        $cat23 = Article::with(['category', 'author'])
+        // Hero slider category 23
+        $sliderPrimary = Article::with('category')
             ->where('category', 23)
             ->where('status', 'approved')
             ->latest()
             ->take(3)
             ->get();
 
-        // Category 38 (Top 2)
-        $cat38 = Article::with(['category', 'author'])
+        // Secondary slider category 38
+        $sliderSecondary = Article::with('category')
             ->where('category', 38)
             ->where('status', 'approved')
             ->latest()
             ->take(2)
             ->get();
 
-        // Latest from multiple categories (1 each)
-        $categories = [18, 22, 21, 36, 27, 26, 35];
-        $multiCategory = Article::with(['category', 'author'])
-            ->whereIn('category', $categories)
-            ->where('status', 'approved')
-            ->latest()
-            ->get()
-            ->groupBy('category')
-            ->map(fn($group) => $group->first());
+        // Mixed categories single latest each
+        $mixedCategories = [18, 22, 21, 36, 27, 26, 35];
 
-        // Sidebar (category 20)
-        $sidebarArticles = Article::where('category', 20)
-            ->where('status', 'approved')
-            ->latest()
-            ->take(5)
-            ->get();
+        $mixedSlides = collect();
 
-        $data = Cache::remember('homepage_data', 600, function () {
-
-            // Latest publications (one per category)
-            $categories = [18, 21, 22, 23];
-
-            $latestPublications = Article::with(['category', 'author'])
-                ->whereIn('category', $categories)
+        foreach ($mixedCategories as $catId) {
+            $article = Article::with('category')
+                ->where('category', $catId)
                 ->where('status', 'approved')
                 ->latest()
-                ->get()
-                ->groupBy('category')
-                ->map(fn($group) => $group->first())
-                ->values();
+                ->first();
 
-            return [
-                'latestPublications' => $latestPublications,
-            ];
-        });
+            if ($article) {
+                $mixedSlides->push($article);
+            }
+        }
 
-        return view('frontend.home', compact('cat23', 'cat38', 'multiCategory', 'sidebarArticles', 'data'));
+        // Latest publications section
+        $publicationCategories = [18, 21, 22, 23];
+
+        $latestPublications = collect();
+
+        foreach ($publicationCategories as $catId) {
+            $article = Article::with('category')
+                ->where('category', $catId)
+                ->where('status', 'approved')
+                ->latest()
+                ->first();
+
+            if ($article) {
+                $latestPublications->push($article);
+            }
+        }
+
+        return view('frontend.home', compact(
+            'sliderPrimary',
+            'sliderSecondary',
+            'mixedSlides',
+            'latestPublications'
+        ));
     }
 }
