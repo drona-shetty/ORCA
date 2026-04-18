@@ -349,7 +349,7 @@
                 <!-- Image -->
                 <div class="slide-image-wrapper">
                     <div class="slide-image-inner">
-                        <x-webp-image src="{{ asset('images/article/' . $article->title_image) }}" alt="Image name"
+                        <img src="{{ URL::asset('images/article/' . $article->title_image) }}" alt="Image name"
                             class="slide-image bg-color accent" />
                     </div>
                 </div>
@@ -417,7 +417,7 @@
                 <!-- Image -->
                 <div class="slide-image-wrapper">
                     <div class="slide-image-inner">
-                        <x-webp-image src="{{ asset('images/article/' . $article->title_image) }}" alt="Image name"
+                        <img src="{{ URL::asset('images/article/' . $article->title_image) }}" alt="Image name"
                             class="slide-image bg-color accent" />
                     </div>
                 </div>
@@ -498,7 +498,7 @@
                 <!-- Image -->
                 <div class="slide-image-wrapper">
                     <div class="slide-image-inner">
-                        <x-webp-image src="{{ asset('images/article/' . $article->title_image) }}" alt="Image name"
+                        <img src="{{ URL::asset('images/article/' . $article->title_image) }}" alt="Image name"
                             class="slide-image bg-color accent" />
                     </div>
                 </div>
@@ -542,189 +542,392 @@
     </section>
 
     <!-- Banner -->
-    {{-- ================= HERO SECTION ================= --}}
     <section class="shock-section has-overlay bg-color black">
         <div class="banner orcabannerheight">
-
             <div class="content-wrapper text-center">
+                <!-- Intro -->
                 <div class="basic-intro mb-35">
-
-                    {{-- SEO FIX: Proper heading hierarchy --}}
-                    <h1 class="title text-style-5">
+                    <h2 class="title text-style-5">
                         <span class="text-1 text-outline white-75">Huānyíng </span>
-                        <span class="text-2 white">
-                            to <mark class="animated-underline primary">ORCA!</mark>
-                        </span>
-                    </h1>
-
-                    <p class="description maxwd white-50">
-                        Delhi NCR-based research institute focused on Chinese politics and policy.
-                        We analyze the Communist Party of China’s internal dynamics and global impact.
-                    </p>
-
+                        <span class="text-2 white">to <mark class="animated-underline primary">ORCA!</mark></span>
+                    </h2>
+                    <div class="description maxwd white-50">
+                        <p>We are a Delhi NCR based research institute focusing on domestic Chinese politics/policy!<br>Our
+                            work studies the Communist Party of China's internal maneuvering and how that impacts China's
+                            external posturing.
+                        </p>
+                    </div>
                 </div>
+                <!-- Button
+                                      <div class="gallery">
+                                        <a href="https://vimeo.com/222990241" class="button outline lightbox-link white tertiary-hover magnetic-effect">
+                                          <span class="button-text white white-hover">Know More</span>
+                                          <i class="fa-solid fa-arrow-right button-icon white white-hover"></i>
+                                        </a>
+                                      </div> -->
             </div>
-
-            {{-- VIDEO --}}
+            <!-- Video -->
             <div class="image-wrapper">
-                <video class="video vh-75 fit-cover" autoplay muted loop playsinline preload="none">
-                    {{-- PERFORMANCE FIX --}}
-                    <source src="{{ asset('assets/videos/2.mp4') }}" type="video/mp4">
+                <video class="video vh-75 fit-cover" playsinline="playsinline" autoplay="autoplay" muted="muted"
+                    loop="loop">
+                    <source src="assets/videos/2.mp4" type="video/mp4">
                 </video>
             </div>
-
+            <!-- Overlay -->
             <div class="overlay black-50"></div>
         </div>
     </section>
-
-    {{-- ================= COUNTER ================= --}}
-    <section class="shock-section pb-5">
+    <!-- Counter -->
+    <section class="shock-section pb-5" data-lax="inertia-top">
         <div class="container max-w-85">
             <div class="holder p-25 climb shadow rounded bg-color white">
-                <div class="row text-center">
-
-                    @php
-                        $stats = [
-                            [
-                                'value' => 1100,
-                                'label' => 'Publications',
-                                'desc' => 'Op-eds, reports, and research outputs',
-                            ],
-                            [
-                                'value' => 1500,
-                                'label' => 'Daily Newsletters',
-                                'desc' => 'Insights on China and regional affairs',
-                            ],
-                            [
-                                'value' => 205,
-                                'label' => 'Countries Reached',
-                                'desc' => 'Global readership across continents',
-                            ],
-                        ];
-                    @endphp
-
-                    @foreach ($stats as $stat)
-                        <div class="col-md-4">
-                            <div class="counter text-style-5" data-value="{{ $stat['value'] }}" data-symbol="+"></div>
-
-                            <h2 class="title text-style-11 black">{{ $stat['label'] }}</h2>
-                            <p class="description text-dark">{{ $stat['desc'] }}</p>
+                <div class="row">
+                    <div class="col-12 col-sm-6 col-md-4">
+                        <!-- Counter -->
+                        <div class="animated-counter">
+                            <div class="item text-center">
+                                <div class="counter text-style-5" data-value="1100" data-symbol="+" data-duration="2500"
+                                    data-text-bg-color="transparent" data-text-color="var(--primary-color)"></div>
+                                <h3 class="title text-style-11 black">Publications</h3>
+                                <p style="color:#000;" class="description">Ranging from op-eds to issue briefs, special
+                                    reports and more by our Community of senior and junior Scholars
+                                </p>
+                            </div>
                         </div>
-                    @endforeach
-
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4">
+                        <!-- Counter -->
+                        <div class="animated-counter">
+                            <div class="item text-center">
+                                <div class="counter text-style-5" data-value="1500" data-symbol="+" data-duration="2500"
+                                    data-text-bg-color="transparent" data-text-color="var(--primary-color)"></div>
+                                <h3 class="title text-style-11 black">Daily CiCM Newsletters</h3>
+                                <p style="color:#000;" class="description">Subscribers every evening receive crisp
+                                    insights divided into sections: China’s social media, regional news and an India Watch
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 col-md-4">
+                        <!-- Counter -->
+                        <div class="animated-counter">
+                            <div class="item text-center">
+                                <div class="counter text-style-5" data-value="205" data-symbol="" data-duration="2500"
+                                    data-text-bg-color="transparent" data-text-color="var(--primary-color)"></div>
+                                <h3 class="title text-style-11 black">Countries Reached</h3>
+                                <p style="color:#000;" class="description">Within an year of inception, ORCA began being
+                                    accessed and read across continents with consistent readership that has only grown over
+                                    time</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    {{-- ================= MAP SECTION ================= --}}
-    <section class="shock-section text-center">
+    <!-- Scrolling text -->
+    <section class="shock-section">
 
-        <div class="basic-intro mb-35">
-            <h2 class="title text-style-5">
-                <mark class="primary">China's Provinces</mark> at a glance
-            </h2>
+        <div class="content-wrapper text-center">
+            <!-- Intro -->
+            <div class="basic-intro mb-35">
+                <h2 class="title text-style-5">
+                    <span class="text-2 black"><mark class="animated-underline primary">China's Provinces </mark></span>
+                    <span class="text-2 black">at a glance</span>
 
-            <p class="description maxwd">
-                Explore key facts about each province through our interactive map.
-            </p>
+                </h2>
+                <div class="description maxwd">
+                    <p>Made with the intention of furthering our audience's knowledge, our interactive map will tell you
+                        some interesting facts about each province in China.
+                    </p>
+                </div>
+            </div>
+
         </div>
 
-        {{-- Load map separately --}}
+        <style>
+            *:focus {
+                outline: none !important;
+            }
+
+            html {
+                scroll-behavior: smooth;
+            }
+
+            svg {
+                max-width: 75%;
+                display: block;
+                margin: 0 auto;
+            }
+
+            .state {
+                fill: #B7B7B7 !important;
+            }
+
+            .state:hover {
+                fill: #CC0033 !important;
+                cursor: pointer;
+            }
+
+            path {
+                transition: fill .25s ease-in-out;
+            }
+
+            .modal {
+                text-align: center;
+            }
+
+            .btn {
+                background-color: #CC0033;
+                color: white;
+            }
+
+            .btn:hover {
+                background-color: black;
+                color: white !important;
+            }
+
+            .hq {
+                color: #CC0033;
+            }
+
+            .zoomer {
+                position: relative;
+                fill: #e74646 !important;
+            }
+
+            .zoomer:hover {
+                z-index: 99999999;
+                fill: #393939 !important;
+            }
+
+            .zoomerautonomus {
+                position: relative;
+                fill: #e86e6e !important;
+            }
+
+            .zoomerautonomus:hover {
+                z-index: 99999999;
+                fill: #6f6f6f !important;
+            }
+
+            .zoomermunicipal {
+                position: relative;
+                fill: #762b2b !important;
+            }
+
+            .zoomermunicipal:hover {
+                z-index: 99999999;
+                fill: #000000 !important;
+            }
+
+            .card.boxed .image-wrapper {
+                width: 100% !important;
+            }
+
+            .label-vertical.outline {
+                bottom: 50% !important;
+                right: -15% !important;
+            }
+
+            .label-vertical {
+                transform: rotate(270deg) !important;
+            }
+
+            .card.boxed .box {
+                left: 37%;
+            }
+
+            .label-vertical.outline {
+                -webkit-text-fill-color: white;
+            }
+
+            .cls-1 {
+                fill: #e86e6e !important;
+            }
+
+            .cls-2 {
+                fill: #e74646 !important;
+            }
+
+            .cls-3 {
+                fill: #762b2b !important;
+            }
+
+            .cls-4 {
+                font-size: 36px;
+            }
+
+            .cls-5 {
+                fill: none;
+                stroke: #fff;
+                stroke-linecap: square;
+                stroke-linejoin: bevel;
+                stroke-width: 4.61px;
+            }
+
+            .cls-6 {
+                fill: #f7f7ea;
+                fill-rule: evenodd;
+            }
+
+            .card.boxed .box {
+                left: 37% !important;
+            }
+
+            @media (max-width: 991px) {
+                .card.boxed .box {
+                    left: 10% !important;
+                    bottom: -21rem;
+                }
+
+                .label-vertical.outline {
+                    display: none;
+                }
+            }
+
+            @media (max-width: 375px) {
+                .card.boxed .box {
+                    left: 10% !important;
+                }
+            }
+        </style>
+
+        <!--- map content -->
+
         @include('frontend.map')
 
+        <!-- map content ends -->
     </section>
 
-    {{-- ================= BLOG SECTION ================= --}}
-    <section class="shock-section pt-5 pb-5 bg-dark">
+    <!-- Blog -->
+    <section class="shock-section pt-5 pb-5" data-bg-color="#16161b">
         <div class="container">
-
+            <!-- Intro -->
             <div class="basic-intro mb-35 text-center">
-                <h2 class="title text-style-5 text-white">
-                    Latest Publications
+                <h2 class="title text-style-5">
+                    <span class="text-1 primary scheme-2">Latest Publications</span>
                 </h2>
+                <!-- <div class="description text-style-12 gray">
+                                        <p>Over many years of work, we have built a very successful history in our area of expertise.</p>
+                                      </div> -->
             </div>
-
-            <div class="swiper slider has-gap has-navigation has-pagination">
-
+            <!-- Posts -->
+            <div class="swiper slider has-gap has-navigation has-pagination scheme-2 tertiary" data-columns="3,2,1,1">
                 <div class="swiper-wrapper">
+                    <?php
+                    $categories = [18, 21, 22, 23];
+                    $latest_articles = collect();
+                    
+                    foreach ($categories as $catId) {
+                        $article = App\Models\Article::select('id', 'author_id', 'category', 'read_time', 'title', 'slug', 'subtitle', 'title_image', 'created_at', 'introduction')->where('category', $catId)->where('status', 'approved')->orderBy('created_at', 'desc')->first();
+                    
+                        if ($article) {
+                            $latest_articles->push($article);
+                        }
+                    }
+                    ?>
 
-                    @foreach ($latestPublications as $article)
+                    @foreach ($latest_articles as $article)
+                        <?php $category = App\Models\Category::where('id', $article->category)->first();
+                        $author_id = unserialize($article->author_id);
+                        $author = App\Models\User::where('id', $author_id)->first();
+                        ?>
                         <div class="swiper-slide">
+                            <div class="card has-full-image vh-65 small-shadow parent">
 
-                            <article class="card has-full-image vh-65 small-shadow">
-
-                                {{-- IMAGE --}}
-                                <div class="image-wrapper">
-                                    <x-webp-image src="{{ asset('images/article/' . $article->title_image) }}"
-                                        alt="{{ $article->title }}" class="image" loading="lazy" />
+                                <!-- Image -->
+                                <div class="image-wrapper hover-up-down">
+                                    <img src="{{ URL::asset('images/article/' . $article->title_image) }}"
+                                        alt="Image name" class="image" />
                                 </div>
+                                <div class="card-body align-v-bottom">
+                                    <div class="holder">
 
-                                {{-- CONTENT --}}
-                                <div class="card-body">
+                                        <span class="badge primary-50 primary-hover">
+                                            <span class="badge-text white white-hover">{{ $category->category }}</span>
+                                        </span>
 
-                                    <span class="badge primary-50">
-                                        {{ $article->category->category ?? 'News' }}
-                                    </span>
-
-                                    <h3 class="title text-style-9 white">
-                                        <a href="{{ route('article.show', $article->slug) }}">
-                                            {{ $article->title }}
-                                        </a>
-                                    </h3>
-
-                                    <div class="tag-cloud">
-                                        <span>{{ $article->author->name ?? 'Admin' }}</span>
-                                        <span>{{ $article->created_at->format('M d, Y') }}</span>
+                                        <h3 class="title text-style-9 white">{{ $article->title }}</h3>
+                                        <hr class="gray-25">
+                                        <!-- Tag cloud -->
+                                        <div class="tag-cloud">
+                                            <a href="#your-link" class="link">
+                                                <span class="badge outline gray-50 secondary-hover">
+                                                    <span class="badge-text gray white-hover">{{ $author->name }}</span>
+                                                </span>
+                                            </a>
+                                            <a href="#your-link" class="link">
+                                                <span class="badge outline gray-50 secondary-hover">
+                                                    <span
+                                                        class="badge-text gray white-hover"><?= date_format(date_create($article->created_at), 'F j, Y') ?></span>
+                                                </span>
+                                            </a>
+                                        </div>
                                     </div>
-
                                 </div>
-
+                                <!-- Overlay -->
                                 <div class="overlay black"></div>
-
-                            </article>
-
+                                <!-- Link -->
+                                <a href="{{ url('article/' . $article->id) }}/{{ $article->slug }}"
+                                    class="full-link"></a>
+                            </div>
                         </div>
                     @endforeach
 
                 </div>
-
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev rounded-circle"></div>
+                <div class="swiper-button-next rounded-circle"></div>
                 <div class="swiper-pagination"></div>
-
             </div>
         </div>
     </section>
 
-    {{-- ================= CTA SECTION ================= --}}
-    <section class="shock-section pt-4 pb-4">
+    <!--  Banner -->
+    <section class="shock-section pt-2 pb-4 has-holder">
         <div class="container">
-            <div class="row align-items-center">
+            <div class="row g-4">
+                <div class="col-12 col-md-6 align-v-center">
+                    <!-- Image -->
+                    <div class="gallery image-mirror align-h-left">
+                        <div class="image-wrapper">
+                            <img src="{{ URL::asset('/images/AdobeStock_165506040.jpg') }}" alt="Image name"
+                                class="image shadow" />
+                        </div>
 
-                <div class="col-md-6">
-                    <x-webp-image src="{{ asset('/images/AdobeStock_165506040.jpg') }}" alt="Write for ORCA"
-                        class="image shadow" loading="lazy" />
+                    </div>
                 </div>
+                <div class="col-12 col-md-6 align-v-center">
+                    <!-- Intro -->
+                    <div class="side-intro">
+                        <h1 class="title text-style-1 text-offset">
+                            <span class="text-1 filled black">Write for</span>
+                            <span class="text-1 outline black" data-lax="inertia-top">Write for</span>
+                        </h1>
+                        <h2 class="title text-style-5">
+                            <span class="text-1 primary text-outline text-italic scheme-2"><span
+                                    class="typed-text"></span></span>
+                        </h2>
 
-                <div class="col-md-6">
+                        <!-- Srings -->
+                        <div id="typed-strings">
+                            <span>ORCA !</span>
+                            <span>ORCA !</span>
 
-                    <h2 class="title text-style-5">
-                        Write for <span class="primary">ORCA</span>
-                    </h2>
-
-                    <p class="description gray">
-                        Contribute your research and insights on China and Asia.
-                    </p>
-
-                    <a href="{{ url('pages/submission') }}" class="button double-edge transparent black-hover">
-
-                        <span>Get Started</span>
-
-                    </a>
-
+                        </div>
+                        <div class="description gray">
+                            <p>Join us in advancing knowledge and fostering meaningful discussions on China and Asia!
+                                Check out ORCA's submission guidelines and send us your work.</p>
+                        </div>
+                        <!-- Button -->
+                        <a href="{{ url('pages/submission') }}" class="button double-edge transparent black-hover">
+                            <span class="button-text black white-hover">Get Started</span>
+                            <i class="fa-solid fa-arrow-right button-icon black white-hover"></i>
+                            <span class="overlay gray-50 magnetic-effect"></span>
+                        </a>
+                    </div>
                 </div>
-
             </div>
         </div>
     </section>
