@@ -7,14 +7,6 @@
 @section('meta_description', 'Listen to The ORCA Files podcast featuring expert discussions on China, geopolitics, and Asia by ORCA.')
 
 @section('content')
-
-    {{-- Remove old jQuery slim unless REQUIRED --}}
-    {{-- If needed, load deferred --}}
-    {{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script> --}}
-
-    {{-- Lazy-load hover plugin only if used --}}
-    {{-- <script src="{{ asset('js/jquery.hoverplay.js') }}" defer></script> --}}
-
     <style>
         #video-wrapper {
             display: flex;

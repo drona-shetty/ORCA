@@ -136,16 +136,16 @@
                                 </div>
                             </div>
                             <!-- <div class="form-row row">
-                                               <div class="form-col col-12">
-                                                  <div class="form-check">
-                                                     <input type="checkbox" name="terms" id="InputCheckbox" class="form-check-input" required="required">
-                                                     <label class="form-label form-check-label" for="InputCheckbox">
-                                                     I agree to the <a href="#" class="link white primary-hover"><u>terms of use</u>.</a>
-                                                     </label>
-                                                     <div class="invalid-feedback">Please accept the terms to continue.</div>
-                                                  </div>
-                                               </div>
-                                            </div> -->
+                                                   <div class="form-col col-12">
+                                                      <div class="form-check">
+                                                         <input type="checkbox" name="terms" id="InputCheckbox" class="form-check-input" required="required">
+                                                         <label class="form-label form-check-label" for="InputCheckbox">
+                                                         I agree to the <a href="#" class="link white primary-hover"><u>terms of use</u>.</a>
+                                                         </label>
+                                                         <div class="invalid-feedback">Please accept the terms to continue.</div>
+                                                      </div>
+                                                   </div>
+                                                </div> -->
                             <div class="form-row row">
                                 <div class="form-col form-floating col-12">
                                     <!-- Button -->
@@ -163,9 +163,9 @@
                             </div>
 
                             <!--
-                                               <span class="form-alert success">Your have subscribed successfully. Thanks.</span>
-                                               <span class="form-alert error">Your have subscribed successfully. Thanks.</span>
-                                               -->
+                                                   <span class="form-alert success">Your have subscribed successfully. Thanks.</span>
+                                                   <span class="form-alert error">Your have subscribed successfully. Thanks.</span>
+                                                   -->
                         </form>
 
                     </div>
@@ -231,11 +231,8 @@
                         <div class="card has-full-image is-featured-left small-shadow rounded parent">
 
                             <div class="image-wrapper hover-up-down">
-                                <img
-                                    src="{{ asset('images/article/' . $featured->title_image) }}"
-                                    alt="{{ $featured->title }}"
-                                    class="image"
-                                    loading="lazy" />
+                                <img src="{{ asset('images/article/' . $featured->title_image) }}"
+                                    alt="{{ $featured->title }}" class="image" loading="lazy" />
                             </div>
 
                             <div class="card-body align-v-bottom">
@@ -266,8 +263,7 @@
                                             <div class="item">
                                                 <a href="{{ url('author/' . $authorMeta->slug) }}"
                                                     class="link gray primary-hover d-flex">
-                                                    <x-webp-image
-                                                        width="25"
+                                                    <x-webp-image width="25"
                                                         style="margin-right:5px;border-radius:50%;"
                                                         src="{{ asset('images/author/' . $authorMeta->avatar) }}"
                                                         alt="{{ $author->name }}" />
@@ -360,8 +356,8 @@
                                                             $author_meta = App\Models\UserMeta::where('user_id', $author->id)->first(); ?>
                                                             <div class="card-metadata">
                                                                 <!-- <div class="item">
-                                                      <a href="{{ url('author/' . $author_meta->slug) }}" class="link gray tertiary-hover"><i class="fa-solid fa-user icon"></i>{{ $author->name }}</a>
-                                                    </div> -->
+                                                          <a href="{{ url('author/' . $author_meta->slug) }}" class="link gray tertiary-hover"><i class="fa-solid fa-user icon"></i>{{ $author->name }}</a>
+                                                        </div> -->
                                                                 <div class="item">
                                                                     <a href="#" class="link gray tertiary-hover"><i
                                                                             class="fa-solid fa-calendar-days icon"></i><?= date_format(date_create($article->created_at), 'F j, Y') ?></a>
@@ -501,10 +497,8 @@
             </div>
         </div>
     </section>
-
-    </main>
-
-    <script src="https://code.jquery.com/jquery-1.8.2.js"></script>
+@endsection
+@section('scripts')
     <script>
         $(document).ready(function() {
             $('.ajax-form').submit(function(event) {
@@ -618,7 +612,6 @@
         document.getElementById('popup-box-dismiss').addEventListener('click', subscribeUser);
     </script>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function() {
             $("#v-1-tab").addClass("active");

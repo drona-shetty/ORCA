@@ -35,6 +35,8 @@ if (Auth::check()) {
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@ORCA_India">
+    <meta name="twitter:creator" content="@ORCA_India">
     <meta name="twitter:title" content="@yield('title')">
     <meta name="twitter:description" content="@yield('meta_description')">
     <meta name="twitter:image" content="@yield('og_image', asset('images/ORCALogowhite.png'))">
@@ -123,6 +125,7 @@ if (Auth::check()) {
             box-shadow: 0 8px 15px -5px rgba(0, 0, 0, 0.15);
         }
     </style>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
 <!-- Preloader -->
 <div id="preloader" class="preloader" data-delay="0" data-limit="3000">
@@ -1462,7 +1465,6 @@ if (Auth::check()) {
         });
     </script>
     <!-- Vendor JavaScript -->
-    <script src="{{ asset('js/vendor/jquery.min.js') }}"></script>
     <script src="{{ asset('js/vendor/imagesloaded.pkgd.min.js') }}"></script>
     <script src="{{ asset('js/vendor/preloader.min.js') }}"></script>
     <script src="{{ asset('js/vendor/inview.min.js') }}"></script>

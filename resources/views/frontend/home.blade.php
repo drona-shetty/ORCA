@@ -8,19 +8,8 @@
     add new levels of research insight to how China perceives the world.')
 
 @section('content')
-
-    <script src="https://code.jquery.com/jquery-1.8.2.js"></script>
-
     <meta property="og:image" name="thumbnail" content="http://orcasia.org/images/orcadesign.png" />
 
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@ORCA_India">
-    <meta name="twitter:creator" content="@ORCA_India">
-    <meta name="twitter:title" content="ORCA | Organisation for Research on China & Asia">
-    <meta name="twitter:description"
-        content="With assessments based on real-time, ground level chatter in/on/from #China, ORCA seeks to add new levels of research insight to how China perceives the world.">
-    <meta name="twitter:image" content="{{ asset('/images/orcadesign.png') }}">
-    <meta name="twitter:card" content="summary_large_image">
     <?php
     if (Auth::check()) {
         $user_meta = App\Models\UserMeta::where('user_id', Auth::user()->id)->first();
@@ -249,7 +238,6 @@
         document.getElementById('popup-box-dismiss').addEventListener('click', subscribeUser);
     </script>
 
-    <script src="https://code.jquery.com/jquery-1.8.2.js"></script>
     <script>
         $(document).ready(function() {
             $('.ajax-form').submit(function(event) {
@@ -287,14 +275,15 @@
     <!-- Dynamic slider -->
     <section id="home" class="shock-section dynamic-slider scheme-1" data-autoplay="10000">
 
-        <!-- Index -->
+        {{-- Slide Index --}}
         <div id="slide-index" class="slide-index">
             <span class="slide-index-current">
                 <span class="slide-index-inner"></span>
             </span>
             <span class="slide-index-total"></span>
         </div>
-        <!-- Navigation -->
+
+        {{-- Navigation --}}
         <nav class="slide-navigation">
             <a href="#home" class="slide-navigation-item-prev">
                 <span class="arrow-button prev scheme-1 primary">
@@ -317,235 +306,80 @@
                 </span>
             </a>
         </nav>
-        <!-- Info toggle -->
+
+        {{-- Info Toggle --}}
         <div class="slide-info-menu parent">
             <div id="slide-info-toggle" class="slide-info-toggle">
-                <span class="arrow-button cross scheme-2 primary">
-
-                </span>
+                <span class="arrow-button cross scheme-2 primary"></span>
             </div>
             <span class="slide-info-menu-close"></span>
         </div>
-        <?php $latest_articles = App\Models\Article::select('id', 'author_id', 'category', 'read_time', 'title', 'slug', 'subtitle', 'title_image', 'created_at', 'introduction')
-            ->whereIn('category', ['23'])
-            ->where('status', 'approved')
-            ->orderBy('created_at', 'desc')
-            ->take(3)
-            ->get();
-        ?>
-        @foreach ($latest_articles as $article)
-            <?php $category = App\Models\Category::where('id', $article->category)->first();
-            $author_id = unserialize($article->author_id);
-            $author = App\Models\User::where('id', $author_id)->first();
-            ?>
-            <!-- Slide 2 -->
+
+        @php
+            // Merge all articles into one collection
+            $allSlides = collect()->merge($cat23)->merge($cat38)->merge($multiCategory)->values();
+        @endphp
+
+        {{-- Slides --}}
+        @foreach ($allSlides as $article)
             <div class="slide-item side-intro bgblackslider {{ $loop->first ? 'current-slide' : '' }}">
-                <!-- Intro -->
-                <div class="slide-content">
 
-                    <div class="slide-description">
-                        <a href="{{ url('article/' . $article->id) }}/{{ $article->slug }}"> <span
-                                class="text-2 text-style-7 text-italic white">{{ $article->title }}</span></a>
-                        <div class="description gray">
-                            <p class="subtitledesign">{{ $article->subtitle }}</p>
-                        </div>
-                        <div class="description gray line-clamp-3">
-
-                            <p>{{ $article->introduction }}</p>
-                        </div>
-                    </div>
-                    <span class="slide-title text-1 text-style-1 black">&nbsp;</span>
-                </div>
-                <!-- Image -->
-
-                <!-- Image -->
-                <div class="slide-image-wrapper">
-                    <div class="slide-image-inner">
-                        <x-webp-image src="{{ asset('images/article/' . $article->title_image) }}" alt="Image name"
-                            class="slide-image bg-color accent" />
-                    </div>
-                </div>
-                <!-- Action -->
-                <div class="slide-action">
-                    <div class="slide-action-inner">
-
-                    </div>
-                </div>
-
-                <?php
-                $latest_articles = App\Models\Article::select('id', 'author_id', 'category', 'read_time', 'title', 'slug', 'subtitle', 'title_image', 'created_at', 'introduction')
-                    ->whereIn('category', ['20'])
-                    ->where('status', 'approved')
-                    ->orderBy('created_at', 'desc')
-                
-                    ->get();
-                ?>
-
-                <!-- Info menu -->
-                <div class="slide-info">
-                    <?php $articles = $latest_articles->take(5); ?>
-                    <?php $count = 0; ?>
-
-                    <?php if ($count < $articles->count()): ?>
-                    <?php $article = $articles->get($count); ?>
-                    <a href="{{ url('article/' . $article->id) }}/{{ $article->slug }}" class="slide-info-item">
-                        <h3 class="slide-info-title">{{ $article->title }} <i class="fas fa-chevron-right icon"></i></h3>
-                        <span class="slide-info-detail">{{ $article->subtitle }}</span>
-                    </a>
-                    <?php $count++; ?>
-                    <?php endif; ?>
-
-                </div>
-                <!-- Expander -->
-                <div class="slide-expander"></div>
-
-            </div>
-        @endforeach
-
-        <?php $latest_articles = App\Models\Article::select('id', 'author_id', 'category', 'read_time', 'title', 'slug', 'subtitle', 'title_image', 'created_at', 'introduction')
-            ->whereIn('category', ['38'])
-            ->where('status', 'approved')
-            ->orderBy('created_at', 'desc')
-            ->take(2)
-            ->get();
-        ?>
-        @foreach ($latest_articles as $article)
-            <?php $category = App\Models\Category::where('id', $article->category)->first();
-            $author_id = unserialize($article->author_id);
-            $author = App\Models\User::where('id', $author_id)->first();
-            ?>
-            <!-- Slide 1 -->
-            <div class="slide-item side-intro bgblackslider">
-                <!-- Intro -->
+                {{-- Content --}}
                 <div class="slide-content">
                     <div class="slide-description">
-                        <a href="{{ url('article/' . $article->id) }}/{{ $article->slug }}"><span
-                                class="text-2 text-style-7 text-italic white">{{ $article->title }}</span></a>
+
+                        {{-- Title (SEO optimized) --}}
+                        <a href="{{ route('article.show', $article->slug) }}">
+                            <h2 class="text-2 text-style-7 text-italic white">
+                                {{ $article->title }}
+                            </h2>
+                        </a>
+
+                        {{-- Subtitle --}}
+                        @if (!empty($article->subtitle))
+                            <p class="subtitledesign gray">
+                                {{ $article->subtitle }}
+                            </p>
+                        @endif
+
+                        {{-- Introduction --}}
+                        @if (!empty($article->introduction))
+                            <p class="gray line-clamp-3">
+                                {{ \Illuminate\Support\Str::limit(strip_tags($article->introduction), 150) }}
+                            </p>
+                        @endif
 
                     </div>
-                    <span class="slide-title text-1 text-style-1 black">&nbsp;</span>
-
                 </div>
-                <!-- Image -->
+
+                {{-- Image --}}
                 <div class="slide-image-wrapper">
                     <div class="slide-image-inner">
-                        <x-webp-image src="{{ asset('images/article/' . $article->title_image) }}" alt="Image name"
-                            class="slide-image bg-color accent" />
-                    </div>
-                </div>
-                <!-- Action -->
-                <div class="slide-action">
-                    <div class="slide-action-inner">
-
+                        <x-webp-image src="{{ asset('images/article/' . $article->title_image) }}"
+                            alt="{{ $article->title }}" class="slide-image bg-color accent"
+                            loading="{{ $loop->first ? 'eager' : 'lazy' }}"
+                            fetchpriority="{{ $loop->first ? 'high' : 'auto' }}" />
                     </div>
                 </div>
 
-                <?php
-                $latest_articles = App\Models\Article::select('id', 'author_id', 'category', 'read_time', 'title', 'slug', 'subtitle', 'title_image', 'created_at', 'introduction')
-                    ->whereIn('category', ['20'])
-                    ->where('status', 'approved')
-                    ->orderBy('created_at', 'desc')
-                
-                    ->get();
-                ?>
-
-                <!-- Info menu -->
+                {{-- Sidebar / Info --}}
                 <div class="slide-info">
-                    <?php $articles = $latest_articles->take(5); ?>
-                    <?php $count = 0; ?>
-
-                    <?php if ($count < $articles->count()): ?>
-                    <?php $article = $articles->get($count); ?>
-                    <a href="{{ url('article/' . $article->id) }}/{{ $article->slug }}" class="slide-info-item">
-                        <h3 class="slide-info-title">{{ $article->title }} <i class="fas fa-chevron-right icon"></i></h3>
-                        <span class="slide-info-detail">{{ $article->subtitle }}</span>
-                    </a>
-                    <?php $count++; ?>
-                    <?php endif; ?>
-
-                </div>
-                <!-- Expander -->
-                <div class="slide-expander"></div>
-
-            </div>
-        @endforeach
-
-        <?php
-        $categories = [18, 22, 21, 36, 27, 26, 35];
-        $latest_articles = collect();
-        
-        foreach ($categories as $catId) {
-            $article = App\Models\Article::select('id', 'author_id', 'category', 'read_time', 'title', 'slug', 'subtitle', 'title_image', 'created_at', 'introduction')->where('category', $catId)->where('status', 'approved')->orderBy('created_at', 'desc')->first();
-        
-            if ($article) {
-                $latest_articles->push($article);
-            }
-        }
-        ?>
-        @foreach ($latest_articles as $article)
-            <?php $category = App\Models\Category::where('id', $article->category)->first();
-            $author_id = unserialize($article->author_id);
-            $author = App\Models\User::where('id', $author_id)->first();
-            ?>
-            <!-- Slide 2 -->
-            <div class="slide-item side-intro bgblackslider">
-                <!-- Intro -->
-                <div class="slide-content">
-
-                    <div class="slide-description">
-                        <a href="{{ url('article/' . $article->id) }}/{{ $article->slug }}"> <span
-                                class="text-2 text-style-7 text-italic white">{{ $article->title }}</span></a>
-                        <div class="description gray">
-                            <p class="subtitledesign">{{ $article->subtitle }}</p>
-                        </div>
-                        <div class="description gray line-clamp-3">
-
-                            <p>{{ $article->introduction }}</p>
-                        </div>
-                    </div>
-                    <span class="slide-title text-1 text-style-1 black">&nbsp;</span>
-                </div>
-                <!-- Image -->
-
-                <!-- Image -->
-                <div class="slide-image-wrapper">
-                    <div class="slide-image-inner">
-                        <x-webp-image src="{{ asset('images/article/' . $article->title_image) }}" alt="Image name"
-                            class="slide-image bg-color accent" />
-                    </div>
-                </div>
-                <!-- Action -->
-                <div class="slide-action">
-                    <div class="slide-action-inner">
-
-                    </div>
+                    @foreach ($sidebarArticles as $side)
+                        <a href="{{ route('article.show', $side->slug) }}" class="slide-info-item">
+                            <h3 class="slide-info-title">
+                                {{ $side->title }}
+                                <i class="fas fa-chevron-right icon"></i>
+                            </h3>
+                            @if ($side->subtitle)
+                                <span class="slide-info-detail">
+                                    {{ $side->subtitle }}
+                                </span>
+                            @endif
+                        </a>
+                    @endforeach
                 </div>
 
-                <?php
-                $latest_articles = App\Models\Article::select('id', 'author_id', 'category', 'read_time', 'title', 'slug', 'subtitle', 'title_image', 'created_at', 'introduction')
-                    ->whereIn('category', ['20'])
-                    ->where('status', 'approved')
-                    ->orderBy('created_at', 'desc')
-                
-                    ->get();
-                ?>
-
-                <!-- Info menu -->
-                <div class="slide-info">
-                    <?php $articles = $latest_articles->take(5); ?>
-                    <?php $count = 0; ?>
-
-                    <?php if ($count < $articles->count()): ?>
-                    <?php $article = $articles->get($count); ?>
-                    <a href="{{ url('article/' . $article->id) }}/{{ $article->slug }}" class="slide-info-item">
-                        <h3 class="slide-info-title">{{ $article->title }} <i class="fas fa-chevron-right icon"></i></h3>
-                        <span class="slide-info-detail">{{ $article->subtitle }}</span>
-                    </a>
-                    <?php $count++; ?>
-                    <?php endif; ?>
-
-                </div>
-                <!-- Expander -->
+                {{-- Expander --}}
                 <div class="slide-expander"></div>
 
             </div>
@@ -554,389 +388,192 @@
     </section>
 
     <!-- Banner -->
+    {{-- ================= HERO SECTION ================= --}}
     <section class="shock-section has-overlay bg-color black">
         <div class="banner orcabannerheight">
+
             <div class="content-wrapper text-center">
-                <!-- Intro -->
                 <div class="basic-intro mb-35">
-                    <h2 class="title text-style-5">
+
+                    {{-- SEO FIX: Proper heading hierarchy --}}
+                    <h1 class="title text-style-5">
                         <span class="text-1 text-outline white-75">Huānyíng </span>
-                        <span class="text-2 white">to <mark class="animated-underline primary">ORCA!</mark></span>
-                    </h2>
-                    <div class="description maxwd white-50">
-                        <p>We are a Delhi NCR based research institute focusing on domestic Chinese politics/policy!<br>Our
-                            work studies the Communist Party of China's internal maneuvering and how that impacts China's
-                            external posturing.
-                        </p>
-                    </div>
+                        <span class="text-2 white">
+                            to <mark class="animated-underline primary">ORCA!</mark>
+                        </span>
+                    </h1>
+
+                    <p class="description maxwd white-50">
+                        Delhi NCR-based research institute focused on Chinese politics and policy.
+                        We analyze the Communist Party of China’s internal dynamics and global impact.
+                    </p>
+
                 </div>
             </div>
-            <!-- Video -->
+
+            {{-- VIDEO --}}
             <div class="image-wrapper">
-                <video class="video vh-75 fit-cover" playsinline="playsinline" autoplay="autoplay" muted="muted"
-                    loop="loop">
-                    <source src="assets/videos/2.mp4" type="video/mp4">
+                <video class="video vh-75 fit-cover" autoplay muted loop playsinline preload="none">
+                    {{-- PERFORMANCE FIX --}}
+                    <source src="{{ asset('assets/videos/2.mp4') }}" type="video/mp4">
                 </video>
             </div>
-            <!-- Overlay -->
+
             <div class="overlay black-50"></div>
         </div>
     </section>
-    <!-- Counter -->
-    <section class="shock-section pb-5" data-lax="inertia-top">
+
+    {{-- ================= COUNTER ================= --}}
+    <section class="shock-section pb-5">
         <div class="container max-w-85">
             <div class="holder p-25 climb shadow rounded bg-color white">
-                <div class="row">
-                    <div class="col-12 col-sm-6 col-md-4">
-                        <!-- Counter -->
-                        <div class="animated-counter">
-                            <div class="item text-center">
-                                <div class="counter text-style-5" data-value="1100" data-symbol="+" data-duration="2500"
-                                    data-text-bg-color="transparent" data-text-color="var(--primary-color)"></div>
-                                <h3 class="title text-style-11 black">Publications</h3>
-                                <p style="color:#000;" class="description">Ranging from op-eds to issue briefs, special
-                                    reports and more by our Community of senior and junior Scholars
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-6 col-md-4">
-                        <!-- Counter -->
-                        <div class="animated-counter">
-                            <div class="item text-center">
-                                <div class="counter text-style-5" data-value="1500" data-symbol="+" data-duration="2500"
-                                    data-text-bg-color="transparent" data-text-color="var(--primary-color)"></div>
-                                <h3 class="title text-style-11 black">Daily CiCM Newsletters</h3>
-                                <p style="color:#000;" class="description">Subscribers every evening receive crisp
-                                    insights divided into sections: China’s social media, regional news and an India Watch
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-6 col-md-4">
-                        <!-- Counter -->
-                        <div class="animated-counter">
-                            <div class="item text-center">
-                                <div class="counter text-style-5" data-value="205" data-symbol="" data-duration="2500"
-                                    data-text-bg-color="transparent" data-text-color="var(--primary-color)"></div>
-                                <h3 class="title text-style-11 black">Countries Reached</h3>
-                                <p style="color:#000;" class="description">Within an year of inception, ORCA began being
-                                    accessed and read across continents with consistent readership that has only grown over
-                                    time</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+                <div class="row text-center">
 
-    <!-- Scrolling text -->
-    <section class="shock-section">
-        <div class="content-wrapper text-center">
-            <!-- Intro -->
-            <div class="basic-intro mb-35">
-                <h2 class="title text-style-5">
-                    <span class="text-2 black"><mark class="animated-underline primary">China's Provinces </mark></span>
-                    <span class="text-2 black">at a glance</span>
+                    @php
+                        $stats = [
+                            [
+                                'value' => 1100,
+                                'label' => 'Publications',
+                                'desc' => 'Op-eds, reports, and research outputs',
+                            ],
+                            [
+                                'value' => 1500,
+                                'label' => 'Daily Newsletters',
+                                'desc' => 'Insights on China and regional affairs',
+                            ],
+                            [
+                                'value' => 205,
+                                'label' => 'Countries Reached',
+                                'desc' => 'Global readership across continents',
+                            ],
+                        ];
+                    @endphp
 
-                </h2>
-                <div class="description maxwd">
-                    <p>Made with the intention of furthering our audience's knowledge, our interactive map will tell you
-                        some interesting facts about each province in China.
-                    </p>
-                </div>
-            </div>
+                    @foreach ($stats as $stat)
+                        <div class="col-md-4">
+                            <div class="counter text-style-5" data-value="{{ $stat['value'] }}" data-symbol="+"></div>
 
-        </div>
-
-        <style>
-            *:focus {
-                outline: none !important;
-            }
-
-            html {
-                scroll-behavior: smooth;
-            }
-
-            svg {
-                max-width: 75%;
-                display: block;
-                margin: 0 auto;
-            }
-
-            .state {
-                fill: #B7B7B7 !important;
-            }
-
-            .state:hover {
-                fill: #CC0033 !important;
-                cursor: pointer;
-            }
-
-            path {
-                transition: fill .25s ease-in-out;
-            }
-
-            .modal {
-                text-align: center;
-            }
-
-            .btn {
-                background-color: #CC0033;
-                color: white;
-            }
-
-            .btn:hover {
-                background-color: black;
-                color: white !important;
-            }
-
-            .hq {
-                color: #CC0033;
-            }
-
-            .zoomer {
-                position: relative;
-                fill: #e74646 !important;
-            }
-
-            .zoomer:hover {
-                z-index: 99999999;
-                fill: #393939 !important;
-            }
-
-            .zoomerautonomus {
-                position: relative;
-                fill: #e86e6e !important;
-            }
-
-            .zoomerautonomus:hover {
-                z-index: 99999999;
-                fill: #6f6f6f !important;
-            }
-
-            .zoomermunicipal {
-                position: relative;
-                fill: #762b2b !important;
-            }
-
-            .zoomermunicipal:hover {
-                z-index: 99999999;
-                fill: #000000 !important;
-            }
-
-            .card.boxed .image-wrapper {
-                width: 100% !important;
-            }
-
-            .label-vertical.outline {
-                bottom: 50% !important;
-                right: -15% !important;
-            }
-
-            .label-vertical {
-                transform: rotate(270deg) !important;
-            }
-
-            .card.boxed .box {
-                left: 37%;
-            }
-
-            .label-vertical.outline {
-                -webkit-text-fill-color: white;
-            }
-
-            .cls-1 {
-                fill: #e86e6e !important;
-            }
-
-            .cls-2 {
-                fill: #e74646 !important;
-            }
-
-            .cls-3 {
-                fill: #762b2b !important;
-            }
-
-            .cls-4 {
-                font-size: 36px;
-            }
-
-            .cls-5 {
-                fill: none;
-                stroke: #fff;
-                stroke-linecap: square;
-                stroke-linejoin: bevel;
-                stroke-width: 4.61px;
-            }
-
-            .cls-6 {
-                fill: #f7f7ea;
-                fill-rule: evenodd;
-            }
-
-            .card.boxed .box {
-                left: 37% !important;
-            }
-
-            @media (max-width: 991px) {
-                .card.boxed .box {
-                    left: 10% !important;
-                    bottom: -21rem;
-                }
-
-                .label-vertical.outline {
-                    display: none;
-                }
-            }
-
-            @media (max-width: 375px) {
-                .card.boxed .box {
-                    left: 10% !important;
-                }
-            }
-        </style>
-
-        <!--- map content -->
-
-        @include('frontend.map')
-
-        <!-- map content ends -->
-    </section>
-
-    <!-- Blog -->
-    <section class="shock-section pt-5 pb-5" data-bg-color="#16161b">
-        <div class="container">
-            <!-- Intro -->
-            <div class="basic-intro mb-35 text-center">
-                <h2 class="title text-style-5">
-                    <span class="text-1 primary scheme-2">Latest Publications</span>
-                </h2>
-                <!-- <div class="description text-style-12 gray">
-                                        <p>Over many years of work, we have built a very successful history in our area of expertise.</p>
-                                      </div> -->
-            </div>
-            <!-- Posts -->
-            <div class="swiper slider has-gap has-navigation has-pagination scheme-2 tertiary" data-columns="3,2,1,1">
-                <div class="swiper-wrapper">
-                    <?php
-                    $categories = [18, 21, 22, 23];
-                    $latest_articles = collect();
-                    
-                    foreach ($categories as $catId) {
-                        $article = App\Models\Article::select('id', 'author_id', 'category', 'read_time', 'title', 'slug', 'subtitle', 'title_image', 'created_at', 'introduction')->where('category', $catId)->where('status', 'approved')->orderBy('created_at', 'desc')->first();
-                    
-                        if ($article) {
-                            $latest_articles->push($article);
-                        }
-                    }
-                    ?>
-
-                    @foreach ($latest_articles as $article)
-                        <?php $category = App\Models\Category::where('id', $article->category)->first();
-                        $author_id = unserialize($article->author_id);
-                        $author = App\Models\User::where('id', $author_id)->first();
-                        ?>
-                        <div class="swiper-slide">
-                            <div class="card has-full-image vh-65 small-shadow parent">
-
-                                <!-- Image -->
-                                <div class="image-wrapper hover-up-down">
-                                    <x-webp-image src="{{ asset('images/article/' . $article->title_image) }}"
-                                        alt="Image name" class="image" />
-                                </div>
-                                <div class="card-body align-v-bottom">
-                                    <div class="holder">
-
-                                        <span class="badge primary-50 primary-hover">
-                                            <span class="badge-text white white-hover">{{ $category->category }}</span>
-                                        </span>
-
-                                        <h3 class="title text-style-9 white">{{ $article->title }}</h3>
-                                        <hr class="gray-25">
-                                        <!-- Tag cloud -->
-                                        <div class="tag-cloud">
-                                            <a href="#your-link" class="link">
-                                                <span class="badge outline gray-50 secondary-hover">
-                                                    <span class="badge-text gray white-hover">{{ $author->name }}</span>
-                                                </span>
-                                            </a>
-                                            <a href="#your-link" class="link">
-                                                <span class="badge outline gray-50 secondary-hover">
-                                                    <span
-                                                        class="badge-text gray white-hover"><?= date_format(date_create($article->created_at), 'F j, Y') ?></span>
-                                                </span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Overlay -->
-                                <div class="overlay black"></div>
-                                <!-- Link -->
-                                <a href="{{ url('article/' . $article->id) }}/{{ $article->slug }}"
-                                    class="full-link"></a>
-                            </div>
+                            <h2 class="title text-style-11 black">{{ $stat['label'] }}</h2>
+                            <p class="description text-dark">{{ $stat['desc'] }}</p>
                         </div>
                     @endforeach
 
                 </div>
-                <div class="swiper-button-prev rounded-circle"></div>
-                <div class="swiper-button-next rounded-circle"></div>
-                <div class="swiper-pagination"></div>
             </div>
         </div>
     </section>
 
-    <!--  Banner -->
-    <section class="shock-section pt-2 pb-4 has-holder">
+    {{-- ================= MAP SECTION ================= --}}
+    <section class="shock-section text-center">
+
+        <div class="basic-intro mb-35">
+            <h2 class="title text-style-5">
+                <mark class="primary">China's Provinces</mark> at a glance
+            </h2>
+
+            <p class="description maxwd">
+                Explore key facts about each province through our interactive map.
+            </p>
+        </div>
+
+        {{-- Load map separately --}}
+        @include('frontend.map')
+
+    </section>
+
+    {{-- ================= BLOG SECTION ================= --}}
+    <section class="shock-section pt-5 pb-5 bg-dark">
         <div class="container">
-            <div class="row g-4">
-                <div class="col-12 col-md-6 align-v-center">
-                    <!-- Image -->
-                    <div class="gallery image-mirror align-h-left">
-                        <div class="image-wrapper">
-                            <x-webp-image src="{{ asset('/images/AdobeStock_165506040.jpg') }}" alt="Image name"
-                                class="image shadow" />
-                        </div>
 
-                    </div>
+            <div class="basic-intro mb-35 text-center">
+                <h2 class="title text-style-5 text-white">
+                    Latest Publications
+                </h2>
+            </div>
+
+            <div class="swiper slider has-gap has-navigation has-pagination">
+
+                <div class="swiper-wrapper">
+
+                    @foreach ($latestPublications as $article)
+                        <div class="swiper-slide">
+
+                            <article class="card has-full-image vh-65 small-shadow">
+
+                                {{-- IMAGE --}}
+                                <div class="image-wrapper">
+                                    <x-webp-image src="{{ asset('images/article/' . $article->title_image) }}"
+                                        alt="{{ $article->title }}" class="image" loading="lazy" />
+                                </div>
+
+                                {{-- CONTENT --}}
+                                <div class="card-body">
+
+                                    <span class="badge primary-50">
+                                        {{ $article->category->category ?? 'News' }}
+                                    </span>
+
+                                    <h3 class="title text-style-9 white">
+                                        <a href="{{ route('article.show', $article->slug) }}">
+                                            {{ $article->title }}
+                                        </a>
+                                    </h3>
+
+                                    <div class="tag-cloud">
+                                        <span>{{ $article->author->name ?? 'Admin' }}</span>
+                                        <span>{{ $article->created_at->format('M d, Y') }}</span>
+                                    </div>
+
+                                </div>
+
+                                <div class="overlay black"></div>
+
+                            </article>
+
+                        </div>
+                    @endforeach
+
                 </div>
-                <div class="col-12 col-md-6 align-v-center">
-                    <!-- Intro -->
-                    <div class="side-intro">
-                        <h1 class="title text-style-1 text-offset">
-                            <span class="text-1 filled black">Write for</span>
-                            <span class="text-1 outline black" data-lax="inertia-top">Write for</span>
-                        </h1>
-                        <h2 class="title text-style-5">
-                            <span class="text-1 primary text-outline text-italic scheme-2"><span
-                                    class="typed-text"></span></span>
-                        </h2>
 
-                        <!-- Srings -->
-                        <div id="typed-strings">
-                            <span>ORCA !</span>
-                            <span>ORCA !</span>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-pagination"></div>
 
-                        </div>
-                        <div class="description gray">
-                            <p>Join us in advancing knowledge and fostering meaningful discussions on China and Asia!
-                                Check out ORCA's submission guidelines and send us your work.</p>
-                        </div>
-                        <!-- Button -->
-                        <a href="{{ url('pages/submission') }}" class="button double-edge transparent black-hover">
-                            <span class="button-text black white-hover">Get Started</span>
-                            <i class="fa-solid fa-arrow-right button-icon black white-hover"></i>
-                            <span class="overlay gray-50 magnetic-effect"></span>
-                        </a>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
 
-    </main>
+    {{-- ================= CTA SECTION ================= --}}
+    <section class="shock-section pt-4 pb-4">
+        <div class="container">
+            <div class="row align-items-center">
+
+                <div class="col-md-6">
+                    <x-webp-image src="{{ asset('/images/AdobeStock_165506040.jpg') }}" alt="Write for ORCA"
+                        class="image shadow" loading="lazy" />
+                </div>
+
+                <div class="col-md-6">
+
+                    <h2 class="title text-style-5">
+                        Write for <span class="primary">ORCA</span>
+                    </h2>
+
+                    <p class="description gray">
+                        Contribute your research and insights on China and Asia.
+                    </p>
+
+                    <a href="{{ url('pages/submission') }}" class="button double-edge transparent black-hover">
+
+                        <span>Get Started</span>
+
+                    </a>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
 
     <!-- Scroll to Top -->
     <div class="side-widget to-right invert-color mix-blend-difference">
