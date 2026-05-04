@@ -24,14 +24,14 @@
                             <font style="color:#E74646">Capital: </font>
                         </strong>Hefei
                         <br><strong>
-                            <font style="color:#E74646">Population Density 2023: </font>
+                            <font style="color:#E74646">Population Density 2024: </font>
                         </strong>439.096
                         <br><strong>
                             <font style="color:#E74646">Party Secretary: </font>
                         </strong>Liang Yanshun
                         <br><strong>
-                            <font style="color:#E74646">Contribution to GDP in 2024: </font>
-                        </strong>3.77%
+                            <font style="color:#E74646">Contribution to GDP in 2025: </font>
+                        </strong>3.80%
                         <br><strong>
                             <font style="color:#E74646">Did you know? </font>
                         </strong>Anhui translates to “Peaceful Beauty" and is famous for producing Xuan Paper and Hui
@@ -72,14 +72,14 @@
                             <font style="color:#E74646">Capital: </font>
                         </strong>Beijing
                         <br><strong>
-                            <font style="color:#E74646">Population Density 2023: </font>
-                        </strong>1332.115
+                            <font style="color:#E74646">Population Density 2024: </font>
+                        </strong>1330.286
                         <br><strong>
                             <font style="color:#E74646">Party Secretary: </font>
                         </strong>Yin Li
                         <br><strong>
-                            <font style="color:#E74646">Contribution to GDP in 2024: </font>
-                        </strong>3.719%
+                            <font style="color:#E74646">Contribution to GDP in 2025: </font>
+                        </strong>3.78%
                         <br><strong>
                             <font style="color:#E74646">Did you know? </font>
                         </strong>Beijing has been the capital of China 6 times; the first time was in 221 BC during the
@@ -121,14 +121,14 @@
                             <font style="color:#E74646">Capital: </font>
                         </strong>Chongqing
                         <br><strong>
-                            <font style="color:#E74646">Population Density 2023: </font>
+                            <font style="color:#E74646">Population Density 2024: </font>
                         </strong>387.257
                         <br><strong>
                             <font style="color:#E74646">Party Secretary: </font>
                         </strong>Yuan Jiajun
                         <br><strong>
-                            <font style="color:#E74646">Contribution to GDP in 2024: </font>
-                        </strong>2.402%
+                            <font style="color:#E74646">Contribution to GDP in 2025: </font>
+                        </strong>2.42%
                         <br><strong>
                             <font style="color:#E74646">Did you know? </font>
                         </strong>Chongqing is the deepest inland port in China along the shores of the Yangtze, Jialing
@@ -169,14 +169,14 @@
                             <font style="color:#E74646">Capital: </font>
                         </strong>Fuzhou
                         <br><strong>
-                            <font style="color:#E74646">Population Density 2023: </font>
+                            <font style="color:#E74646">Population Density 2024: </font>
                         </strong>337.611
                         <br><strong>
                             <font style="color:#E74646">Party Secretary: </font>
                         </strong>Zhou Zuyi
                         <br><strong>
-                            <font style="color:#E74646">Contribution to GDP in 2024: </font>
-                        </strong>4.310%
+                            <font style="color:#E74646">Contribution to GDP in 2025: </font>
+                        </strong>4.32%
                         <br><strong>
                             <font style="color:#E74646">Did you know? </font>
                         </strong>Located at a strategic maritime position across Taiwan, China's third aircraft carrier
@@ -218,14 +218,14 @@
                             <font style="color:#E74646">Capital: </font>
                         </strong>Lanzhou
                         <br><strong>
-                            <font style="color:#E74646">Population Density 2023: </font>
+                            <font style="color:#E74646">Population Density 2024: </font>
                         </strong>57.891
                         <br><strong>
                             <font style="color:#E74646">Party Secretary: </font>
                         </strong>Hu Changsheng
                         <br><strong>
-                            <font style="color:#E74646">Contribution to GDP in 2024: </font>
-                        </strong>0.970%
+                            <font style="color:#E74646">Contribution to GDP in 2025: </font>
+                        </strong>0.98%
                         <br><strong>
                             <font style="color:#E74646">Did you know? </font>
                         </strong>Political prisoners are often sent here. The Jiuquan Satellite Launch Center, the first
@@ -268,14 +268,14 @@
                             <font style="color:#E74646">Capital: </font>
                         </strong>Guangzhou
                         <br><strong>
-                            <font style="color:#E74646">Population Density 2023: </font>
+                            <font style="color:#E74646">Population Density 2024: </font>
                         </strong>707.067
                         <br><strong>
                             <font style="color:#E74646">Party Secretary: </font>
                         </strong>Huang Kunming
                         <br><strong>
-                            <font style="color:#E74646">Contribution to GDP in 2024: </font>
-                        </strong>10.567%
+                            <font style="color:#E74646">Contribution to GDP in 2025: </font>
+                        </strong>10.46%
                         <br><strong>
                             <font style="color:#E74646">Did you know? </font>
                         </strong>Most populous province of China and has global economic hubs such as Shenzhen, and
@@ -316,14 +316,14 @@
                             <font style="color:#E74646">Capital: </font>
                         </strong>Nanning
                         <br><strong>
-                            <font style="color:#E74646">Population Density 2023: </font>
+                            <font style="color:#E74646">Population Density 2024: </font>
                         </strong>211.574
                         <br><strong>
                             <font style="color:#E74646">Party Secretary: </font>
                         </strong>Chen Gang
                         <br><strong>
-                            <font style="color:#E74646">Contribution to GDP in 2024: </font>
-                        </strong>2.137%
+                            <font style="color:#E74646">Contribution to GDP in 2025: </font>
+                        </strong>2.13%
                         <br><strong>
                             <font style="color:#E74646">Did you know? </font>
                         </strong>Guangxi is the only autonomous region in China that has both land ports and deepwater
@@ -365,14 +365,14 @@
                             <font style="color:#E74646">Capital: </font>
                         </strong>Guiyang
                         <br><strong>
-                            <font style="color:#E74646">Population Density 2023: </font>
+                            <font style="color:#E74646">Population Density 2024: </font>
                         </strong>219.353
                         <br><strong>
                             <font style="color:#E74646">Party Secretary: </font>
                         </strong>Xu Lin
                         <br><strong>
-                            <font style="color:#E74646">Contribution to GDP in 2024: </font>
-                        </strong>1.691%
+                            <font style="color:#E74646">Contribution to GDP in 2025: </font>
+                        </strong>1.69%
                         <br><strong>
                             <font style="color:#E74646">Did you know? </font>
                         </strong>In 1935, during the Long March, Mao Zedong consolidated his power and took control of
@@ -413,14 +413,14 @@
                             <font style="color:#E74646">Capital: </font>
                         </strong>Haikou
                         <br><strong>
-                            <font style="color:#E74646">Population Density 2023: </font>
+                            <font style="color:#E74646">Population Density 2024: </font>
                         </strong>295.016
                         <br><strong>
                             <font style="color:#E74646">Party Secretary: </font>
                         </strong>Fang Fei
                         <br><strong>
-                            <font style="color:#E74646">Contribution to GDP in 2024: </font>
-                        </strong>0.592%
+                            <font style="color:#E74646">Contribution to GDP in 2025: </font>
+                        </strong>0.58%
                         <br><strong>
                             <font style="color:#E74646">Did you know? </font>
                         </strong>The world's first island-looping high-speed railway (HSR) — stretching 653 km — was
@@ -461,14 +461,14 @@
                             <font style="color:#E74646">Capital: </font>
                         </strong>Zhengzhou
                         <br><strong>
-                            <font style="color:#E74646">Population Density 2023: </font>
+                            <font style="color:#E74646">Population Density 2024: </font>
                         </strong>587.725
                         <br><strong>
                             <font style="color:#E74646">Party Secretary: </font>
                         </strong>Liu Ning
                         <br><strong>
-                            <font style="color:#E74646">Contribution to GDP in 2024: </font>
-                        </strong>4.744%
+                            <font style="color:#E74646">Contribution to GDP in 2025: </font>
+                        </strong>4.78%
                         <br><strong>
                             <font style="color:#E74646">Did you know? </font>
                         </strong>Henan literally means "south of (Yellow) river" and it is considered as the cradle of
@@ -510,14 +510,14 @@
                             <font style="color:#E74646">Capital: </font>
                         </strong>Shijiazhuang
                         <br><strong>
-                            <font style="color:#E74646">Population Density 2023: </font>
-                        </strong>391.578
+                            <font style="color:#E74646">Population Density 2024: </font>
+                        </strong>390.784
                         <br><strong>
                             <font style="color:#E74646">Party Secretary: </font>
                         </strong>Ni Yuefeng
                         <br><strong>
-                            <font style="color:#E74646">Contribution to GDP in 2024: </font>
-                        </strong>3.546%
+                            <font style="color:#E74646">Contribution to GDP in 2025: </font>
+                        </strong>3.54%
                         <br><strong>
                             <font style="color:#E74646">Did you know? </font>
                         </strong>The Beidaihe beach resort, famously known for the CPC's annual summer retreat where
@@ -559,14 +559,14 @@
                             <font style="color:#E74646">Capital: </font>
                         </strong>Harbin
                         <br><strong>
-                            <font style="color:#E74646">Population Density 2023: </font>
-                        </strong>67.326
+                            <font style="color:#E74646">Population Density 2024: </font>
+                        </strong>66.601
                         <br><strong>
                             <font style="color:#E74646">Party Secretary: </font>
                         </strong>Xu Qin
                         <br><strong>
-                            <font style="color:#E74646">Contribution to GDP in 2024: </font>
-                        </strong>1.229%
+                            <font style="color:#E74646">Contribution to GDP in 2025: </font>
+                        </strong>1.21%
                         <br><strong>
                             <font style="color:#E74646">Did you know? </font>
                         </strong>Heilongjiang literally means "Black Dragon River" and borders Russia with Amur River
@@ -608,14 +608,14 @@
                             <font style="color:#E74646">Capital: </font>
                         </strong>Wuhan
                         <br><strong>
-                            <font style="color:#E74646">Population Density 2023: </font>
+                            <font style="color:#E74646">Population Density 2024: </font>
                         </strong>314.040
                         <br><strong>
                             <font style="color:#E74646">Party Secretary: </font>
                         </strong>Wang Zhonglin
                         <br><strong>
-                            <font style="color:#E74646">Contribution to GDP in 2024: </font>
-                        </strong>4.478%
+                            <font style="color:#E74646">Contribution to GDP in 2025: </font>
+                        </strong>4.49%
                         <br><strong>
                             <font style="color:#E74646">Did you know? </font>
                         </strong>The Three Gorges Dam situated in the province is the world's largest hydroelectric
@@ -657,14 +657,14 @@
                             <font style="color:#E74646">Capital: </font>
                         </strong>Changsha
                         <br><strong>
-                            <font style="color:#E74646">Population Density 2023: </font>
+                            <font style="color:#E74646">Population Density 2024: </font>
                         </strong>310.104
                         <br><strong>
                             <font style="color:#E74646">Party Secretary: </font>
                         </strong>Shen Xiaoming
                         <br><strong>
-                            <font style="color:#E74646">Contribution to GDP in 2024: </font>
-                        </strong>3.971%
+                            <font style="color:#E74646">Contribution to GDP in 2025: </font>
+                        </strong>3.97%
                         <br><strong>
                             <font style="color:#E74646">Did you know? </font>
                         </strong>Hunan is the birth province of China's first Chairman Mao Zedong. It is famous for
@@ -705,14 +705,14 @@
                             <font style="color:#E74646">Capital: </font>
                         </strong>Nanjing
                         <br><strong>
-                            <font style="color:#E74646">Population Density 2023: </font>
+                            <font style="color:#E74646">Population Density 2024: </font>
                         </strong>830.994
                         <br><strong>
                             <font style="color:#E74646">Party Secretary: </font>
                         </strong>Xin Changxing
                         <br><strong>
-                            <font style="color:#E74646">Contribution to GDP in 2024: </font>
-                        </strong>10.22%
+                            <font style="color:#E74646">Contribution to GDP in 2025: </font>
+                        </strong>10.21%
                         <br><strong>
                             <font style="color:#E74646">Did you know? </font>
                         </strong>Jiangsu has produced the most number of members in the 20th Central Committee, showing
@@ -754,14 +754,14 @@
                             <font style="color:#E74646">Capital: </font>
                         </strong>Hohhot
                         <br><strong>
-                            <font style="color:#E74646">Population Density 2023: </font>
-                        </strong>20.254
+                            <font style="color:#E74646">Population Density 2024: </font>
+                        </strong>20.186
                         <br><strong>
                             <font style="color:#E74646">Party Secretary: </font>
-                        </strong>Sun Shaocheng
+                        </strong>Wang Weizhong
                         <br><strong>
-                            <font style="color:#E74646">Contribution to GDP in 2024: </font>
-                        </strong>1.963%
+                            <font style="color:#E74646">Contribution to GDP in 2025: </font>
+                        </strong>1.92%
                         <br><strong>
                             <font style="color:#E74646">Did you know? </font>
                         </strong>Bayan Obo, a mining town in Inner Mongolia, hosts the world's largest rare earth
@@ -803,14 +803,14 @@
                             <font style="color:#E74646">Capital: </font>
                         </strong>Nanchang
                         <br><strong>
-                            <font style="color:#E74646">Population Density 2023: </font>
+                            <font style="color:#E74646">Population Density 2024: </font>
                         </strong>270.521
                         <br><strong>
                             <font style="color:#E74646">Party Secretary: </font>
                         </strong>Yin Hong
                         <br><strong>
-                            <font style="color:#E74646">Contribution to GDP in 2024: </font>
-                        </strong>2.552%
+                            <font style="color:#E74646">Contribution to GDP in 2025: </font>
+                        </strong>2.58%
                         <br><strong>
                             <font style="color:#E74646">Did you know? </font>
                         </strong>Mao Zedong's famous 'Long March' began here in October 1934 and covered over 10,000 km
@@ -853,14 +853,14 @@
                             <font style="color:#E74646">Capital: </font>
                         </strong>Changchun
                         <br><strong>
-                            <font style="color:#E74646">Population Density 2023: </font>
-                        </strong>124.813
+                            <font style="color:#E74646">Population Density 2024: </font>
+                        </strong>123.639
                         <br><strong>
                             <font style="color:#E74646">Party Secretary: </font>
                         </strong>Huang Qiang
                         <br><strong>
-                            <font style="color:#E74646">Contribution to GDP in 2024: </font>
-                        </strong>1.071%
+                            <font style="color:#E74646">Contribution to GDP in 2025: </font>
+                        </strong>1.07%
                         <br><strong>
                             <font style="color:#E74646">Did you know? </font>
                         </strong>It is a critical grain production base and is located on the world-famous "golden rice
@@ -902,14 +902,14 @@
                             <font style="color:#E74646">Capital: </font>
                         </strong>Shenyang
                         <br><strong>
-                            <font style="color:#E74646">Population Density 2023: </font>
-                        </strong>281.806
+                            <font style="color:#E74646">Population Density 2024: </font>
+                        </strong>279.987
                         <br><strong>
                             <font style="color:#E74646">Party Secretary: </font>
-                        </strong>Hao Peng
+                        </strong>Xu Kunlin
                         <br><strong>
-                            <font style="color:#E74646">Contribution to GDP in 2024: </font>
-                        </strong>2.433%
+                            <font style="color:#E74646">Contribution to GDP in 2025: </font>
+                        </strong>2.38%
                         <br><strong>
                             <font style="color:#E74646">Did you know? </font>
                         </strong>China's first aircraft carrier commissioned in 2012 into PLA-N is named after this
@@ -951,14 +951,14 @@
                             <font style="color:#E74646">Capital: </font>
                         </strong>Yinchuan
                         <br><strong>
-                            <font style="color:#E74646">Population Density 2023: </font>
+                            <font style="color:#E74646">Population Density 2024: </font>
                         </strong>110.221
                         <br><strong>
                             <font style="color:#E74646">Party Secretary: </font>
                         </strong>Li Yifei
                         <br><strong>
-                            <font style="color:#E74646">Contribution to GDP in 2024: </font>
-                        </strong>0.411%
+                            <font style="color:#E74646">Contribution to GDP in 2025: </font>
+                        </strong>0.41%
                         <br><strong>
                             <font style="color:#E74646">Did you know? </font>
                         </strong>The province is known for the production of Goji berries, an ingredient used as part of
@@ -999,14 +999,14 @@
                             <font style="color:#E74646">Capital: </font>
                         </strong>Xining
                         <br><strong>
-                            <font style="color:#E74646">Population Density 2023: </font>
+                            <font style="color:#E74646">Population Density 2024: </font>
                         </strong>8.224
                         <br><strong>
                             <font style="color:#E74646">Party Secretary: </font>
                         </strong>Wu Xiaojun
                         <br><strong>
-                            <font style="color:#E74646">Contribution to GDP in 2024: </font>
-                        </strong>0.295%
+                            <font style="color:#E74646">Contribution to GDP in 2025: </font>
+                        </strong>0.30%
                         <br><strong>
                             <font style="color:#E74646">Did you know? </font>
                         </strong>Asia's longest river Yangtze originates in the Tibetan plateau in Qinghai; the Qinghai
@@ -1047,14 +1047,14 @@
                             <font style="color:#E74646">Capital: </font>
                         </strong>Xi'an
                         <br><strong>
-                            <font style="color:#E74646">Population Density 2023: </font>
+                            <font style="color:#E74646">Population Density 2024: </font>
                         </strong>192.031
                         <br><strong>
                             <font style="color:#E74646">Party Secretary: </font>
                         </strong>Zhao Yide
                         <br><strong>
-                            <font style="color:#E74646">Contribution to GDP in 2024: </font>
-                        </strong>2.652%
+                            <font style="color:#E74646">Contribution to GDP in 2025: </font>
+                        </strong>2.62%
                         <br><strong>
                             <font style="color:#E74646">Did you know? </font>
                         </strong>Birth province of Chinese President and CPC General Secretary Xi Jinping. The ancient
@@ -1095,14 +1095,14 @@
                             <font style="color:#E74646">Capital: </font>
                         </strong>Jinan
                         <br><strong>
-                            <font style="color:#E74646">Population Density 2023: </font>
+                            <font style="color:#E74646">Population Density 2024: </font>
                         </strong>644.367
                         <br><strong>
                             <font style="color:#E74646">Party Secretary: </font>
                         </strong>Lin Wu
                         <br><strong>
-                            <font style="color:#E74646">Contribution to GDP in 2024: </font>
-                        </strong>7.354%
+                            <font style="color:#E74646">Contribution to GDP in 2025: </font>
+                        </strong>7.40%
                         <br><strong>
                             <font style="color:#E74646">Did you know? </font>
                         </strong>Confucius (Kong Zi) was born here near Qufu in 551 BCE. China's second aircraft
@@ -1144,14 +1144,14 @@
                             <font style="color:#E74646">Capital: </font>
                         </strong>Shanghai
                         <br><strong>
-                            <font style="color:#E74646">Population Density 2023: </font>
+                            <font style="color:#E74646">Population Density 2024: </font>
                         </strong>3922.713
                         <br><strong>
                             <font style="color:#E74646">Party Secretary: </font>
                         </strong>Chen Jining
                         <br><strong>
-                            <font style="color:#E74646">Contribution to GDP in 2024: </font>
-                        </strong>4.023%
+                            <font style="color:#E74646">Contribution to GDP in 2025: </font>
+                        </strong>4.07%
                         <br><strong>
                             <font style="color:#E74646">Did you know? </font>
                         </strong>As the birthplace of the Communist Party of China, Shanghai is a politically
@@ -1193,14 +1193,14 @@
                             <font style="color:#E74646">Capital: </font>
                         </strong>Taiyuan
                         <br><strong>
-                            <font style="color:#E74646">Population Density 2023: </font>
-                        </strong>221.187
+                            <font style="color:#E74646">Population Density 2024: </font>
+                        </strong>219.911
                         <br><strong>
                             <font style="color:#E74646">Party Secretary: </font>
                         </strong>Tang Dengjie
                         <br><strong>
-                            <font style="color:#E74646">Contribution to GDP in 2024: </font>
-                        </strong>1.902%
+                            <font style="color:#E74646">Contribution to GDP in 2025: </font>
+                        </strong>1.83%
                         <br><strong>
                             <font style="color:#E74646">Did you know? </font>
                         </strong>Meaning literally "West of the (Taihang) mountains", Shanxi possesses roughly a third
@@ -1242,14 +1242,14 @@
                             <font style="color:#E74646">Capital: </font>
                         </strong>Chengdu
                         <br><strong>
-                            <font style="color:#E74646">Population Density 2023: </font>
+                            <font style="color:#E74646">Population Density 2024: </font>
                         </strong>172.146
                         <br><strong>
                             <font style="color:#E74646">Party Secretary: </font>
                         </strong>Wang Xiaohui
                         <br><strong>
-                            <font style="color:#E74646">Contribution to GDP in 2024: </font>
-                        </strong>4.827%
+                            <font style="color:#E74646">Contribution to GDP in 2025: </font>
+                        </strong>4.85%
                         <br><strong>
                             <font style="color:#E74646">Did you know? </font>
                         </strong>Sichuan means "four rivers", usually denoting four of the province's major rivers: the
@@ -1291,14 +1291,14 @@
                             <font style="color:#E74646">Capital: </font>
                         </strong>Tianjin
                         <br><strong>
-                            <font style="color:#E74646">Population Density 2023: </font>
+                            <font style="color:#E74646">Population Density 2024: </font>
                         </strong>1144.583
                         <br><strong>
                             <font style="color:#E74646">Party Secretary: </font>
                         </strong>Chen Min'er
                         <br><strong>
-                            <font style="color:#E74646">Contribution to GDP in 2024: </font>
-                        </strong>1.345%
+                            <font style="color:#E74646">Contribution to GDP in 2025: </font>
+                        </strong>1.33%
                         <br><strong>
                             <font style="color:#E74646">Did you know? </font>
                         </strong>Nankai University, China’s first private university, is in Tianjin and was the alma
@@ -1340,14 +1340,14 @@
                             <font style="color:#E74646">Capital: </font>
                         </strong>Lhasa
                         <br><strong>
-                            <font style="color:#E74646">Population Density 2023: </font>
+                            <font style="color:#E74646">Population Density 2024: </font>
                         </strong>2.971
                         <br><strong>
                             <font style="color:#E74646">Party Secretary: </font>
                         </strong>Wang Junzheng
                         <br><strong>
-                            <font style="color:#E74646">Contribution to GDP in 2024: </font>
-                        </strong>0.206%
+                            <font style="color:#E74646">Contribution to GDP in 2025: </font>
+                        </strong>0.22%
                         <br><strong>
                             <font style="color:#E74646">Did you know? </font>
                         </strong>Tibet Autonomous Region, commonly called Tibet, is only a part of the historic country
@@ -1389,14 +1389,14 @@
                             <font style="color:#E74646">Capital: </font>
                         </strong>Ürümqi
                         <br><strong>
-                            <font style="color:#E74646">Population Desnsity 2023: </font>
+                            <font style="color:#E74646">Population Density 2024: </font>
                         </strong>15.605
                         <br><strong>
                             <font style="color:#E74646">Party Secretary: </font>
-                        </strong>Ma Xingrui
+                        </strong>Chen Xiaojiang
                         <br><strong>
-                            <font style="color:#E74646">Contribution to GDP in 2024: </font>
-                        </strong>1.532%
+                            <font style="color:#E74646">Contribution to GDP in 2025: </font>
+                        </strong>1.54%
                         <br><strong>
                             <font style="color:#E74646">Did you know? </font>
                         </strong>China's first nuclear weapons test, Project 596, was conducted in at the Lop Nur Test
@@ -1439,14 +1439,14 @@
                             <font style="color:#E74646">Capital: </font>
                         </strong>Kunming
                         <br><strong>
-                            <font style="color:#E74646">Population Density 2023: </font>
+                            <font style="color:#E74646">Population Density 2024: </font>
                         </strong>118.574
                         <br><strong>
                             <font style="color:#E74646">Party Secretary: </font>
                         </strong>Wang Ning
                         <br><strong>
-                            <font style="color:#E74646">Contribution to GDP in 2024: </font>
-                        </strong>2.353%
+                            <font style="color:#E74646">Contribution to GDP in 2025: </font>
+                        </strong>2.35%
                         <br><strong>
                             <font style="color:#E74646">Did you know? </font>
                         </strong>Yunnan is called the "Kingdom of Plants and Animals" as it has the greatest
@@ -1488,14 +1488,14 @@
                             <font style="color:#E74646">Capital: </font>
                         </strong>Hangzhou
                         <br><strong>
-                            <font style="color:#E74646">Population Density 2023: </font>
+                            <font style="color:#E74646">Population Density 2024: </font>
                         </strong>650.982
                         <br><strong>
                             <font style="color:#E74646">Party Secretary: </font>
                         </strong>Wang Hao
                         <br><strong>
-                            <font style="color:#E74646">Contribution to GDP in 2024: </font>
-                        </strong>6.725%
+                            <font style="color:#E74646">Contribution to GDP in 2025: </font>
+                        </strong>6.78%
                         <br><strong>
                             <font style="color:#E74646">Did you know? </font>
                         </strong>Zhejiang is the birth province of Taiwan's former leader Chiang-Kai-Shek. It is the
