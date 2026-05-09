@@ -1,7 +1,52 @@
 @extends('web')
-@section('title', 'ORCA | Organisation for Research on China and Asia')
-@section('meta_keywords', 'ORCA')
-@section('meta_description', 'ORCA')
+@section('title', 'ORCA Publications | China Research Articles, Analysis & Strategic Commentary')
+
+@section('meta_keywords', 'ORCA publications, China research articles, opinion pieces, issue briefs, strategic analysis,
+    China studies, India China relations, CICM insights')
+
+@section('meta_description', 'Explore ORCA publications including opinion pieces, issue briefs, backgrounders, CICM
+    insights, and research articles focused on China, Asia, and India-China relations.')
+
+@section('meta')
+
+    <!-- Canonical -->
+    <link rel="canonical" href="{{ url()->current() }}">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="ORCA Publications | Research & Strategic Analysis">
+    <meta property="og:description"
+        content="Read ORCA publications on China, Asia, strategic affairs, diplomacy, economy, and India-China relations.">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:image" content="{{ asset('images/logo.png') }}">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ORCA Publications">
+    <meta name="twitter:description"
+        content="Explore ORCA’s research publications, issue briefs, opinion pieces, and strategic analysis.">
+    <meta name="twitter:image" content="{{ asset('images/logo.png') }}">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context":"https://schema.org",
+        "@type":"CollectionPage",
+        "name":"ORCA Publications",
+        "description":"Collection of ORCA publications including opinion pieces, backgrounders, issue briefs, and research analysis.",
+        "url":"{{ url()->current() }}",
+        "publisher":{
+            "@type":"Organization",
+            "name":"ORCA",
+            "logo":{
+                "@type":"ImageObject",
+                "url":"{{ asset('images/logo.png') }}"
+            }
+        }
+    }
+    </script>
+
+@endsection
 @section('content')
     <!-- Blog -->
 
@@ -192,8 +237,6 @@
         </div>
     </section>
 
-
-
     <!-- Blog -->
     <section class="shock-section pt-2 pb-2 gray-10">
         <div class="container">
@@ -311,7 +354,8 @@
                                             <!-- Body -->
                                             <div class="card-body align-v-bottom">
                                                 <div class="holder">
-                                                    <a href="{{ url('category/' . $cicmCategory->slug) }}" class="link">
+                                                    <a href="{{ url('category/' . $cicmCategory->slug) }}"
+                                                        class="link">
                                                         <span class="badge tertiary-50 tertiary-hover">
                                                             <span
                                                                 class="badge-text white-75 white-hover">{{ $cicmCategory->category }}</span>
@@ -566,11 +610,6 @@
                         </div>
                     </div>
                 </div>
-
-
-
-
-
 
             </div>
             <div class="mt-4 text-center">
