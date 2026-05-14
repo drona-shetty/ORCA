@@ -44,6 +44,34 @@ use App\Http\Controllers\Frontend\{
 
 use App\Models\Article;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Log;
+
+Route::get('/test-email', function () {
+    try {
+        Mail::raw('This is a test email from Laravel.', function ($message) {
+            $message->to('rakeshranjanjena7@gmail.com')
+                    ->subject('Test ORCA Email');
+        });
+
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Email sent successfully'
+        ]);
+
+    } catch (\Exception $e) {
+
+        // Log full error
+        Log::error('Mail Error: '.$e->getMessage());
+
+        return response()->json([
+            'status' => 'error',
+            'message' => $e->getMessage(),
+            'line' => $e->getLine(),
+            'file' => $e->getFile()
+        ]);
+    }
+});
 
 Route::get('/migrate-article-authors', function () {
 

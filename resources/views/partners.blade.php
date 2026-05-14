@@ -159,6 +159,13 @@ $partners = [
         'image' => 'allfiles/ThePathfinderFoundation.png',
         'description' => 'The Pathfinder Foundation is an independent, non-partisan research and advocacy think-tank whose primary focus is on policy research and action-oriented policy reform.'
     ],
+    [
+        'name' => 'BRICS+ Thinking',
+        'role' => 'Research Partner',
+        'url' => '',
+        'image' => 'allfiles/BricsPlusThinking.jpeg',
+        'description' => 'BRICS+ Thinking is a London-based not-for-profit platform aiming to bring together leading institutions as well as scholars working on the changing international order, emerging economies, the evolving role of the BRICS+ group and their interactions with the political West.'
+    ],
 ];
 @endphp
 
