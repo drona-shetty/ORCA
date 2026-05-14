@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Consultancy;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ConsultancyMail;
 
 class ConsultancyController extends Controller
 {
@@ -25,6 +27,8 @@ class ConsultancyController extends Controller
         ]);
 
         Consultancy::create($validated);
+
+        Mail::to($validated['email'])->send(new ConsultancyMail($validated));
 
         return redirect()->back()->with('success', 'Project added successfully!');
     }

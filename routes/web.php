@@ -592,6 +592,8 @@ Route::get('gcns23/load-more-media', [App\Http\Controllers\GCNS23\MediaControlle
 Route::get('/event/speaker/{id}', [SpeakerController::class, 'getSpeakerData']);
 Route::post('pdf-log', [ArticleController::class, 'pdfCounter']);
 Route::post('add-consultancy-project', [ConsultancyController::class, 'add_project']);
+Route::view('/careers', 'career')->name('careers');
+Route::view('/careers', 'frontend.provincial.index')->name('provincial');
 
 // Fallback route to display featured article by slug
 Route::get('/{slug}', [ArticleController::class, 'featured']);

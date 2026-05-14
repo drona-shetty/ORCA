@@ -8,19 +8,8 @@
     add new levels of research insight to how China perceives the world.')
 
 @section('content')
-
-    <script src="https://code.jquery.com/jquery-1.8.2.js"></script>
-
     <meta property="og:image" name="thumbnail" content="http://orcasia.org/images/orcadesign.png" />
 
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@ORCA_India">
-    <meta name="twitter:creator" content="@ORCA_India">
-    <meta name="twitter:title" content="ORCA | Organisation for Research on China & Asia">
-    <meta name="twitter:description"
-        content="With assessments based on real-time, ground level chatter in/on/from #China, ORCA seeks to add new levels of research insight to how China perceives the world.">
-    <meta name="twitter:image" content="{{ asset('/images/orcadesign.png') }}">
-    <meta name="twitter:card" content="summary_large_image">
     <?php
     if (Auth::check()) {
         $user_meta = App\Models\UserMeta::where('user_id', Auth::user()->id)->first();
@@ -249,7 +238,6 @@
         document.getElementById('popup-box-dismiss').addEventListener('click', subscribeUser);
     </script>
 
-    <script src="https://code.jquery.com/jquery-1.8.2.js"></script>
     <script>
         $(document).ready(function() {
             $('.ajax-form').submit(function(event) {
@@ -361,7 +349,7 @@
                 <!-- Image -->
                 <div class="slide-image-wrapper">
                     <div class="slide-image-inner">
-                        <x-webp-image src="{{ asset('images/article/' . $article->title_image) }}" alt="Image name"
+                        <img src="{{ URL::asset('images/article/' . $article->title_image) }}" alt="Image name"
                             class="slide-image bg-color accent" />
                     </div>
                 </div>
@@ -429,7 +417,7 @@
                 <!-- Image -->
                 <div class="slide-image-wrapper">
                     <div class="slide-image-inner">
-                        <x-webp-image src="{{ asset('images/article/' . $article->title_image) }}" alt="Image name"
+                        <img src="{{ URL::asset('images/article/' . $article->title_image) }}" alt="Image name"
                             class="slide-image bg-color accent" />
                     </div>
                 </div>
@@ -510,7 +498,7 @@
                 <!-- Image -->
                 <div class="slide-image-wrapper">
                     <div class="slide-image-inner">
-                        <x-webp-image src="{{ asset('images/article/' . $article->title_image) }}" alt="Image name"
+                        <img src="{{ URL::asset('images/article/' . $article->title_image) }}" alt="Image name"
                             class="slide-image bg-color accent" />
                     </div>
                 </div>
@@ -570,6 +558,13 @@
                         </p>
                     </div>
                 </div>
+                <!-- Button
+                                      <div class="gallery">
+                                        <a href="https://vimeo.com/222990241" class="button outline lightbox-link white tertiary-hover magnetic-effect">
+                                          <span class="button-text white white-hover">Know More</span>
+                                          <i class="fa-solid fa-arrow-right button-icon white white-hover"></i>
+                                        </a>
+                                      </div> -->
             </div>
             <!-- Video -->
             <div class="image-wrapper">
@@ -633,6 +628,7 @@
 
     <!-- Scrolling text -->
     <section class="shock-section">
+
         <div class="content-wrapper text-center">
             <!-- Intro -->
             <div class="basic-intro mb-35">
@@ -840,7 +836,7 @@
 
                                 <!-- Image -->
                                 <div class="image-wrapper hover-up-down">
-                                    <x-webp-image src="{{ asset('images/article/' . $article->title_image) }}"
+                                    <img src="{{ URL::asset('images/article/' . $article->title_image) }}"
                                         alt="Image name" class="image" />
                                 </div>
                                 <div class="card-body align-v-bottom">
@@ -893,7 +889,7 @@
                     <!-- Image -->
                     <div class="gallery image-mirror align-h-left">
                         <div class="image-wrapper">
-                            <x-webp-image src="{{ asset('/images/AdobeStock_165506040.jpg') }}" alt="Image name"
+                            <img src="{{ URL::asset('/images/AdobeStock_165506040.jpg') }}" alt="Image name"
                                 class="image shadow" />
                         </div>
 
@@ -932,8 +928,6 @@
             </div>
         </div>
     </section>
-
-    </main>
 
     <!-- Scroll to Top -->
     <div class="side-widget to-right invert-color mix-blend-difference">
