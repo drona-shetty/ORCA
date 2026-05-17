@@ -4,6 +4,7 @@ if (Auth::check()) {
 } ?>
 <!DOCTYPE HTML>
 <html lang="en">
+
 <head>
     <!-- Basic -->
     <meta charset="utf-8" />
@@ -25,23 +26,25 @@ if (Auth::check()) {
 
     <!-- CSRF -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    
+    @if (View::hasSection('meta'))
+        @yield('meta')
+    @else
+        <!-- Open Graph -->
+        <meta property="og:title" content="@yield('title', 'ORCA | Organisation for Research on China and Asia')">
+        <meta property="og:description" content="@yield('meta_description')">
+        <meta property="og:image" content="@yield('og_image', asset('images/ORCALogowhite.png'))">
+        <meta property="og:url" content="{{ url()->current() }}">
+        <meta property="og:type" content="website">
 
-    <!-- Open Graph -->
-    <meta property="og:title" content="@yield('title', 'ORCA | Organisation for Research on China and Asia')">
-    <meta property="og:description" content="@yield('meta_description')">
-    <meta property="og:image" content="@yield('og_image', asset('images/ORCALogowhite.png'))">
-    <meta property="og:url" content="{{ url()->current() }}">
-    <meta property="og:type" content="website">
-
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@ORCA_India">
-    <meta name="twitter:creator" content="@ORCA_India">
-    <meta name="twitter:title" content="@yield('title')">
-    <meta name="twitter:description" content="@yield('meta_description')">
-    <meta name="twitter:image" content="@yield('og_image', asset('images/ORCALogowhite.png'))">
-
-    @yield('meta')
+        <!-- Twitter -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:site" content="@ORCA_India">
+        <meta name="twitter:creator" content="@ORCA_India">
+        <meta name="twitter:title" content="@yield('title')">
+        <meta name="twitter:description" content="@yield('meta_description')">
+        <meta name="twitter:image" content="@yield('og_image', asset('images/ORCALogowhite.png'))">
+    @endif
 
     <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('images/favicon/apple-icon-57x57.png') }}">
@@ -53,7 +56,8 @@ if (Auth::check()) {
     <link rel="apple-touch-icon" sizes="144x144" href="{{ asset('images/favicon/apple-icon-144x144.png') }}">
     <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('images/favicon/apple-icon-152x152.png') }}">
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('images/favicon/apple-icon-180x180.png') }}">
-    <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('images/favicon/android-icon-192x192.png') }}">
+    <link rel="icon" type="image/png" sizes="192x192"
+        href="{{ asset('images/favicon/android-icon-192x192.png') }}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/favicon/favicon-32x32.png') }}">
     <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('images/favicon/favicon-96x96.png') }}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/favicon/favicon-16x16.png') }}">
@@ -94,12 +98,17 @@ if (Auth::check()) {
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-47RCM817YL"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TCSL0X0MWT"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
         gtag('js', new Date());
-        gtag('config', 'G-47RCM817YL');
+
+        gtag('config', 'G-TCSL0X0MWT');
     </script>
 
     <!-- Structured Data -->
@@ -1124,14 +1133,14 @@ if (Auth::check()) {
                                         <div class="megamenu-item pt-0">
                                             <ul class="nav-list list-unstyled text-end">
                                                 <li class="nav-item">
-                                                    <a href="{{ url('pages/contact') }}"
-                                                        target="_blank" class="nav-link parent">
+                                                    <a href="{{ url('pages/contact') }}" target="_blank"
+                                                        class="nav-link parent">
                                                         <span class="text">Contact ORCA</span>
                                                     </a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a href="{{ url('pages/consultancy') }}"
-                                                        target="_blank" class="nav-link parent">
+                                                    <a href="{{ url('pages/consultancy') }}" target="_blank"
+                                                        class="nav-link parent">
                                                         <span class="text">ORCA Consultancy</span>
                                                     </a>
                                                 </li>

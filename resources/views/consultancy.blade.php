@@ -257,6 +257,18 @@
             }
         }
     </style>
+    
+    @if(session('success'))
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Request Submitted',
+                text: "{{ session('success') }}",
+                confirmButtonText: 'OK'
+            });
+        </script>
+    @endif
     <!-- Banner -->
     <section id="consult-banner" class="shock-section bg-image bg-fixed position-x-left">
         <div class="container">

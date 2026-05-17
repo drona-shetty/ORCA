@@ -13,6 +13,7 @@
 @endsection
 
 @section('content')
+    <link rel="canonical" href="{{ url()->current() }}">
 
     {{-- Open Graph (Facebook / LinkedIn SEO) --}}
     <meta property="og:title" content="{{ $speaker->name }} | GCNS 2025 Speaker">
@@ -28,18 +29,40 @@
 
     {{-- Structured Data (Google Rich Results) --}}
     <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "{{ $speaker->name }}",
-        "jobTitle": "{{ $speaker->designation }}",
-        "image": "{{ url('images/event/speaker/' . $speaker->image) }}",
-        "description": "{{ \Illuminate\Support\Str::limit(strip_tags($speaker->content), 160) }}",
-        "worksFor": {
-            "@type": "Organization",
-            "name": "ORCA"
-        }
-    }
+    {!! json_encode([
+        "@context" => "https://schema.org",
+        "@type" => "Person",
+        "name" => $speaker->name,
+        "jobTitle" => $speaker->designation,
+        "image" => url('images/event/speaker/' . $speaker->image),
+        "description" => $speaker->content,
+        "url" => url()->current(),
+        "worksFor" => [
+            "@type" => "Organization",
+            "name" => "ORCA",
+            "url" => url('/')
+        ],
+        "performerIn" => [
+            "@type" => "Event",
+            "name" => "Global Conference on New Sinology 2025",
+            "alternateName" => "GCNS 2025",
+            "startDate" => "2025-09-10",
+            "endDate" => "2025-09-12",
+            "location" => [
+                "@type" => "Place",
+                "name" => "ORCA Conference Venue",
+                "address" => [
+                    "@type" => "PostalAddress",
+                    "addressLocality" => "New Delhi",
+                    "addressRegion" => "Delhi",
+                    "addressCountry" => "IN"
+                ]
+            ]
+        ]
+    ], JSON_UNESCAPED_SLASHES
+        | JSON_UNESCAPED_UNICODE
+        | JSON_PRETTY_PRINT
+        | JSON_INVALID_UTF8_SUBSTITUTE) !!}
     </script>
 
     {{-- ================= DESIGN ================= --}}

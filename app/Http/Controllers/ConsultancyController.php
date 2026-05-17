@@ -30,7 +30,10 @@ class ConsultancyController extends Controller
 
         Mail::to($validated['email'])->send(new ConsultancyMail($validated));
 
-        return redirect()->back()->with('success', 'Project added successfully!');
+        return redirect()->back()->with(
+            'success',
+            'Thank you! Your consultancy request has been successfully submitted. Our team will contact you shortly.'
+        );
     }
 
     public function view($id)

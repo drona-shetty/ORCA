@@ -42,8 +42,6 @@
             /* Added to limit the maximum width for larger screens */
             min-height: auto;
             margin: 100px auto;
-            /* Changed to "auto" to center the popup horizontally */
-            overflow-y: scroll !important;
             background: #030303;
             position: relative;
             z-index: 103;
