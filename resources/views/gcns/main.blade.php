@@ -278,6 +278,13 @@
                             <nav class="rdf-list-1right w-dropdown-list">
                                 <div class="rdf-wrap-drop-1">
                                     <div class="rdf-grid-drop-1">
+                                            <div id="w-node-_691a7b06-0629-d32d-de4e-b55634969ebe-e42662e"
+                                                class="rdf-wrap-drop-2">
+                                                <a href="{{ url('pages/gcns2026') }}"
+                                                    class="rdf-link-block-2 w-inline-block">
+                                                    <h2 class="rdf-heading-1">GCNS 2026</h2>
+                                                </a>
+                                            </div>
                                         <div id="w-node-_91a7b06-0629-d32d-de4e-b55634969ebe-e42662e0"
                                             class="rdf-wrap-drop-2">
                                             <a href="{{ url('pages/gcns2025') }}"

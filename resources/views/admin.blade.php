@@ -237,6 +237,66 @@
             </li><!-- End GraphsPage Nav -->
 
             <li class="nav-item">
+                @if (str_contains(url()->current(), '/yn-admin/gcns26/'))
+                    <a class="nav-link" data-bs-target="#gcns26-nav" data-bs-toggle="collapse" href="#"
+                        aria-expanded="true">
+                    @else
+                        <a class="nav-link collapsed" data-bs-target="#gcns26-nav" data-bs-toggle="collapse"
+                            href="#" aria-expanded="false">
+                @endif
+                <i class="bi bi-journal-text"></i>
+                <span>GCNS 2026</span>
+                <i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="gcns26-nav"
+                    class="nav-content collapse <?= str_contains(url()->current(), '/yn-admin/gcns26/') ? 'show' : '' ?>"
+                    data-bs-parent="#sidebar-nav" style="">
+                    <li>
+                        <a href="{{ url('yn-admin/gcns26/registeration') }}"
+                            class="<?= request()->is('yn-admin/gcns26/registeration') ? 'active' : '' ?>">
+                            <i class="bi bi-circle"></i><span>Registerations Listing</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ url('yn-admin/gcns26/schedule') }}"
+                            class="<?= request()->is('yn-admin/gcns26/schedule') ? 'active' : '' ?>">
+                            <i class="bi bi-circle"></i><span>Schedule</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ url('yn-admin/gcns26/partner') }}"
+                            class="<?= request()->is('yn-admin/gcns26/partner') ? 'active' : '' ?>">
+                            <i class="bi bi-circle"></i><span>Partner</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ url('yn-admin/gcns26/speaker') }}"
+                            class="<?= request()->is('yn-admin/gcns26/speaker') ? 'active' : '' ?>">
+                            <i class="bi bi-circle"></i><span>Speaker</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ url('yn-admin/gcns26/convenors') }}"
+                            class="<?= request()->is('yn-admin/gcns26/convenors') ? 'active' : '' ?>">
+                            <i class="bi bi-circle"></i><span>Convenors</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ url('yn-admin/gcns26/about') }}"
+                            class="<?= request()->is('yn-admin/gcns26/about') ? 'active' : '' ?>">
+                            <i class="bi bi-circle"></i><span>About</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ url('yn-admin/gcns26/media') }}"
+                            class="<?= request()->is('yn-admin/gcns26/media') ? 'active' : '' ?>">
+                            <i class="bi bi-circle"></i><span>Media</span>
+                        </a>
+                    </li>
+                </ul>
+            </li><!-- End GCNS 26 Nav -->
+
+            <li class="nav-item">
                 @if (str_contains(url()->current(), '/yn-admin/gcns/'))
                     <a class="nav-link" data-bs-target="#gcns-nav" data-bs-toggle="collapse" href="#"
                         aria-expanded="true">

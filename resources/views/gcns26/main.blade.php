@@ -5,16 +5,16 @@
     <meta charset="utf-8">
 
     <!-- SEO -->
-    <title>@yield('title', 'GCNS 2025 | ORCA Global Conference on New Sinology')</title>
-    <meta name="description" content="@yield('meta_description', 'GCNS 2025 by ORCA brings together global scholars and policymakers to discuss China and Asia.')">
-    <meta name="keywords" content="@yield('meta_keywords', 'GCNS 2025, ORCA conference, China studies, Sinology, Asia research')">
+    <title>@yield('title', 'GCNS 2026 | ORCA Global Conference on New Sinology')</title>
+    <meta name="description" content="@yield('meta_description', 'GCNS 2026 by ORCA brings together global scholars and policymakers to discuss China and Asia.')">
+    <meta name="keywords" content="@yield('meta_keywords', 'GCNS 2026, ORCA conference, China studies, Sinology, Asia research')">
     <link rel="canonical" href="{{ url()->current() }}">
 
     <!-- Mobile -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="GCNS 2025 | ORCA">
+    <meta property="og:title" content="GCNS 2026 | ORCA">
     <meta property="og:description" content="Global Conference on New Sinology by ORCA.">
     <meta property="og:image" content="{{ asset('gcns25/images/gcns-ww.svg') }}">
     <meta property="og:type" content="website">
@@ -43,14 +43,14 @@
     {
         "@context": "https://schema.org",
         "@type": "Event",
-        "name": "GCNS 2025",
+        "name": "GCNS 2026",
         "organizer": {
             "@type": "Organization",
             "name": "ORCA"
         },
         "eventStatus": "https://schema.org/EventScheduled",
         "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-        "description": "Global Conference on New Sinology 2025 by ORCA."
+        "description": "Global Conference on New Sinology 2026 by ORCA."
     }
     </script>
 
@@ -68,96 +68,6 @@
         iframe {
             border: 0;
         }
-        :root {
-            --orca-red: #352e2f;
-            --black: #171915;
-        }
-
-        .rdf-text-drop-1 {
-            color: #352e2f;
-        }
-
-        .rdf-wrap-drop-1 {
-            width: 20em;
-            margin-top: 1em;
-            padding: 0.5em;
-            position: relative;
-        }
-
-        .rdf-grid-drop-1 {
-            grid-column-gap: 1em;
-            grid-row-gap: 0em;
-            grid-template-columns: 1fr;
-        }
-
-        .rdf-wrap-drop-2 {
-            padding: 15px;
-        }
-
-        .rdf-list-1right.w--open {
-            left: 0;
-        }
-
-        .rdf-list-1.w--open {
-            left: 0;
-        }
-
-        .rdf-heading-1 {
-            font-size: 1.1em;
-            line-height: 1em;
-        }
-
-        .orca-footer {
-            padding: 60px 5em 35px;
-        }
-
-        .footer_wrap.v2 {
-            grid-row-gap: 0;
-        }
-
-        .lgx-heading .heading,
-        .lgx-post-wrapper .speaker-info .title,
-        h3.slidername {
-            font-family: Bebas Neue, sans-serif;
-        }
-
-        .lgx-heading .subheading,
-        .lgx-post-wrapper .speaker-info .subtitle,
-        .lgx-post-wrapper article section p,
-        p.slidername {
-            font-family: Inter, sans-serif;
-        }
-
-        .lgx-post-wrapper .speaker-info .subtitle {
-            color: #989898;
-        }
-
-        @media screen and (max-width: 991px) {
-            .media-wrapper {
-                max-height: 300px;
-            }
-
-            .scroll-card {
-                height: 90%;
-            }
-
-            .footer_bottom {
-                align-items: flex-start;
-            }
-
-            .footer_copyrights-txt.v2 {
-                text-align: left;
-            }
-
-            .lgx-post-wrapper article section p {
-                margin: 0 15px;
-            }
-
-            .media-grid {
-                grid-template-columns: 1fr;
-                grid-auto-columns: 1fr;
-            }
-        }
     </style>
 </head>
 
@@ -170,8 +80,8 @@
                 <div class="div-block-3">
                     <div class="rdf-wrap-1">
                         <div class="rdf-wrap-2">
-                            <a href="{{ url('pages/gcns2025') }}#speakers" class="rdf-link-4">Speakers</a>
-                            <a href="{{ url('pages/gcns2025') }}#schedule" class="rdf-link-4">Schedule</a>
+                            <!--<a href="{{ url('pages/gcns2026') }}#speakers" class="rdf-link-4">Speakers</a>
+                            <a href="{{ url('pages/gcns2026') }}#schedule" class="rdf-link-4">Schedule</a> -->
                             <div data-hover="true" data-delay="0" class="rdf-drop-down-1 w-dropdown">
                                 <div class="rdf-toggle-1 w-dropdown-toggle">
                                     <div class="rdf-text-drop-1">Publications</div>
@@ -195,9 +105,9 @@
                                             </div>
                                             <div id="w-node-_763f9bed-c1b6-f5cf-b1fb-817f4c5e187a-e42662e0"
                                                 class="rdf-wrap-drop-2">
-                                                <a href="https://orcasia.org/allfiles/ORCA%27s%20GCNS_2025%20Conference%20Report.pdf"
+                                                <a href="https://orcasia.org/allfiles/ORCA%27s%20GCNS_2026%20Conference%20Report.pdf"
                                                     class="rdf-link-block-2 w-inline-block">
-                                                    <h2 class="rdf-heading-1">GCNS 2025 Conference Report</h2>
+                                                    <h2 class="rdf-heading-1">GCNS 2026 Conference Report</h2>
                                                 </a>
                                             </div>
                                         </div>
@@ -210,12 +120,12 @@
                                     src="{{ URL::asset('gcns25/images/orca-white_1.svg') }}" loading="lazy"
                                     alt="" class="rdf-pic-1"></a>
                             <div class="rdf-decor-1"></div>
-                            <a href="{{ url('pages/gcns2025') }}" class="rdf-link-block-1 w-inline-block"><img
+                            <a href="{{ url('pages/gcns2026') }}" class="rdf-link-block-1 w-inline-block"><img
                                     src="{{ URL::asset('gcns25/images/gcns-ww.svg') }}" loading="lazy" alt=""
                                     class="rdf-pic-1"></a>
                         </div>
                         <div class="rdf-wrap-2">
-                            <a href="{{ url('pages/gcns2025') }}#media" class="rdf-link-4">Media</a>
+                            <!--<a href="{{ url('pages/gcns2026') }}#media" class="rdf-link-4">Media</a>-->
                             <div data-hover="true" data-delay="0" class="rdf-drop-down-1 w-dropdown">
                                 <div class="rdf-toggle-1 w-dropdown-toggle">
                                     <div class="rdf-text-drop-1">All Editions</div>
@@ -223,14 +133,14 @@
                                 <nav class="rdf-list-1right w-dropdown-list">
                                     <div class="rdf-wrap-drop-1">
                                         <div class="rdf-grid-drop-1">
-                                            <div id="w-node-_691a7b06-0629-d32d-de4e-b55634969ebe-e42662e"
+                                            <div id="w-node-_91a7b06-0629-d32d-de4e-b55634969ebe-e42662e0"
                                                 class="rdf-wrap-drop-2">
                                                 <a href="{{ url('pages/gcns2026') }}"
                                                     class="rdf-link-block-2 w-inline-block">
                                                     <h2 class="rdf-heading-1">GCNS 2026</h2>
                                                 </a>
                                             </div>
-                                            <div id="w-node-_91a7b06-0629-d32d-de4e-b55634969ebe-e42662e0"
+                                            <div id="w-node-_691a7b06-0629-d32d-de4e-b55634969ebe-e42662e"
                                                 class="rdf-wrap-drop-2">
                                                 <a href="{{ url('pages/gcns2025') }}"
                                                     class="rdf-link-block-2 w-inline-block">
@@ -255,7 +165,7 @@
                                     </div>
                                 </nav>
                             </div>
-                            <a href="{{ url('pages/gcns2025') }}#convenors" class="rdf-link-4">Convenors</a>
+                            <!--<a href="{{ url('pages/gcns2026') }}#convenors" class="rdf-link-4">Convenors</a>-->
                         </div>
                         <div class="rdf-wrap-6"><img
                                 src="{{ URL::asset('gcns25/images/menu-alt-02-svgrepo-com.svg') }}" loading="lazy"
@@ -288,12 +198,12 @@
             </div>
             <div class="fra-wrap-1">
                 <div class="fra-grid-1">
-                    <div id="w-node-_0df85482-465a-8633-f991-b354f9736be3-f9736bb6" class="fra-wrap-2">
-                        <a href="{{ url('pages/gcns2025') }}#speakers" class="fra-link-1">Speakers-</a>
+                    <!--<div id="w-node-_0df85482-465a-8633-f991-b354f9736be3-f9736bb6" class="fra-wrap-2">
+                        <a href="{{ url('pages/gcns2026') }}#speakers" class="fra-link-1">Speakers-</a>
                     </div>
                     <div id="w-node-_0df85482-465a-8633-f991-b354f9736be3-f9736bb8" class="fra-wrap-2">
-                        <a href="{{ url('pages/gcns2025') }}#schedule" class="fra-link-1">Schedule</a>
-                    </div>
+                        <a href="{{ url('pages/gcns2026') }}#schedule" class="fra-link-1">Schedule</a>
+                    </div> -->
                     <div id="w-node-_0df85482-465a-8633-f991-b354f9736bb7-f9736bb6" class="fra-wrap-3">
                         <div data-hover="false" data-delay="0" class="fra-drop-down-1 w-dropdown">
                             <div class="fra-toggle-1 w-dropdown-toggle" id="w-dropdown-toggle-4"
@@ -333,7 +243,7 @@
                         </div>
                     </div>
                     <div id="w-node-_0df85482-465a-8633-f991-b354f9736c12-f9736bb6" class="fra-wrap-2">
-                        <a href="{{ url('pages/gcns2025') }}#media" class="fra-link-1">Media</a>
+                        <a href="{{ url('pages/gcns2026') }}#media" class="fra-link-1">Media</a>
                     </div>
                     <div id="w-node-_0df85482-465a-8633-f991-b354f9736be6-f9736bb6" class="fra-wrap-3">
                         <div data-hover="false" data-delay="0" class="fra-drop-down-1 w-dropdown">
@@ -348,9 +258,9 @@
                                     <div class="fra-grid-2">
                                         <div id="w-node-_df85482-465a-8633-f991-b354f9736bee-f9736bb6"
                                             class="fra-wrap-drop-2">
-                                            <a href="{{ url('pages/gcns2025') }}"
+                                            <a href="{{ url('pages/gcns2026') }}"
                                                 class="fra-link-block-1 w-inline-block" tabindex="0">
-                                                <h2 class="fra-heading-1">GCNS 2025</h2>
+                                                <h2 class="fra-heading-1">GCNS 2026</h2>
                                             </a>
                                         </div>
                                         <div id="w-node-_0df8548-465a-8633-f991-b354f9736bee-f9736bb6"
@@ -373,7 +283,7 @@
                         </div>
                     </div>
                     <div id="w-node-_0df85482-465a-8633-f991-b354f9736c15-f9736bb6" class="fra-wrap-2">
-                        <a href="{{ url('pages/gcns2025') }}#convenors" class="fra-link-1">Convenors</a>
+                        <a href="{{ url('pages/gcns2026') }}#convenors" class="fra-link-1">Convenors</a>
                     </div>
                 </div>
             </div>
@@ -395,7 +305,7 @@
                                     src="{{ URL::asset('gcns25/images/orca-white_1.svg') }}" loading="lazy"
                                     alt="" class="rdf-pic-1" style="width: 10em;"></a>
                             <div class="rdf-decor-1"></div>
-                            <a href="{{ url('pages/gcns2025') }}" class="rdf-link-block-1 w-inline-block"><img
+                            <a href="{{ url('pages/gcns2026') }}" class="rdf-link-block-1 w-inline-block"><img
                                     src="{{ URL::asset('gcns25/images/gcns-ww.svg') }}" loading="lazy"
                                     alt="" class="rdf-pic-1" style="width: 10em;"></a>
                         </div>
@@ -425,7 +335,7 @@
                     </div>
                 </div>
                 <div class="footer_bottom v2">
-                    <div class="footer_copyrights-txt v2">Copyright © 2025, ORCA. All rights reserved.
+                    <div class="footer_copyrights-txt v2">Copyright © 2026, ORCA. All rights reserved.
                     </div>
                     <div class="footer_icons">
                         <a href="https://www.linkedin.com/company/orca-s-global-conference-on-new-sinology/"

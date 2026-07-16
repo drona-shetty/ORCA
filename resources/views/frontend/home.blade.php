@@ -558,13 +558,6 @@
                         </p>
                     </div>
                 </div>
-                <!-- Button
-                                      <div class="gallery">
-                                        <a href="https://vimeo.com/222990241" class="button outline lightbox-link white tertiary-hover magnetic-effect">
-                                          <span class="button-text white white-hover">Know More</span>
-                                          <i class="fa-solid fa-arrow-right button-icon white white-hover"></i>
-                                        </a>
-                                      </div> -->
             </div>
             <!-- Video -->
             <div class="image-wrapper">

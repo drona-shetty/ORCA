@@ -198,6 +198,7 @@
         $concept = App\Models\Gcns\About::where('id', 7)->first();
         $pre_24 = App\Models\Gcns\About::where('id', 9)->first();
         $pre_25 = App\Models\Gcns\About::where('id', 8)->first();
+        $pre_26 = App\Models\Event\About::where('id', 39)->first();
     @endphp
     <section class="past-editions" id="previous-edition">
         <div class="break-left">
@@ -260,9 +261,22 @@
             <main class="main-wrapper">
                 <div class="tabs">
                     <a href="#" class="tabs_link w-inline-block active">
-                        <p class="tabs_heading">GCNS 2025</p>
+                        <p class="tabs_heading">GCNS 2026</p>
                     </a>
                     <div class="tabs_content active">
+                        <div class="tab_wrap">
+                            <div class="break-left fullwidth">
+                                <div class="sepbar"></div>
+                                <h2 class="heading2">{{ $pre_26->title }}</h2>
+                                <h4 class="heading">{{ $pre_26->desc }}</h4>
+                                <a href="{{ url('pages/gcns2026') }}" class="rdf-button-1 editions w-button">Visit</a>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" class="tabs_link w-inline-block">
+                        <p class="tabs_heading">GCNS 2025</p>
+                    </a>
+                    <div class="tabs_content">
                         <div class="tab_wrap">
                             <div class="break-left fullwidth">
                                 <div class="sepbar"></div>

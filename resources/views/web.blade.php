@@ -1046,65 +1046,9 @@ if (Auth::check()) {
                             </a>
                         </li>
                         <li class="nav-item dropdown has-megamenu hover">
-                            <a class="nav-link dropdown-toggle has-icon" href="#" data-bs-toggle="dropdown">
-                                <span class="text">GCNS</span><x-webp-image class="image-icon dropdown-icon"
-                                    src="{{ asset('svg/chevron-down-outline.svg') }}" alt="Icon name"
-                                    data-shock-icon="32" />
+                            <a class="nav-link dropdown-toggle has-icon" href="{{ url('pages/gcns') }}" data-bs-toggle="dropdown">
+                                <span class="text">GCNS</span>
                             </a>
-                            <div class="dropdown-menu megamenu animate fade-down" role="menu">
-                                <div class="container">
-                                    <div class="section-inner-expanded">
-                                        <div class="row">
-                                            <div class="col-12 col-md-6">
-                                                <a href="{{ url('pages/publication') }}">
-                                                    <div class="megamenu-item h-auto mb-0 pb-0">
-                                                        <h6 class="title">GCNS</h6>
-                                                    </div>
-                                                </a>
-                                                <div class="row">
-                                                    <div class="col-12 col-md-6">
-                                                        <div class="megamenu-item pt-0">
-                                                            <ul class="nav-list list-unstyled">
-                                                                <li class="nav-item">
-                                                                    <a href="{{ url('pages/gcns2025') }}"
-                                                                        target="_blank" class="nav-link parent">
-                                                                        <span class="text">About GCNS 2025</span>
-                                                                    </a>
-                                                                </li>
-                                                                <li class="nav-item">
-                                                                    <a href="{{ url('pages/gcns2024') }}"
-                                                                        target="_blank" class="nav-link parent">
-                                                                        <span class="text">About GCNS 2024</span>
-                                                                    </a>
-                                                                </li>
-                                                                <li class="nav-item">
-                                                                    <a href="{{ url('pages/gcns2023') }}"
-                                                                        target="_blank" class="nav-link parent">
-                                                                        <span class="text">About GCNS 2023</span>
-                                                                    </a>
-                                                                </li>
-
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-12 col-md-6">
-                                                        <div class="megamenu-item pt-0">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-12 col-md-6 col-lg-6">
-                                                <div class="megamenu-item has-side-image image-absolute-right">
-                                                    <a href="#" class="megamenu-image black">
-                                                        <x-webp-image src="{{ asset('images/IMG_0049-2.jpg') }}"
-                                                            alt="Image name" class="image" />
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </li>
                         <li class="nav-item has-megamenu hover">
                             <a class="nav-link dropdown-toggle has-icon" href="{{ url('pages/events') }}">

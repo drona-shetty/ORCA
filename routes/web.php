@@ -185,7 +185,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
             Route::get('subscribers/search', 'search')->name('search.subscribers');
         });
 
-        // GCNS-related controllers grouped by controller and prefix
+        // GCNS23-related controllers grouped by controller and prefix
         Route::prefix('gcns23')->group(function () {
 
             Route::resource('partner', App\Http\Controllers\GCNS23\PartnerController::class);
@@ -208,7 +208,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
             });
         });
 
-        // GCNS-related controllers grouped by controller and prefix
+        // GCNS25-related controllers grouped by controller and prefix
         Route::prefix('gcns')->group(function () {
 
             Route::resource('partner', App\Http\Controllers\GCNS\PartnerController::class);
@@ -250,6 +250,29 @@ Route::middleware(['auth', 'admin'])->group(function () {
             });
 
             Route::resource('registeration', RegisterationController::class);
+
+            Route::controller(CSVController::class)->group(function () {
+                Route::get('download-csv/{gcns}', 'download');
+            });
+        });
+
+        // GCNS 2026 related controllers grouped by controller and prefix
+        Route::prefix('gcns26')->group(function () {
+
+            Route::resource('partner', App\Http\Controllers\GCNS26\PartnerController::class);
+            Route::resource('about', App\Http\Controllers\GCNS26\AboutController::class);
+            Route::resource('speaker', App\Http\Controllers\GCNS26\SpeakerController::class);
+            Route::resource('media', App\Http\Controllers\GCNS26\MediaController::class);
+            Route::resource('convenors', App\Http\Controllers\GCNS26\ConvenorController::class);
+
+            Route::resource('schedule', App\Http\Controllers\GCNS26\ScheduleController::class); // ✅ Moved outside
+            Route::get('schedule/{id}/sessionAdd', [App\Http\Controllers\GCNS26\ScheduleController::class, 'sessionAdd']);
+            Route::post('schedule/{id}/sessionCreate', [App\Http\Controllers\GCNS26\ScheduleController::class, 'sessionCreate']);
+            Route::get('schedule/{scheduleId}/{sessionId}/sessionEdit', [App\Http\Controllers\GCNS26\ScheduleController::class, 'sessionEdit']);
+            Route::put('schedule/{scheduleId}/{sessionId}/sessionUpdate', [App\Http\Controllers\GCNS26\ScheduleController::class, 'sessionUpdate']);
+            Route::delete('schedule/{scheduleId}/{sessionId}/sessionDestroy', [App\Http\Controllers\GCNS26\ScheduleController::class, 'sessionDestroy']);
+
+            Route::resource('registeration', App\Http\Controllers\GCNS26\RegisterationController::class);
 
             Route::controller(CSVController::class)->group(function () {
                 Route::get('download-csv/{gcns}', 'download');
@@ -519,6 +542,7 @@ Route::prefix('pages')->group(function () {
     Route::get('gcns2024/speaker/{id}', [SpeakerController::class, 'getSpeakerData']);
     Route::get('gcns2025/speaker/{id}', [App\Http\Controllers\GCNS\SpeakerController::class, 'getSpeakerData']);
     Route::get('gcns2023/speaker/{id}', [App\Http\Controllers\GCNS23\SpeakerController::class, 'getSpeakerData']);
+    Route::get('gcns2026/speaker/{id}', [App\Http\Controllers\GCNS26\SpeakerController::class, 'getSpeakerData']);
 
     // Static view routes
     $staticViews = [
@@ -547,6 +571,10 @@ Route::prefix('pages')->group(function () {
         'gcns2025/all-media' => 'gcns25/allMedia',
         'gcns2024/all-media' => 'gcns/allMedia',
         'gcns2023/all-media' => 'gcns23/allMedia',
+        'gcns' => 'gcns',
+        'gcns2026' => 'gcns26/home',
+        'gcns2026/all-media' => 'gcns26/allMedia',
+        'gcns2026/all-speakers' => 'gcns26/allspeakers',
     ];
 
     foreach ($staticViews as $uri => $view) {
@@ -561,11 +589,12 @@ Route::post('scheduleRegistration', [App\Http\Controllers\GCNS\RegisterationCont
 Route::get('gcns/load-more-media', [App\Http\Controllers\GCNS\MediaController::class, 'loadMore'])->name('media.loadMore');
 Route::get('gcns24/load-more-media', [App\Http\Controllers\Event\MediaController::class, 'loadMore'])->name('media24.loadMore');
 Route::get('gcns23/load-more-media', [App\Http\Controllers\GCNS23\MediaController::class, 'loadMore'])->name('media23.loadMore');
+Route::get('gcns26/load-more-media', [App\Http\Controllers\GCNS26\MediaController::class, 'loadMore'])->name('media26.loadMore');
 Route::get('/event/speaker/{id}', [SpeakerController::class, 'getSpeakerData']);
 Route::post('pdf-log', [ArticleController::class, 'pdfCounter']);
 Route::post('add-consultancy-project', [ConsultancyController::class, 'add_project']);
 Route::view('/careers', 'career')->name('careers');
-Route::view('/careers', 'frontend.provincial.index')->name('provincial');
+Route::view('/provincial', 'frontend.provincial.index')->name('provincial');
 
 // Fallback route to display featured article by slug
 Route::get('/{slug}', [ArticleController::class, 'featured']);

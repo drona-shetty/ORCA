@@ -314,6 +314,7 @@
         $concept = App\Models\Event\About::where('id', 7)->first();
         $pre_24 = App\Models\Event\About::where('id', 10)->first();
         $pre_23 = App\Models\Event\About::where('id', 11)->first();
+        $pre_26 = App\Models\Event\About::where('id', 39)->first();
     @endphp
     <section class="past-editions" id="previous-edition">
         <div class="break-left">
@@ -376,9 +377,22 @@
             <main class="main-wrapper">
                 <div class="tabs">
                     <a href="#" class="tabs_link w-inline-block active">
-                        <p class="tabs_heading">GCNS 2024</p>
+                        <p class="tabs_heading">GCNS 2026</p>
                     </a>
                     <div class="tabs_content active">
+                        <div class="tab_wrap">
+                            <div class="break-left fullwidth">
+                                <div class="sepbar"></div>
+                                <h2 class="heading2">{{ $pre_26->title }}</h2>
+                                <h4 class="heading">{{ $pre_26->desc }}</h4>
+                                <a href="{{ url('pages/gcns2026') }}" class="rdf-button-1 editions w-button">Visit</a>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" class="tabs_link w-inline-block">
+                        <p class="tabs_heading">GCNS 2024</p>
+                    </a>
+                    <div class="tabs_content">
                         <div class="tab_wrap">
                             <div class="break-left fullwidth">
                                 <div class="sepbar"></div>
@@ -397,7 +411,7 @@
                                 <div class="sepbar"></div>
                                 <h2 class="heading2">{{ $pre_23->title }}</h2>
                                 <h4 class="heading">{{ $pre_23->desc }}</h4>
-                                <a href="{{ url('pages/gcn2023') }}" class="rdf-button-1 editions w-button">Visit</a>
+                                <a href="{{ url('pages/gcns2023') }}" class="rdf-button-1 editions w-button">Visit</a>
                             </div>
                         </div>
                     </div>
