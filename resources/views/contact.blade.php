@@ -17,14 +17,12 @@
     <meta property="og:description"
         content="Contact ORCA for research collaborations, strategic dialogue, media inquiries, and academic partnerships.">
     <meta property="og:url" content="{{ url()->current() }}">
-    <meta property="og:image" content="{{ asset('images/logo.png') }}">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Contact ORCA">
     <meta name="twitter:description"
         content="Connect with ORCA – Organisation for Research on China and Asia.">
-    <meta name="twitter:image" content="{{ asset('images/logo.png') }}">
 
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -63,7 +61,7 @@
                 </h1>
 
                 <p class="description">
-                    Address: A/908-909, Bhutani Alphathum, Plot no.1, Sector 90, Noida, Delhi NCR, India 201305.
+                    Address: Unit 12-A, 18th Floor, Silver Tower, Wave One Sector 18, Noida- 201301, Delhi-NCR, U.P., India.
                 </p>
 
                 <p>

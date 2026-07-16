@@ -46,6 +46,8 @@ use App\Models\Article;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Cache;
+use Carbon\Carbon;
 
 Route::get('/test-email', function () {
     try {
@@ -346,131 +348,288 @@ Route::middleware(['auth', 'author'])->prefix('yn-author')->group(function () {
  * ------------------------------------------------------------------------
  * */
 Route::get('/sitemap.xml', function () {
-    $routeCollection = Route::getRoutes();
+    return Cache::remember('sitemap.xml', now()->addHours(6), function () {
+        $urls = collect();
 
-    $urls = [];
+        /*
+        |--------------------------------------------------------------------------
+        | Static Routes
+        |--------------------------------------------------------------------------
+        */
 
-    foreach ($routeCollection as $route) {
-        // Basic checks to include only public GET routes
-        if (
-            in_array('GET', $route->methods()) &&
-            $route->getPrefix() === null &&
-            !$route->parameterNames() &&
-            !str_contains($route->uri(), 'admin') &&
-            !str_contains($route->uri(), '{')
-        ) {
-            $urls[] = [
-                'loc' => url($route->uri()),
-                'priority' => '0.6',
-                'lastmod' => now()->toAtomString(),
-                'changefreq' => 'monthly',
-            ];
+        $routeCollection = Route::getRoutes();
+
+        foreach ($routeCollection as $route) {
+
+            $uri = $route->uri();
+
+            // Skip unwanted routes
+            if (
+                !in_array('GET', $route->methods()) ||
+                str_contains($uri, 'admin') ||
+                str_contains($uri, '_debugbar') ||
+                str_contains($uri, 'livewire') ||
+                str_contains($uri, '{') ||
+                $uri === 'sitemap.xml'
+            ) {
+                continue;
+            }
+
+            $urls->push([
+                'loc' => url($uri),
+                'priority' => $uri === '/' ? '1.0' : '0.6',
+                'lastmod' => now()->tz('UTC')->toAtomString(),
+                'changefreq' => $uri === '/' ? 'daily' : 'monthly',
+            ]);
         }
-    }
 
-    // Add dynamic routes (e.g., posts)
-    foreach (App\Models\User::where('role', 'author')->with('meta')->get() as $author) {
-        $urls[] = [
-            'loc' => url("/author/{$author->meta->slug}"),
-            'priority' => '0.5',
-            'lastmod' => $author->updated_at->toAtomString(),
-            'changefreq' => 'monthly',
-        ];
-    }
+        /*
+        |--------------------------------------------------------------------------
+        | Homepage
+        |--------------------------------------------------------------------------
+        */
 
-    foreach (App\Models\Article::select('id', 'slug', 'updated_at')->where('category', 31)->get() as $article) {
-        $urls[] = [
-            'loc' => url("/events/{$article->slug}"),
-            'priority' => '0.8',
-            'lastmod' => $article->updated_at->toAtomString(),
-            'changefreq' => 'monthly',
-        ];
-    }
+        $urls->push([
+            'loc' => url('/'),
+            'priority' => '1.0',
+            'lastmod' => now()->tz('UTC')->toAtomString(),
+            'changefreq' => 'daily',
+        ]);
 
-    foreach (App\Models\Article::select('id', 'slug', 'updated_at')->where('category', 35)->get() as $article) {
-        $urls[] = [
-            'loc' => url("/infographics/{$article->slug}"),
-            'priority' => '0.8',
-            'lastmod' => $article->updated_at->toAtomString(),
-            'changefreq' => 'monthly',
-        ];
-    }
+        /*
+        |--------------------------------------------------------------------------
+        | Author Pages
+        |--------------------------------------------------------------------------
+        */
 
-    foreach (App\Models\Article::select('id', 'slug', 'updated_at')->where('category', 33)->get() as $article) {
-        $urls[] = [
-            'loc' => url("/centralcommittee/20cc/{$article->slug}"),
-            'priority' => '0.8',
-            'lastmod' => $article->updated_at->toAtomString(),
-            'changefreq' => 'monthly',
-        ];
-    }
+        App\Models\User::where('role', 'author')
+            ->with('meta')
+            ->chunk(200, function ($authors) use (&$urls) {
 
-    foreach (App\Models\Article::select('id', 'slug', 'updated_at')->where('category', 20)->get() as $article) {
-        $urls[] = [
-            'loc' => url("/article/{$article->slug}"),
-            'priority' => '0.8',
-            'lastmod' => $article->updated_at->toAtomString(),
-            'changefreq' => 'monthly',
-        ];
-    }
+                foreach ($authors as $author) {
 
-    foreach (App\Models\Article::select('id', 'slug', 'updated_at')->where('category', 22)->get() as $article) {
-        $urls[] = [
-            'loc' => url("/{$article->slug}"),
-            'priority' => '0.8',
-            'lastmod' => $article->updated_at->toAtomString(),
-            'changefreq' => 'monthly',
-        ];
-    }
+                    if (!$author->meta || !$author->meta->slug) {
+                        continue;
+                    }
 
-    foreach (App\Models\Article::select('id', 'slug', 'updated_at')->whereNotIn('category', [20, 33, 35, 31, 22])->get() as $article) {
-        $urls[] = [
-            'loc' => url("/article/{$article->id}/{$article->slug}"),
-            'priority' => '0.8',
-            'lastmod' => $article->updated_at->toAtomString(),
-            'changefreq' => 'monthly',
-        ];
-    }
+                    $urls->push([
+                        'loc' => url("/author/{$author->meta->slug}"),
+                        'priority' => '0.5',
+                        'lastmod' => optional($author->updated_at)
+                            ?->tz('UTC')
+                            ->toAtomString(),
+                        'changefreq' => 'monthly',
+                    ]);
+                }
+            });
 
-    foreach (App\Models\DMArticle::select('id', 'slug', 'updated_at')->get() as $article) {
-        $urls[] = [
-            'loc' => url("/episodesofexchanges/{$article->id}/{$article->slug}"),
-            'priority' => '0.8',
-            'lastmod' => $article->updated_at->toAtomString(),
-            'changefreq' => 'monthly',
-        ];
-    }
+        /*
+        |--------------------------------------------------------------------------
+        | Articles
+        |--------------------------------------------------------------------------
+        */
 
-    foreach (App\Models\Event\Speaker::select('id', 'updated_at')->where('gcns', 2024)->get() as $speaker) {
-        $urls[] = [
-            'loc' => url("pages/gcns2024/speaker/{$speaker->id}"),
-            'priority' => '0.8',
-            'lastmod' => $speaker->updated_at->toAtomString(),
-            'changefreq' => 'monthly',
-        ];
-    }
+        Article::select(
+                'id',
+                'slug',
+                'category',
+                'updated_at',
+                'status'
+            )
+            ->chunk(500, function ($articles) use (&$urls) {
 
-    foreach (App\Models\Event\Speaker::select('id', 'updated_at')->where('gcns', 2025)->get() as $speaker) {
-        $urls[] = [
-            'loc' => url("pages/gcns2025/speaker/{$speaker->id}"),
-            'priority' => '0.8',
-            'lastmod' => $speaker->updated_at->toAtomString(),
-            'changefreq' => 'monthly',
-        ];
-    }
+                foreach ($articles as $article) {
 
-    foreach (App\Models\Event\Speaker::select('id', 'updated_at')->where('gcns', 2023)->get() as $speaker) {
-        $urls[] = [
-            'loc' => url("pages/gcns2023/speaker/{$speaker->id}"),
-            'priority' => '0.8',
-            'lastmod' => $speaker->updated_at->toAtomString(),
-            'changefreq' => 'monthly',
-        ];
-    }
+                    if (!$article->slug) {
+                        continue;
+                    }
 
-    $content = view('sitemap', compact('urls'))->render();
+                    $url = null;
 
-    return response($content, 200)->header('Content-Type', 'application/xml');
+                    switch ($article->category) {
+
+                        case 31:
+                            $url = url("/events/{$article->slug}");
+                            break;
+
+                        case 35:
+                            $url = url("/infographics/{$article->slug}");
+                            break;
+
+                        case 33:
+                            $url = url("/centralcommittee/20cc/{$article->slug}");
+                            break;
+
+                        case 20:
+                            $url = url("/article/{$article->slug}");
+                            break;
+
+                        case 22:
+                            $url = url("/{$article->slug}");
+                            break;
+
+                        default:
+                            $url = url("/article/{$article->id}/{$article->slug}");
+                            break;
+                    }
+
+                    $urls->push([
+                        'loc' => $url,
+                        'priority' => '0.8',
+                        'lastmod' => optional($article->updated_at)
+                            ?->tz('UTC')
+                            ->toAtomString(),
+                        'changefreq' => 'weekly',
+                    ]);
+                }
+            });
+
+        /*
+        |--------------------------------------------------------------------------
+        | DM Articles
+        |--------------------------------------------------------------------------
+        */
+
+        App\Models\DMArticle::select(
+                'id',
+                'slug',
+                'updated_at'
+            )
+            ->chunk(200, function ($articles) use (&$urls) {
+
+                foreach ($articles as $article) {
+
+                    $urls->push([
+                        'loc' => url("/episodesofexchanges/{$article->id}/{$article->slug}"),
+                        'priority' => '0.7',
+                        'lastmod' => optional($article->updated_at)
+                            ?->tz('UTC')
+                            ->toAtomString(),
+                        'changefreq' => 'monthly',
+                    ]);
+                }
+            });
+
+        /*
+        |--------------------------------------------------------------------------
+        | GCNS Speakers
+        |--------------------------------------------------------------------------
+        */
+
+        foreach ([2023, 2024, 2025] as $year) {
+
+            App\Models\Event\Speaker::select(
+                    'id',
+                    'updated_at'
+                )
+                ->where('gcns', $year)
+                ->chunk(200, function ($speakers) use (&$urls, $year) {
+
+                    foreach ($speakers as $speaker) {
+
+                        $urls->push([
+                            'loc' => url("/pages/gcns{$year}/speaker/{$speaker->id}"),
+                            'priority' => '0.6',
+                            'lastmod' => optional($speaker->updated_at)
+                                ?->tz('UTC')
+                                ->toAtomString(),
+                            'changefreq' => 'yearly',
+                        ]);
+                    }
+                });
+        }
+
+        /*
+        |--------------------------------------------------------------------------
+        | Remove Duplicate URLs
+        |--------------------------------------------------------------------------
+        */
+
+        $urls = $urls->unique('loc')->sortBy('loc')->values();
+
+        /*
+        |--------------------------------------------------------------------------
+        | Render XML
+        |--------------------------------------------------------------------------
+        */
+
+        $content = view('sitemap', [
+            'urls' => $urls
+        ])->render();
+
+        return response($content, 200)
+            ->header('Content-Type', 'application/xml')
+            ->header('Cache-Control', 'public, max-age=21600');
+    });
+});
+
+/*
+|--------------------------------------------------------------------------
+| NEWS SITEMAP
+|--------------------------------------------------------------------------
+*/
+
+Route::get('/news-sitemap.xml', function () {
+    // Google News only accepts recent articles (last 2 days recommended)
+    $articles = Article::select(
+            'id',
+            'slug',
+            'title',
+            'status',
+            'updated_at'
+        )
+        ->where('status', 'approved')
+        ->whereDate('updated_at', '>=', now()->subDays(2))
+        ->latest('updated_at')
+        ->take(10)
+        ->get();
+
+    $content = view('news-sitemap', compact('articles'))->render();
+
+    return response($content, 200)
+        ->header('Content-Type', 'application/xml');
+});
+
+/*
+|--------------------------------------------------------------------------
+| IMAGE SITEMAP
+|--------------------------------------------------------------------------
+*/
+
+Route::get('/image-sitemap.xml', function () {
+    $articles = Article::select(
+                'id',
+                'slug',
+                'title',
+                'status',
+                'title_image',
+                'updated_at'
+            )
+            ->where('status', 'approved')
+            ->whereNotNull('title_image')
+            ->get();
+
+    $content = view('image-sitemap', compact('articles'))->render();
+
+    return response($content, 200)
+        ->header('Content-Type', 'application/xml');
+});
+
+/*
+|--------------------------------------------------------------------------
+| AUTHOR SITEMAP
+|--------------------------------------------------------------------------
+*/
+
+Route::get('/author-sitemap.xml', function () {
+    $authors = App\Models\User::where('role', 'author')
+        ->with('meta')
+        ->get();
+
+    $content = view('author-sitemap', compact('authors'))->render();
+
+    return response($content, 200)
+        ->header('Content-Type', 'application/xml');
 });
 
 // Auth & User Management Routes
@@ -575,6 +734,7 @@ Route::prefix('pages')->group(function () {
         'gcns2025/all-media' => 'gcns25/allMedia',
         'gcns2024/all-media' => 'gcns/allMedia',
         'gcns2023/all-media' => 'gcns23/allMedia',
+        'gcns' => 'gcns',
     ];
 
     foreach ($staticViews as $uri => $view) {
@@ -592,8 +752,8 @@ Route::get('gcns23/load-more-media', [App\Http\Controllers\GCNS23\MediaControlle
 Route::get('/event/speaker/{id}', [SpeakerController::class, 'getSpeakerData']);
 Route::post('pdf-log', [ArticleController::class, 'pdfCounter']);
 Route::post('add-consultancy-project', [ConsultancyController::class, 'add_project']);
-Route::view('/careers', 'career')->name('careers');
-Route::view('/careers', 'frontend.provincial.index')->name('provincial');
+//Route::view('/careers', 'career')->name('careers');
+//Route::view('/provincial', 'frontend.provincial.index')->name('provincial');
 
 // Fallback route to display featured article by slug
 Route::get('/{slug}', [ArticleController::class, 'featured']);

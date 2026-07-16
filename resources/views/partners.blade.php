@@ -162,7 +162,7 @@ $partners = [
     [
         'name' => 'BRICS+ Thinking',
         'role' => 'Research Partner',
-        'url' => '',
+        'url' => 'https://bricsplusthinking.org/',
         'image' => 'allfiles/BricsPlusThinking.jpeg',
         'description' => 'BRICS+ Thinking is a London-based not-for-profit platform aiming to bring together leading institutions as well as scholars working on the changing international order, emerging economies, the evolving role of the BRICS+ group and their interactions with the political West.'
     ],
