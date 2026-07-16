@@ -366,7 +366,7 @@
                 slidesPerView: "auto",
                 speed: 800,
                 autoplay: {
-                    delay: 3000, // 3 seconds
+                    delay: 1000, // 1.5 seconds
                     disableOnInteraction: false,
                     pauseOnMouseEnter: true,
                 },

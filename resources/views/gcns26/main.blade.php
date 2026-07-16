@@ -68,6 +68,88 @@
         iframe {
             border: 0;
         }
+
+        .rdf-wrap-drop-1 {
+            width: 20em;
+            margin-top: 1em;
+            padding: 0.5em;
+            position: relative;
+        }
+
+        .rdf-grid-drop-1 {
+            grid-column-gap: 1em;
+            grid-row-gap: 0em;
+            grid-template-columns: 1fr;
+        }
+
+        .rdf-wrap-drop-2 {
+            padding: 15px;
+        }
+
+        .rdf-list-1right.w--open {
+            left: 0;
+        }
+
+        .rdf-list-1.w--open {
+            left: 0;
+        }
+
+        .rdf-heading-1 {
+            font-size: 1.1em;
+            line-height: 1em;
+        }
+
+        .orca-footer {
+            padding: 60px 5em 35px;
+        }
+
+        .footer_wrap.v2 {
+            grid-row-gap: 0;
+        }
+
+        .lgx-heading .heading,
+        .lgx-post-wrapper .speaker-info .title,
+        h3.slidername {
+            font-family: Bebas Neue, sans-serif;
+        }
+
+        .lgx-heading .subheading,
+        .lgx-post-wrapper .speaker-info .subtitle,
+        .lgx-post-wrapper article section p,
+        p.slidername {
+            font-family: Inter, sans-serif;
+        }
+
+        .lgx-post-wrapper .speaker-info .subtitle {
+            color: #989898;
+        }
+
+        @media screen and (max-width: 991px) {
+            .media-wrapper {
+                max-height: 300px;
+            }
+
+            .scroll-card {
+                height: 90%;
+            }
+
+            .footer_bottom {
+                align-items: flex-start;
+            }
+
+            .footer_copyrights-txt.v2 {
+                text-align: left;
+            }
+
+            .lgx-post-wrapper article section p {
+                margin: 0 15px;
+            }
+
+            .media-grid {
+                grid-template-columns: 1fr;
+                grid-auto-columns: 1fr;
+            }
+        }
     </style>
 </head>
 
@@ -105,9 +187,9 @@
                                             </div>
                                             <div id="w-node-_763f9bed-c1b6-f5cf-b1fb-817f4c5e187a-e42662e0"
                                                 class="rdf-wrap-drop-2">
-                                                <a href="https://orcasia.org/allfiles/ORCA%27s%20GCNS_2026%20Conference%20Report.pdf"
+                                                <a href="https://orcasia.org/allfiles/ORCA%27s%20GCNS_2025%20Conference%20Report.pdf"
                                                     class="rdf-link-block-2 w-inline-block">
-                                                    <h2 class="rdf-heading-1">GCNS 2026 Conference Report</h2>
+                                                    <h2 class="rdf-heading-1">GCNS 2025 Conference Report</h2>
                                                 </a>
                                             </div>
                                         </div>
@@ -133,29 +215,25 @@
                                 <nav class="rdf-list-1right w-dropdown-list">
                                     <div class="rdf-wrap-drop-1">
                                         <div class="rdf-grid-drop-1">
-                                            <div id="w-node-_91a7b06-0629-d32d-de4e-b55634969ebe-e42662e0"
-                                                class="rdf-wrap-drop-2">
+                                            <div class="rdf-wrap-drop-2">
                                                 <a href="{{ url('pages/gcns2026') }}"
                                                     class="rdf-link-block-2 w-inline-block">
                                                     <h2 class="rdf-heading-1">GCNS 2026</h2>
                                                 </a>
                                             </div>
-                                            <div id="w-node-_691a7b06-0629-d32d-de4e-b55634969ebe-e42662e"
-                                                class="rdf-wrap-drop-2">
+                                            <div class="rdf-wrap-drop-2">
                                                 <a href="{{ url('pages/gcns2025') }}"
                                                     class="rdf-link-block-2 w-inline-block">
                                                     <h2 class="rdf-heading-1">GCNS 2025</h2>
                                                 </a>
                                             </div>
-                                            <div id="w-node-_691a7b06-0629-d32d-de4e-b55634969ebe-e42662e"
-                                                class="rdf-wrap-drop-2">
+                                            <div class="rdf-wrap-drop-2">
                                                 <a href="{{ url('pages/gcns2024') }}"
                                                     class="rdf-link-block-2 w-inline-block">
                                                     <h2 class="rdf-heading-1">GCNS 2024</h2>
                                                 </a>
                                             </div>
-                                            <div id="w-node-_691a7b06-0629-d32d-de4e-b55634969ec4-e42662e0"
-                                                class="rdf-wrap-drop-2">
+                                            <div class="rdf-wrap-drop-2">
                                                 <a href="{{ url('pages/gcns2023') }}"
                                                     class="rdf-link-block-2 w-inline-block">
                                                     <h2 class="rdf-heading-1">GCNS 2023</h2>
@@ -236,15 +314,14 @@
                                                 <h2 class="fra-heading-1">GCNS 2025 Conference Report</h2>
                                             </a>
                                         </div>
-
                                     </div>
                                 </div>
                             </nav>
                         </div>
                     </div>
-                    <div id="w-node-_0df85482-465a-8633-f991-b354f9736c12-f9736bb6" class="fra-wrap-2">
+                    <!-- <div id="w-node-_0df85482-465a-8633-f991-b354f9736c12-f9736bb6" class="fra-wrap-2">
                         <a href="{{ url('pages/gcns2026') }}#media" class="fra-link-1">Media</a>
-                    </div>
+                    </div> -->
                     <div id="w-node-_0df85482-465a-8633-f991-b354f9736be6-f9736bb6" class="fra-wrap-3">
                         <div data-hover="false" data-delay="0" class="fra-drop-down-1 w-dropdown">
                             <div class="fra-toggle-1 w-dropdown-toggle" id="w-dropdown-toggle-5"
@@ -256,22 +333,25 @@
                                 aria-labelledby="w-dropdown-toggle-5">
                                 <div class="fra-wrap-drop-1">
                                     <div class="fra-grid-2">
-                                        <div id="w-node-_df85482-465a-8633-f991-b354f9736bee-f9736bb6"
-                                            class="fra-wrap-drop-2">
+                                        <div class="fra-wrap-drop-2">
                                             <a href="{{ url('pages/gcns2026') }}"
                                                 class="fra-link-block-1 w-inline-block" tabindex="0">
                                                 <h2 class="fra-heading-1">GCNS 2026</h2>
                                             </a>
                                         </div>
-                                        <div id="w-node-_0df8548-465a-8633-f991-b354f9736bee-f9736bb6"
-                                            class="fra-wrap-drop-2">
+                                        <div class="fra-wrap-drop-2">
+                                            <a href="{{ url('pages/gcns2025') }}"
+                                                class="fra-link-block-1 w-inline-block" tabindex="0">
+                                                <h2 class="fra-heading-1">GCNS 2025</h2>
+                                            </a>
+                                        </div>
+                                        <div class="fra-wrap-drop-2">
                                             <a href="{{ url('pages/gcns2024') }}"
                                                 class="fra-link-block-1 w-inline-block" tabindex="0">
                                                 <h2 class="fra-heading-1">GCNS 2024</h2>
                                             </a>
                                         </div>
-                                        <div id="w-node-_0df85482-465a-8633-f991-b354f9736bf4-f9736bb6"
-                                            class="fra-wrap-drop-2">
+                                        <div class="fra-wrap-drop-2">
                                             <a href="{{ url('pages/gcns2023') }}"
                                                 class="fra-link-block-1 w-inline-block" tabindex="0">
                                                 <h2 class="fra-heading-1">GCNS 2023</h2>
@@ -282,9 +362,9 @@
                             </nav>
                         </div>
                     </div>
-                    <div id="w-node-_0df85482-465a-8633-f991-b354f9736c15-f9736bb6" class="fra-wrap-2">
+                    <!-- <div id="w-node-_0df85482-465a-8633-f991-b354f9736c15-f9736bb6" class="fra-wrap-2">
                         <a href="{{ url('pages/gcns2026') }}#convenors" class="fra-link-1">Convenors</a>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -353,8 +433,8 @@
     </footer>
 
     <!-- SCRIPTS (DEFERRED) -->
-    <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.js" defer></script>
-    <script src="{{ asset('gcns25/js/webflow.js') }}" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{{ asset('gcns25/js/webflow.js') }}"></script>
 
     <!-- Swiper -->
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
