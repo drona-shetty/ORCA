@@ -12,13 +12,13 @@
     <meta property="og:description"
         content="GCNS by ORCA brings together global scholars and policymakers to discuss China and Asia.">
     <meta property="og:url" content="{{ url()->current() }}">
-    <meta property="og:image" content="{{ asset('images/logo.png') }}">
+    <meta property="og:image" content="{{ asset('gcns25/images/gcns-ww.png') }}">
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="GCNS | ORCA">
     <meta name="twitter:description"
         content="GCNS by ORCA brings together global scholars and policymakers to discuss China and Asia.">
-    <meta name="twitter:image" content="{{ asset('images/logo.png') }}">
+    <meta name="twitter:image" content="{{ asset('gcns25/images/gcns-ww.png') }}">
     <!-- Structured Data -->
     <script type="application/ld+json">
     {
@@ -60,7 +60,7 @@
     <link rel="stylesheet" href="{{ asset('css/gcns.css') }}">
     <!-- HERO -->
     <section class="shock-section has-holder pt-6 pb-6 hero">
-        <video autoplay muted loop playsinline class="hero-video">
+        <video autoplay muted loop playsinline webkit-playsinline preload="auto" class="hero-video">
             <source src="{{ asset('videos/_GCNS IIC_compressed.mp4') }}" type="video/mp4">
         </video>
         <div class="hero-overlay"></div>
@@ -189,7 +189,9 @@
         </div>
     </section>
     @php
-        $media_files = App\Models\Event\Media::where('gcns', 2025)->orderBy('sequence_no', 'asc')->paginate(8);
+        $media_files = App\Models\Event\Media::whereIn('gcns', [2025, 2024, 2023])
+                        ->orderBy('sequence_no', 'asc')
+                        ->paginate(15);
     @endphp
     <!-- GCNS 2025 GALLERY -->
     <section id="gallery" class="gallery-section">
@@ -208,7 +210,7 @@
                     </h2>
                     <div class="description maxwd">
                         <p>
-                            Participants interactions in the past GCNS editions
+                            Highlights from keynote sessions, panel discussion, networking events and participant interactions in previous GCNS editions.
                         </p>
                     </div>
                 </div>

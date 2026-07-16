@@ -257,6 +257,18 @@
             }
         }
     </style>
+    
+    @if(session('success'))
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Request Submitted',
+                text: "{{ session('success') }}",
+                confirmButtonText: 'OK'
+            });
+        </script>
+    @endif
     <!-- Banner -->
     <section id="consult-banner" class="shock-section bg-image bg-fixed position-x-left">
         <div class="container">
@@ -481,100 +493,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section class="consult-contact pt-5 pb-5 text-black" id="start-project">
-        <div class="container">
-            <div class="text-center mb-2">
-                <h2 class="title text-style-5">
-                    <span class="text-2 black"><mark class="animated-underline primary active">Start a</mark></span>
-                    <span class="text-2 black">Project</span>
-                </h2>
-            </div>
-
-            <form class="consult-form" action="{{ url('add-consultancy-project') }}" method="POST">
-                @csrf
-                <div class="row g-1">
-                    <!-- Name -->
-                    <div class="col-md-6">
-                        <label class="form-label">Full Name<span class="text-danger">*</span></label>
-                        <input type="text" name="name" class="form-control" placeholder="Enter your name" required>
-                    </div>
-
-                    <!-- Organisation -->
-                    <div class="col-md-6">
-                        <label class="form-label">Organisation<span class="text-danger">*</span></label>
-                        <input type="text" name="organisation" class="form-control" placeholder="Name of Organisation/Company" required>
-                    </div>
-
-                    <!-- Email -->
-                    <div class="col-md-6">
-                        <label class="form-label">Email<span class="text-danger">*</span></label>
-                        <input type="email" name="email" class="form-control" placeholder="Enter your email" required>
-                    </div>
-
-                    <!-- Mobile -->
-                    <div class="col-md-6">
-                        <label class="form-label">Mobile Number<span class="text-danger">*</span></label>
-                        <input type="tel" name="mobile" class="form-control" placeholder="XXXXXXXXXX"
-                            required>
-                    </div>
-
-                    <!-- Product Dropdown -->
-                    <div class="col-12">
-                        <label class="form-label">Product/Service<span class="text-danger">*</span></label>
-                        <select name="product" class="form-select" required>
-                            <option value="">Select Product</option>
-                            <option value="Social Media Analysis">Social Media Analysis</option>
-                            <option value="Public Opinion Surveys">Public Opinion Surveys</option>
-                            <option value="Reports & Dashboards">Reports & Dashboards</option>
-                            <option value="B2B Roundtables">B2B Roundtables</option>
-                            <option value="Workshops & Courses">Workshops & Courses</option>
-                            <option value="Other/Custom">Other/Custom</option>
-                        </select>
-                    </div>
-
-                    <!-- Message (optional but recommended) -->
-                    <div class="col-12">
-                        <label class="form-label">Project Details</label>
-                        <textarea name="project_details" rows="4" class="form-control" id="project_details" style="resize: none;"
-                            placeholder="Briefly describe your project or requirement within 100 words"></textarea>
-                        <small id="wordCount" class="text-muted">0 / 100 words</small>
-                    </div>
-                    <script>
-                        const textarea = document.getElementById('project_details');
-                        const wordCount = document.getElementById('wordCount');
-
-                        textarea.addEventListener('input', function () {
-                            let words = this.value.trim().split(/\s+/).filter(word => word.length > 0);
-
-                            if (words.length > 100) {
-                                words = words.slice(0, 100);
-                                this.value = words.join(' ');
-                            }
-
-                            wordCount.textContent = words.length + " / 100 words";
-
-                            // Optional: turn red when limit reached
-                            if (words.length >= 100) {
-                                wordCount.classList.remove('text-muted');
-                                wordCount.classList.add('text-danger');
-                            } else {
-                                wordCount.classList.remove('text-danger');
-                                wordCount.classList.add('text-muted');
-                            }
-                        });
-                    </script>
-                    <!-- Submit -->
-                    <div class="col-12 text-center mt-1" style="margin: auto; width:auto">
-                        <button type="submit" class="button shadow rounded-pill gradient scheme-1 hover-up">
-                            <span class="button-text white white-hover">Submit</span>
-                            <i class="fa-solid fa-arrow-right button-icon white white-hover"></i>
-                        </button>
-                    </div>
-                </div>
-            </form>
         </div>
     </section>
 @endsection

@@ -802,9 +802,6 @@
                 <h2 class="title text-style-5">
                     <span class="text-1 primary scheme-2">Latest Publications</span>
                 </h2>
-                <!-- <div class="description text-style-12 gray">
-                                        <p>Over many years of work, we have built a very successful history in our area of expertise.</p>
-                                      </div> -->
             </div>
             <!-- Posts -->
             <div class="swiper slider has-gap has-navigation has-pagination scheme-2 tertiary" data-columns="3,2,1,1">

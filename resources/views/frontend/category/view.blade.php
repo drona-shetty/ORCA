@@ -56,7 +56,7 @@
 
                             <!-- Image -->
                             <div class="image-wrapper hover-up-down">
-                                <x-webp-image src="{{ asset('images/article/' . $article->title_image) }}" class="image"
+                                <x-webp-image src="images/article/{!! $article->title_image !!}" class="image"
                                     alt="{{ $article->title }}" loading="lazy" />
                             </div>
 

@@ -5,86 +5,149 @@
 @section('meta_description', $article->introduction)
 
 @section('meta')
-    <!-- Basic SEO -->
-    <meta property="og:url" content="{{ url()->current() }}" />
+    {{-- =========================================
+        BASIC SEO
+    ========================================== --}}
+    <meta name="author" content="ORCA">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="googlebot" content="index, follow">
+    <link rel="canonical" href="{{ url()->current() }}">
+    <link rel="preload" as="image" href="{{ asset('images/article/' . $article->title_image) }}">
+
+    {{-- =========================================
+        OPEN GRAPH / FACEBOOK
+    ========================================== --}}
+
+    <meta property="og:locale" content="en_US" />
     <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="ORCA" />
+    <meta property="og:url" content="{{ url()->current() }}" />
     <meta property="og:title" content="{{ $article->title }}" />
-    <meta property="og:description" content="{{ $article->introduction }}" />
-    <meta property="og:image" content="{{ URL::asset('images/article/' . $article->title_image) }}" />
+    <meta property="og:description" content="{{ Str::limit(strip_tags($article->introduction), 200) }}" />
+    <meta property="og:image" content="{{ url('images/article/' . $article->title_image) }}" />
+    <meta property="og:image:secure_url" content="{{ url('images/article/' . $article->title_image) }}" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="{{ $article->title }}" />
+    <meta property="article:published_time" content="{{ $article->created_at->toIso8601String() }}" />
+    <meta property="article:modified_time" content="{{ $article->updated_at->toIso8601String() }}" />
+
+    @foreach ($authors as $author)
+        <meta property="article:author" content="{{ $author->name }}">
+    @endforeach
+
+    {{-- =========================================
+        TWITTER SEO
+    ========================================== --}}
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{{ $article->title }}">
-    <meta name="twitter:description" content="{{ $article->introduction }}">
-    <meta name="twitter:image" content="{{ URL::asset('images/article/' . $article->title_image) }}">
+    <meta name="twitter:description" content="{{ Str::limit(strip_tags($article->introduction), 200) }}">
+    <meta name="twitter:image" content="{{ asset('images/article/' . $article->title_image) }}">
 
-    <!-- Canonical -->
-    <link rel="canonical" href="{{ url()->current() }}">
+    {{-- =========================================
+        ARTICLE STRUCTURED DATA
+    ========================================== --}}
 
-    <!-- ARTICLE SCHEMA (SEO STRONG) -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Article",
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "{{ url()->current() }}"
-      },
-      "headline": "{{ addslashes($article->title) }}",
-      "description": "{{ addslashes($article->introduction) }}",
-      "image": "{{ URL::asset('images/article/' . $article->title_image) }}",
-      "datePublished": "{{ $article->created_at->toIso8601String() }}",
-      "dateModified": "{{ $article->updated_at->toIso8601String() }}",
-
-      "author": [
-        @foreach ($authors as $author)
-            @php
-                $author_meta = App\Models\UserMeta::where('user_id', $author->id)->first();
-            @endphp
-            {
-              "@type": "Person",
-              "name": "{{ $author->name }}",
-              "url": "{{ url('author/' . ($author_meta->slug ?? '')) }}"
-            }@if(!$loop->last),@endif
-        @endforeach
-      ],
-
-      "publisher": {
-        "@type": "Organization",
-        "name": "ORCA",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "{{ URL::asset('images/ORCA Website Banner Logo PNG.png') }}"
-        }
-      }
-    }
+    {!! json_encode([
+        "@context" => "https://schema.org",
+        "@type" => "Article",
+        "mainEntityOfPage" => [
+            "@type" => "WebPage",
+            "@id" => url()->current()
+        ],
+        "headline" => $article->title,
+        "description" => Str::limit(strip_tags($article->introduction), 200),
+        "image" => [
+            asset('images/article/' . $article->title_image)
+        ],
+        "datePublished" => $article->created_at->toIso8601String(),
+        "dateModified" => $article->updated_at->toIso8601String(),
+        "articleSection" => $category->category ?? 'Article',
+        "keywords" => $article->keywords . ', ORCA, China, Asia',
+        "author" => collect($authors)->map(function ($author) {
+            $author_meta = App\Models\UserMeta::where('user_id', $author->id)->first();
+            return [
+                "@type" => "Person",
+                "name" => $author->name,
+                "url" => url('author/' . ($author_meta->slug ?? ''))
+            ];
+        })->values(),
+        "publisher" => [
+            "@type" => "Organization",
+            "name" => "ORCA",
+            "url" => url('/'),
+            "logo" => [
+                "@type" => "ImageObject",
+                "url" => asset('images/ORCA Website Banner Logo PNG.png')
+            ]
+        ]
+    ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT) !!}
     </script>
 
-    <!-- BREADCRUMB SCHEMA -->
+    {{-- =========================================
+        BREADCRUMB STRUCTURED DATA
+    ========================================== --}}
+
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "{{ url('/') }}"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "{{ $category->category ?? 'Article' }}",
-          "item": "{{ url('category/' . ($category->slug ?? '')) }}"
-        },
-        {
-          "@type": "ListItem",
-          "position": 3,
-          "name": "{{ $article->title }}",
-          "item": "{{ url()->current() }}"
-        }
-      ]
-    }
+    {!! json_encode([
+        "@context" => "https://schema.org",
+        "@type" => "BreadcrumbList",
+        "itemListElement" => [
+            [
+                "@type" => "ListItem",
+                "position" => 1,
+                "name" => "Home",
+                "item" => url('/')
+            ],
+            [
+                "@type" => "ListItem",
+                "position" => 2,
+                "name" => $category->category ?? 'Category',
+                "item" => url('category/' . ($category->slug ?? ''))
+            ],
+            [
+                "@type" => "ListItem",
+                "position" => 3,
+                "name" => $article->title,
+                "item" => url()->current()
+            ]
+        ]
+    ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT) !!}
+    </script>
+
+    {{-- =========================================
+        OPTIONAL: NEWSARTICLE SCHEMA
+        (GOOD FOR GOOGLE DISCOVER)
+    ========================================== --}}
+
+    <script type="application/ld+json">
+    {!! json_encode([
+        "@context" => "https://schema.org",
+        "@type" => "NewsArticle",
+        "headline" => $article->title,
+        "image" => [
+            asset('images/article/' . $article->title_image)
+        ],
+        "datePublished" => $article->created_at->toIso8601String(),
+        "dateModified" => $article->updated_at->toIso8601String(),
+        "author" => collect($authors)->map(function ($author) {
+            return [
+                "@type" => "Person",
+                "name" => $author->name
+            ];
+        })->values(),
+        "publisher" => [
+            "@type" => "Organization",
+            "name" => "ORCA",
+            "logo" => [
+                "@type" => "ImageObject",
+                "url" => asset('images/ORCA Website Banner Logo PNG.png')
+            ]
+        ],
+        "description" => Str::limit(strip_tags($article->introduction), 200)
+    ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT) !!}
     </script>
 @endsection
 
@@ -200,7 +263,7 @@
             <!-- Image -->
             <div class="image-wrapper">
                 <img src="{{ URL::asset('images/article/' . $article->title_image) }}" class="image vh-100 fit-cover"
-                    alt="{{ $article->title }}" />
+                    alt="{{ $article->title }}" fetchpriority="high" loading="eager" decoding="async">
             </div>
 
             <div class="overlay black-50 hidden-print"></div>

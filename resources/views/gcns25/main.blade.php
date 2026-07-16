@@ -40,18 +40,38 @@
 
     <!-- Schema -->
     <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Event",
-        "name": "GCNS 2025",
-        "organizer": {
-            "@type": "Organization",
-            "name": "ORCA"
-        },
-        "eventStatus": "https://schema.org/EventScheduled",
-        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-        "description": "Global Conference on New Sinology 2025 by ORCA."
-    }
+    {!! json_encode([
+        "@context" => "https://schema.org",
+        "@type" => "Event",
+        "name" => "Global Conference on New Sinology 2025",
+        "alternateName" => "GCNS 2025",
+        "eventStatus" => "https://schema.org/EventScheduled",
+        "eventAttendanceMode" => "https://schema.org/OfflineEventAttendanceMode",
+        "startDate" => "2025-09-10",
+        "endDate" => "2025-09-12",
+        "description" => "Global Conference on New Sinology 2025 organized by ORCA.",
+        "image" => [
+            asset('images/gcns2025-banner.jpg')
+        ],
+        "location" => [
+            "@type" => "Place",
+            "name" => "ORCA Conference Venue",
+            "address" => [
+                "@type" => "PostalAddress",
+                "addressLocality" => "New Delhi",
+                "addressRegion" => "Delhi",
+                "addressCountry" => "IN"
+            ]
+        ],
+        "organizer" => [
+            "@type" => "Organization",
+            "name" => "ORCA",
+            "url" => url('/')
+        ]
+    ], JSON_UNESCAPED_SLASHES
+        | JSON_UNESCAPED_UNICODE
+        | JSON_PRETTY_PRINT
+        | JSON_INVALID_UTF8_SUBSTITUTE) !!}
     </script>
 
     <!-- Webflow init (kept but minimal) -->
@@ -159,6 +179,20 @@
             }
         }
     </style>
+
+    <!-- Google Analytics -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TCSL0X0MWT"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-TCSL0X0MWT');
+    </script>
 </head>
 
 <body class="body-2">

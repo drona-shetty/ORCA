@@ -25,6 +25,8 @@ if (Auth::check()) {
 
     <!-- CSRF -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    
+    @yield('meta')
 
     <!-- Open Graph -->
     <meta property="og:title" content="@yield('title', 'ORCA | Organisation for Research on China and Asia')">
@@ -39,9 +41,7 @@ if (Auth::check()) {
     <meta name="twitter:creator" content="@ORCA_India">
     <meta name="twitter:title" content="@yield('title')">
     <meta name="twitter:description" content="@yield('meta_description')">
-    <meta name="twitter:image" content="@yield('og_image', asset('images/ORCALogowhite.png'))">
-
-    @yield('meta')
+    <meta name="twitter:image" content="@yield('og_image', asset('images/ORCALogowhite.png'))">    
 
     <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('images/favicon/apple-icon-57x57.png') }}">
@@ -1046,7 +1046,7 @@ if (Auth::check()) {
                             </a>
                         </li>
                         <li class="nav-item dropdown has-megamenu hover">
-                            <a class="nav-link dropdown-toggle has-icon" href="{{ url('pages/gcns') }}" data-bs-toggle="dropdown">
+                            <a class="nav-link dropdown-toggle has-icon" href="{{ url('pages/gcns') }}">
                                 <span class="text">GCNS</span>
                             </a>
                         </li>

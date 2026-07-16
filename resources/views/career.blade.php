@@ -7,11 +7,10 @@
     Research on China and Asia.')
 
 @section('content')
-
     <style>
         .career-hero {
             background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
-                url('/assets/images/career-banner.jpg');
+                url('/images/career-banner.jpg');
             background-size: cover;
             background-position: center;
             padding: 140px 0;
@@ -100,6 +99,7 @@
             transition: 0.3s ease;
             margin-bottom: 30px;
             border: 1px solid #eee;
+            height: stretch;
         }
 
         .job-card:hover {
@@ -210,17 +210,12 @@
                 <div class="col-lg-8">
                     <h1>Work With ORCA</h1>
                     <p>
-                        Join a growing network of researchers, analysts, editors, and policy professionals focused on China
-                        and Asia.
+                        Join a group of researchers and policy analysts focusing on contemporary Chinese domestic politics,  foreign policy, economy, defense strategy and socio-cultural behavior.
                     </p>
 
                     <div class="mt-4">
                         <a href="#openings" class="career-btn btn-primary-custom me-3">
                             View Openings
-                        </a>
-
-                        <a href="#internships" class="career-btn btn-outline-custom">
-                            Internship Program
                         </a>
                     </div>
                 </div>
@@ -231,7 +226,6 @@
     <!-- WHY JOIN -->
     <section class="py-5">
         <div class="container py-5">
-
             <div class="text-center mb-5">
                 <h2 class="section-title">Why Join ORCA</h2>
                 <p class="section-subtitle">
@@ -287,9 +281,6 @@
 
             <div class="text-center mb-5">
                 <h2 class="section-title">Current Openings</h2>
-                <p class="section-subtitle">
-                    Explore research, editorial, technical, and internship opportunities at ORCA.
-                </p>
             </div>
 
             <div class="row">
@@ -470,60 +461,6 @@
         </div>
     </section>
 
-    <!-- CONTRIBUTOR -->
-    <section class="py-5 bg-light">
-        <div class="container py-5 text-center">
-
-            <h2 class="section-title">Become a Contributor</h2>
-
-            <p class="section-subtitle">
-                ORCA welcomes analysts, professors, researchers, and independent scholars interested in contributing
-                articles, papers, and policy analysis.
-            </p>
-
-            <a href="mailto:research@orcasia.org"
-                class="career-btn btn-primary-custom">
-                Submit Proposal
-            </a>
-
-        </div>
-    </section>
-
-    <!-- APPLICATION PROCESS -->
-    <section class="py-5">
-        <div class="container py-5">
-
-            <div class="text-center mb-5">
-                <h2 class="section-title">Application Process</h2>
-            </div>
-
-            <div class="timeline">
-
-                <div class="timeline-item">
-                    <h4>1. Apply Online</h4>
-                    <p>Submit your application and supporting documents.</p>
-                </div>
-
-                <div class="timeline-item">
-                    <h4>2. Application Review</h4>
-                    <p>Our team evaluates applications based on role requirements.</p>
-                </div>
-
-                <div class="timeline-item">
-                    <h4>3. Interview</h4>
-                    <p>Shortlisted candidates may be invited for an interview.</p>
-                </div>
-
-                <div class="timeline-item">
-                    <h4>4. Selection & Onboarding</h4>
-                    <p>Selected candidates receive onboarding instructions and project details.</p>
-                </div>
-
-            </div>
-
-        </div>
-    </section>
-
     <!-- FAQ -->
     <section class="py-5 bg-light">
         <div class="container py-5">
@@ -554,26 +491,4 @@
 
         </div>
     </section>
-
-    <!-- CTA -->
-    <section class="cta-section">
-        <div class="container">
-
-            <h2>Help Shape Research on Asia</h2>
-
-            <p class="mb-5">
-                Join ORCA's growing network of researchers, editors, analysts, and strategic thinkers.
-            </p>
-
-            <a href="#openings" class="career-btn btn-outline-custom me-3">
-                Explore Openings
-            </a>
-
-            <a href="mailto:careers@orcasia.org" class="career-btn btn-primary-custom">
-                Contact ORCA
-            </a>
-
-        </div>
-    </section>
-
 @endsection
