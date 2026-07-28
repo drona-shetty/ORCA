@@ -30,7 +30,7 @@
 
         .break-right-5 {
             position: absolute;
-            bottom: -100%;
+            bottom: -75%;
             left: auto;
             right: 7%;
             color: #fff;
@@ -144,8 +144,7 @@
                     src="{{ asset('gcns25/images/685d961c7776a97bf68b1764_box4.svg') }}" alt="" class="image">
             </div>
             <div class="break-right-5">
-                <h1>DAY 1: REGISTRATIONS ARE CLOSED</h1>
-                <h1>DAY 2: INVITE-ONLY</h1>
+                <h1><a style="text-decoration: none;" href="https://orcasia.org/allfiles/ORCA%27s%20GCNS_2025%20Conference%20Report.pdf" target="_blank">GCNS 2025 CONFERENCE REPORT</a></h1>
             </div>
         </div>
         <div class="concept-note-schedule">
@@ -219,39 +218,6 @@
         </div>
     </section>
     <!--SPEAKERS END-->
-
-    <!--FOCUS-->
-    @php
-        $concept = App\Models\Event\About::where('id', 3)->first();
-    @endphp
-    <section class="features">
-        <div class="flexcontainer">
-            <div class="w-layout-grid grid">
-                <div id="w-node-c162a1ea-7beb-61c0-0ebb-c2289ee30f11-53d1b8f2"
-                    data-w-id="c162a1ea-7beb-61c0-0ebb-c2289ee30f11"
-                    style="opacity:1;background-image:url('{{ asset('images/event/media/' . $concept->image) }}')"
-                    class="main_card_contain black _01">
-                    <div class="div-contain">
-                        <h3 class="cards-title">{{ $concept->title }}</h3>
-                        <h4 class="heading white">{{ $concept->desc }}</h4>
-                    </div>
-                </div>
-                @php
-                    $concept = App\Models\Event\About::where('id', 4)->first();
-                @endphp
-                <div id="w-node-c162a1ea-7beb-61c0-0ebb-c2289ee30f18-53d1b8f2"
-                    data-w-id="c162a1ea-7beb-61c0-0ebb-c2289ee30f18"
-                    style="opacity:1;background-image:url('{{ asset('images/event/media/' . $concept->image) }}')"
-                    class="main_card_contain black _02">
-                    <div class="div-contain">
-                        <h1 class="cards-title blue">{{ $concept->title }}</h1>
-                        <p class="heading white">{{ $concept->desc }}</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--FOCUS END-->
 
     <!--SCHEDULE-->
     @php

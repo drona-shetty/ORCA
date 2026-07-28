@@ -102,10 +102,18 @@
     @php
         $gcns = [
             [
+                'year' => '2026',
+                'title' => 'Zìlì Gēngshēng in an Era of ‘Great Changes Unseen’',
+                'description' =>
+                    'The Global Conference on New Sinology (GCNS) 2026 will be held on 28th-29th September, 2026 at the India International Centre (IIC), New Delhi, under the theme "Zìlì Gēngshēng in an Era of Great Changes Unseen."',
+                'url' => '/pages/gcns2026',
+                'image' => asset('images/event/media/GCNS 2026 Poster.jpg'),
+            ],
+            [
                 'year' => '2025',
                 'title' => 'China’s “Dream” for a New Mandate of Power',
                 'description' =>
-                    "The Global Conference on New Sinology (GCNS) was held on 23rd-24th September 2025 on the theme 'China’s ‘Dream’ for a New Mandate of Power' at The India International Centre, New Delhi.",
+                    'The Global Conference on New Sinology (GCNS) 2025 was held on 23th–24th September 2025 at the India International Centre (IIC), New Delhi, under the theme "China’s “Dream” for a New Mandate of Power."',
                 'url' => '/pages/gcns2025',
                 'image' => asset('images/event/media/IMG_6494_(1).jpg'),
             ],
@@ -113,7 +121,7 @@
                 'year' => '2024',
                 'title' => 'The Art of Power in Zhongnanhai',
                 'description' =>
-                    "The Global Conference on New Sinology (GCNS) was held on 26th-27th September 2024 on the theme 'The Art of Power in Zhongnanhai' at The Grand, New Delhi.",
+                    'The Global Conference on New Sinology (GCNS) 2024 was held on 26th–27th September 2024 at The Grand, New Delhi, under the theme "The Art of Power in Zhongnanhai."',
                 'url' => '/pages/gcns2024',
                 'image' => asset('images/event/media/IMG_1413.JPG'),
             ],
@@ -121,7 +129,7 @@
                 'year' => '2023',
                 'title' => 'China’s Superpower Ambitions in the New Era',
                 'description' =>
-                    "The Global Conference on New Sinology (GCNS) was held on 25th-26th September 2023 on the theme 'China's Superpower Ambitions in the New Era' at The Grand, New Delhi.",
+                    'The Global Conference on New Sinology (GCNS) 2023 was held on 25th–26th September 2023 at The Grand, New Delhi, under the theme "China’s Superpower Ambitions in the New Era."',
                 'url' => '/pages/gcns2023',
                 'image' => asset('images/event/media/IMG_0040.jpg'),
             ],
@@ -165,7 +173,9 @@
                                     <div class="timeline-content">
                                         <div class="timeline-header">
                                             <div class="year">
+                                                <a href="{{ url($edition['url']) }}" style="color: inherit;">
                                                 GCNS {{ $edition['year'] }}
+                                                </a>
                                             </div>
                                             <div class="timeline-line"></div>
                                         </div>
@@ -339,6 +349,14 @@
             new Swiper('.gcnsSwiper', {
                 slidesPerView: 1,
                 spaceBetween: 30,
+                loop: true,
+                slidesPerView: "auto",
+                speed: 800,
+                autoplay: {
+                    delay: 3000, // 1.5 seconds
+                    disableOnInteraction: false,
+                    pauseOnMouseEnter: true,
+                },
                 pagination: {
                     el: '.swiper-pagination',
                     clickable: true
@@ -366,7 +384,7 @@
                 slidesPerView: "auto",
                 speed: 800,
                 autoplay: {
-                    delay: 1000, // 1.5 seconds
+                    delay: 3000, // 1.5 seconds
                     disableOnInteraction: false,
                     pauseOnMouseEnter: true,
                 },

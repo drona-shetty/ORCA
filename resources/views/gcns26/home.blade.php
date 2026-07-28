@@ -241,7 +241,7 @@
                 @endphp
                 <div id="w-node-c162a1ea-7beb-61c0-0ebb-c2289ee30f18-53d1b8f2"
                     data-w-id="c162a1ea-7beb-61c0-0ebb-c2289ee30f18"
-                    style="opacity:1;background-image:url('{{ asset('images/event/media/' . $concept->image) }}')"
+                    style="opacity:1;background-image:url('{{ asset('images/event/media/' . $concept->image) }}');background-size: contain;background-color: white;"
                     class="main_card_contain black _02">
                     <div class="div-contain">
                         <h1 class="cards-title blue">{{ $concept->title }}</h1>
@@ -297,7 +297,7 @@
 
     <!--CONCEPT-->
     @php
-        $concept = App\Models\Event\About::where('id', 32)->first();
+        $concept = App\Models\Event\About::where('id', 31)->first();
     @endphp
     <section class="concept-note">
         <div class="black-wrapper">
@@ -438,7 +438,7 @@
 
     <!--CONVENORS-->
     @php
-        $concept = App\Models\Event\About::where('id', 37)->first();
+        $concept = App\Models\Event\About::where('id', 34)->first();
     @endphp
     <section class="partners" id="convenors">
         <div class="break-left">

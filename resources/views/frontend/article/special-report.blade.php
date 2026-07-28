@@ -3,6 +3,7 @@
 @section('title', $article->title)
 @section('meta_keywords', $article->keywords)
 @section('meta_description', $article->introduction)
+@section('og_image', asset('images/article/' . $article->title_image))
 
 @section('meta')
 

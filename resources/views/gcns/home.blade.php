@@ -20,6 +20,28 @@
         .scroll-card {
             height: 100%;
         }
+
+        .break-right-5 {
+            position: absolute;
+            bottom: -75%;
+            left: auto;
+            right: 7%;
+            color: #fff;
+            font-family: Bebas Neue, sans-serif;
+            font-size: 46px;
+            line-height: 30px;
+            background-color: var(--orca-red);
+            padding: 20px;
+        }
+        @media (max-width: 768px) {
+            .concept-note-schedule {
+                display: block;
+            }
+
+            .break-right-5 {
+                display: none;
+            }
+        }
     </style>
     <!--BANNER-->
     @php
@@ -70,6 +92,9 @@
             <div data-w-id="0342cf17-6ce9-24ec-ad21-ce8afeaa85aa" class="break-right-4"><img loading="lazy"
                     src="{{ asset('gcns25/images/685d961c7776a97bf68b1764_box4.svg') }}" alt=""
                     class="image">
+            </div>
+            <div class="break-right-5">
+                <h1><a style="text-decoration: none;" href="https://orcasia.org/allfiles/ORCA's_GCNS_2024_Report.pdf" target="_blank">GCNS 2024 CONFERENCE REPORT</a></h1>
             </div>
         </div>
     </section>
