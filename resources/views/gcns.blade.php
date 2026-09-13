@@ -115,7 +115,7 @@
                 'description' =>
                     'The Global Conference on New Sinology (GCNS) 2025 was held on 23th–24th September 2025 at the India International Centre (IIC), New Delhi, under the theme "China’s “Dream” for a New Mandate of Power."',
                 'url' => '/pages/gcns2025',
-                'image' => asset('images/event/media/IMG_6494_(1).jpg'),
+                'image' => asset('images/event/media/IMG_6571_(1).jpg'),
             ],
             [
                 'year' => '2024',
@@ -123,7 +123,7 @@
                 'description' =>
                     'The Global Conference on New Sinology (GCNS) 2024 was held on 26th–27th September 2024 at The Grand, New Delhi, under the theme "The Art of Power in Zhongnanhai."',
                 'url' => '/pages/gcns2024',
-                'image' => asset('images/event/media/IMG_1413.JPG'),
+                'image' => asset('images/event/media/IMG_2096.JPG'),
             ],
             [
                 'year' => '2023',
@@ -131,7 +131,7 @@
                 'description' =>
                     'The Global Conference on New Sinology (GCNS) 2023 was held on 25th–26th September 2023 at The Grand, New Delhi, under the theme "China’s Superpower Ambitions in the New Era."',
                 'url' => '/pages/gcns2023',
-                'image' => asset('images/event/media/IMG_0040.jpg'),
+                'image' => asset('images/event/media/IMG_0165-min.JPG'),
             ],
         ];
     @endphp

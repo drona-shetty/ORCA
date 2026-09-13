@@ -35,7 +35,7 @@
                     {{ $author->name }}
                 </td>
                 <td>{{ $article->views }}</td>
-                <td>{{ $article->downloads }}</td>
+                <td>{{ $article->print_count }}</td>
                 <td>
                     {{ $category->category }}
                 </td>

@@ -88,6 +88,7 @@
         iframe {
             border: 0;
         }
+
         :root {
             --orca-red: #352e2f;
             --black: #171915;
@@ -244,7 +245,7 @@
                                     src="{{ URL::asset('gcns25/images/orca-white_1.svg') }}" loading="lazy"
                                     alt="" class="rdf-pic-1"></a>
                             <div class="rdf-decor-1"></div>
-                            <a href="{{ url('pages/gcns2025') }}" class="rdf-link-block-1 w-inline-block"><img
+                            <a href="{{ url('pages/gcns') }}" class="rdf-link-block-1 w-inline-block"><img
                                     src="{{ URL::asset('gcns25/images/gcns-ww.svg') }}" loading="lazy" alt=""
                                     class="rdf-pic-1"></a>
                         </div>
@@ -477,7 +478,7 @@
     </footer>
 
     <!-- SCRIPTS (DEFERRED) -->
-    <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="{{ asset('gcns25/js/webflow.js') }}" defer></script>
 
     <!-- Swiper -->
@@ -518,26 +519,45 @@
                     tab.nextElementSibling?.classList.add("active");
                 });
             });
+        });
 
-            // Load More (optimized)
-            const btn = document.getElementById('load-more');
-            if (btn) {
-                btn.addEventListener('click', async () => {
-                    let page = parseInt(btn.dataset.page);
-                    btn.disabled = true;
+        $(document).ready(function() {
+            $('#load-more').on('click', function() {
+                const btn = $(this);
+                const page = parseInt(btn.attr('data-page'), 10);
 
-                    const res = await fetch(`/gcns/load-more-media?page=${page}`);
-                    const html = await res.text();
+                btn.prop('disabled', true);
 
-                    if (html.trim()) {
-                        document.getElementById('media-grid').insertAdjacentHTML('beforeend', html);
-                        btn.dataset.page = page + 1;
-                        btn.disabled = false;
-                    } else {
-                        btn.style.display = 'none';
+                $.ajax({
+                    url: '/gcns/load-more-media',
+                    type: 'GET',
+                    data: {
+                        page: page
+                    },
+                    success: function(response) {
+                        if (response.html.trim() !== '') {
+                            $('#media-grid').append(response.html);
+
+                            btn.attr('data-page', page + 1);
+                        }
+
+                        if (response.hasMore) {
+                            btn.prop('disabled', false);
+                        } else {
+                            btn.hide();
+                        }
+                    },
+
+                    error: function(xhr) {
+
+                        console.error('Failed to load media:', xhr);
+
+                        btn.prop('disabled', false);
                     }
                 });
-            }
+
+            });
+
         });
     </script>
 

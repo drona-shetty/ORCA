@@ -10,5 +10,5 @@ class Convenor extends Model
     use HasFactory;
 
     protected $table = 'event_convenors';
-    protected $fillable = ['gcns', 'title', 'logo', 'content', 'link'];
+    protected $fillable = ['gcns', 'title', 'logo', 'content', 'link', 'type'];
 }

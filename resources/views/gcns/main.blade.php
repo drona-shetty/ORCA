@@ -278,7 +278,7 @@
                                 src="{{ asset('gcns25/images/orca-white_1.svg') }}" loading="lazy"
                                 alt="" class="rdf-pic-1"></a>
                         <div class="rdf-decor-1"></div>
-                        <a href="{{ url('pages/gcns2024') }}" class="rdf-link-block-1 w-inline-block"><img
+                        <a href="{{ url('pages/gcns') }}" class="rdf-link-block-1 w-inline-block"><img
                                 src="{{ asset('gcns25/images/gcns-ww.svg') }}" loading="lazy" alt=""
                                 class="rdf-pic-1"></a>
                     </div>

@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers\GCNS;
 
 use App\Http\Controllers\Controller;
@@ -38,21 +37,21 @@ class MediaController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'sequence' => 'required',
+            'sequence'     => 'required',
             'fileToUpload' => 'required|mimes:jpeg,png,pdf,mp3,mp4,video/mp4', // Adjust the allowed file types and size as per your requirements
         ]);
         $request = request()->all();
         $tmpFile = $_FILES['fileToUpload']['tmp_name'];
         // dd($tmpFile);
         $targetDirectory = 'images/event/media/';
-        if (!file_exists($targetDirectory)) {
+        if (! file_exists($targetDirectory)) {
             mkdir($targetDirectory, 0777, true);
         }
 
-        $newFile = $targetDirectory . str_replace(' ', '_', $_FILES['fileToUpload']['name']);
-        $result = move_uploaded_file($tmpFile, $newFile);
-        $imageVal = str_replace(' ', '_', $_FILES['fileToUpload']['name']);
-        $request['files'] = $imageVal;
+        $newFile                = $targetDirectory . str_replace(' ', '_', $_FILES['fileToUpload']['name']);
+        $result                 = move_uploaded_file($tmpFile, $newFile);
+        $imageVal               = str_replace(' ', '_', $_FILES['fileToUpload']['name']);
+        $request['files']       = $imageVal;
         $request['sequence_no'] = $request['sequence'];
 
         Media::create($request);
@@ -97,18 +96,18 @@ class MediaController extends Controller
 
         $Media = Media::where('id', $id);
 
-        if (isset($request['sequence']) && !empty($request['sequence'])) {
+        if (isset($request['sequence']) && ! empty($request['sequence'])) {
             $request['sequence_no'] = $request['sequence'];
         }
 
         if ($_FILES['fileToUpload']['name'] != '') {
-            $tmpFile = $_FILES['fileToUpload']['tmp_name'];
+            $tmpFile         = $_FILES['fileToUpload']['tmp_name'];
             $targetDirectory = 'images/event/media/';
-            if (!file_exists($targetDirectory)) {
+            if (! file_exists($targetDirectory)) {
                 mkdir($targetDirectory, 0777, true);
             }
-            $newFile = $targetDirectory . str_replace(' ', '_', $_FILES['fileToUpload']['name']);
-            $result = move_uploaded_file($tmpFile, $newFile);
+            $newFile  = $targetDirectory . str_replace(' ', '_', $_FILES['fileToUpload']['name']);
+            $result   = move_uploaded_file($tmpFile, $newFile);
             $imageVal = str_replace(' ', '_', $_FILES['fileToUpload']['name']);
         } else {
             $imageVal = $Media->first()->files;
@@ -117,7 +116,7 @@ class MediaController extends Controller
 
         $Media->update([
             'sequence_no' => $request['sequence_no'],
-            'files' => $imageVal,
+            'files'       => $imageVal,
         ]);
 
         return redirect('yn-admin/gcns/media')->with('success', 'Media file updated successfully.');
@@ -139,7 +138,7 @@ class MediaController extends Controller
 
     public function check_if_used(Request $request)
     {
-        $id = $request->id;
+        $id       = $request->id;
         $articles = Article::select('title', 'id', 'slug')->where('category', $id)->get();
 
         return $articles;
@@ -147,12 +146,20 @@ class MediaController extends Controller
 
     public function loadMore(Request $request)
     {
-        if ($request->ajax()) {
-            $media_files = Media::where('gcns', 2025)
-                ->orderBy('sequence_no', 'asc')
-                ->paginate(6, ['*'], 'page', $request->page);
+        abort_unless($request->ajax(), 404);
 
-            return view('gcns25.partials.media', compact('media_files'))->render();
-        }
+        $media_files = Media::where('gcns', 2025)
+            ->orderBy('sequence_no', 'asc')
+            ->paginate(
+                6,
+                ['*'],
+                'page',
+                $request->page
+            );
+
+        return response()->json([
+            'html'    => view('gcns25.partials.media', compact('media_files'))->render(),
+            'hasMore' => $media_files->hasMorePages(),
+        ]);
     }
 }

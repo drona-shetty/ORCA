@@ -14,7 +14,7 @@ class ArticleController extends Controller
 {
     public function index()
     {
-        $articles = Article::select('id', 'downloads', 'status', 'title_image', 'views', 'author_id', 'title', 'created_at', 'category', 'slug', 'p_color', 'a_color', 'section_bg')
+        $articles = Article::select('id', 'print_count', 'status', 'title_image', 'views', 'author_id', 'title', 'created_at', 'category', 'slug', 'p_color', 'a_color', 'section_bg')
 
             ->orderBy('created_at', 'desc')
             ->paginate(10); // or any number per page
@@ -327,6 +327,16 @@ class ArticleController extends Controller
         $art = Article::where('id', $request->id);
         $art->update([
             'downloads' => $art->first()->downloads + 1,
+        ]);
+    }
+
+    public function trackPrint(Request $request)
+    {
+        $article = Article::findOrFail($request->article_id);
+        $article->increment('print_count');
+
+        return response()->json([
+            'success' => true
         ]);
     }
 }

@@ -9,7 +9,7 @@
     <!--BANNER-->
     <section>
         <div class="lgx-banner"
-            style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('{{ asset('gcns25/images/Image_GCNS Speaker Section.jpg') }}') top center no-repeat;background-size: cover;">
+            style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('{{ asset('gcns25/images/Image_GCNS Speaker Section.jpg') }}') center no-repeat;background-size: cover;">
             <div class="lgx-page-inner">
                 <div class="container">
                     <div class="row">

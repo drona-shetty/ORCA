@@ -111,10 +111,6 @@
             <p data-w-id="5cf9fb86-53b8-43f6-3e05-3e8b6bea676d"
                 style="background: black;padding: 10px;margin-top: 10px;opacity: 1;transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);transform-style: preserve-3d;"
                 class="slogan">{{ $date->desc }}<br><br>{{ $address->desc }}</p>
-            <a class="rdf-button-1" href="https://orcasia.org/allfiles/ORCA%27s%20GCNS_2025%20Conference%20Report.pdf"
-                target="_blank">
-                GCNS 2025 Conference Report
-            </a>
         </div>
     </section>
     <!--BANNER END-->
@@ -342,16 +338,16 @@
             </div>
             <main class="main-wrapper">
                 <div class="tabs">
-                    <a href="#" class="tabs_link w-inline-block active">
+                    <a href="#" class="tabs_link w-inline-block active" style="background-color:#e21f25">
                         <p class="tabs_heading">GCNS 2026</p>
                     </a>
                     <div class="tabs_content active">
                         <div class="tab_wrap">
                             <div class="break-left fullwidth">
-                                <div class="sepbar"></div>
+                                <div class="sepbar" style="background-color:#e21f25"></div>
                                 <h2 class="heading2">{{ $pre_26->title }}</h2>
                                 <h4 class="heading">{{ $pre_26->desc }}</h4>
-                                <a href="{{ url('pages/gcns2026') }}" class="rdf-button-1 editions w-button">Visit</a>
+                                <a href="{{ url('pages/gcns2026') }}" class="rdf-button-1 editions w-button" style="background-color:#e21f25">Visit</a>
                             </div>
                         </div>
                     </div>

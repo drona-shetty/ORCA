@@ -6,22 +6,27 @@
 @section('og_image', asset('images/article/' . $article->title_image))
 
 @section('meta')
+    {{-- =========================================
+        BASIC SEO
+    ========================================== --}}
+    <meta name="googlebot" content="index, follow">
+    <link rel="preload" as="image" href="{{ asset('images/article/' . $article->title_image) }}">
 
-    {{-- Canonical --}}
-    <link rel="canonical" href="{{ url()->current() }}">
+    {{-- =========================================
+        OPEN GRAPH / FACEBOOK
+    ========================================== --}}
 
-    {{-- Open Graph --}}
-    <meta property="og:url" content="{{ url()->current() }}" />
+    <meta property="og:locale" content="en_US" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="{{ $article->title }}" />
-    <meta property="og:description" content="{{ $article->introduction }}" />
-    <meta property="og:image" content="{{ asset('images/article/' . $article->title_image) }}" />
+    <meta property="og:site_name" content="ORCA" />
+    <meta property="og:image:secure_url" content="{{ url('images/article/' . $article->title_image) }}" />
+    <meta property="og:image:alt" content="{{ $article->title }}" />
+    <meta property="article:published_time" content="{{ $article->created_at->toIso8601String() }}" />
+    <meta property="article:modified_time" content="{{ $article->updated_at->toIso8601String() }}" />
 
-    {{-- Twitter --}}
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="{{ $article->title }}">
-    <meta name="twitter:description" content="{{ $article->introduction }}">
-    <meta name="twitter:image" content="{{ asset('images/article/' . $article->title_image) }}">
+    @foreach ($authors as $author)
+        <meta property="article:author" content="{{ $author->name }}">
+    @endforeach
 
     {{-- =========================
         ARTICLE SCHEMA (SEO)
@@ -62,8 +67,15 @@
 @endsection
 
 @section('content')
-
+    <div class="print-watermark">
+        <img src="{{ URL::asset('images/ORCA Website Banner Logo PNG.png') }}"
+            alt="">
+    </div>
     <style>
+        .print-watermark {
+            display: none;
+        }
+
         p {
             color: #000 !important;
         }
@@ -72,8 +84,86 @@
             color: black !important;
         }
 
-        .side-widget .float-icon {
-            height: auto !important;
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            /* ==============================
+                   PRINT LOGO AT TOP
+                   ============================== */
+            .logo-print-only {
+                display: block !important;
+                text-align: center;
+                margin-bottom: 25px;
+            }
+
+            .print-logo {
+                width: 450px !important;
+                max-width: 80% !important;
+                height: auto !important;
+                object-fit: contain !important;
+            }
+
+            /* ==============================
+                   WATERMARK
+                   ============================== */
+            .print-watermark {
+                display: block !important;
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 450px;
+                opacity: 0.08;
+                z-index: -1;
+                pointer-events: none;
+            }
+
+            .print-watermark img {
+                width: 100% !important;
+                height: auto !important;
+                object-fit: contain !important;
+            }
+
+            /* ==============================
+                   HIDE WEBSITE ELEMENTS
+                   ============================== */
+            .print-button,
+            .side-widget,
+            .hidden-print {
+                display: none !important;
+            }
+
+            /* ==============================
+                   PRINT PAGE
+                   ============================== */
+            @page {
+                size: A4;
+                margin: 15mm;
+            }
+
+            /* Keep text above watermark */
+            .shock-section,
+            .container,
+            .content,
+            .article-content {
+                position: relative;
+                z-index: 1;
+            }
+
+            .text-white {
+                color: #fff !important;
+            }
+        }
+
+        @media (max-width:768px) {
+            .table-scroll {
+                overflow-x: auto;
+                width: 100%;
+                -webkit-overflow-scrolling: touch;
+            }
         }
 
         img {
@@ -152,21 +242,33 @@
             <div class="comments mt-2">
                 <h2>Author</h2>
 
-                @foreach ($authors as $author)
-                    @php
-                        $author_meta = App\Models\UserMeta::where('user_id', $author->id)->first();
-                    @endphp
+                <div class="comments-wrapper">
+                    @foreach ($authors as $author)
+                        @php
+                            $author_meta = App\Models\UserMeta::where('user_id', $author->id)->first();
+                        @endphp
 
-                    <div class="comment">
-                        <div class="comment-author">
-                            <a href="{{ url('author/' . $author_meta->slug) }}">
-                                <h5 class="author-name">{{ $author->name }}</h5>
-                            </a>
+                        <div class="comment">
+                            <div class="comment-metadata">
+                                <div class="comment-author">
+                                    <div class="author-photo">
+                                        <img src="{{ URL::asset('images/author/' . $author_meta->avatar) }}"
+                                            class="image shadow" alt="{{ $author->name }}">
+                                    </div>
+
+                                    <a href="{{ url('author/' . $author_meta->slug) }}" rel="author"
+                                        class="link gray primary-hover">
+                                        <h5 class="author-name">{{ $author->name }}</h5>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="comment-content">
+                                <p>{{ $author_meta->about }}</p>
+                            </div>
                         </div>
-                        <p>{{ $author_meta->about }}</p>
-                    </div>
-                @endforeach
-
+                    @endforeach
+                </div>
             </div>
 
             <!-- Tags -->
@@ -184,6 +286,9 @@
         </div>
     </section>
 
+    <!-- Side Widget -->
+    @include('frontend.article.share')
+    
 @endsection
 
 <?php

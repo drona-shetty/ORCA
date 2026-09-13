@@ -162,8 +162,8 @@
                 <div class="div-block-3">
                     <div class="rdf-wrap-1">
                         <div class="rdf-wrap-2">
-                            <!--<a href="{{ url('pages/gcns2026') }}#speakers" class="rdf-link-4">Speakers</a>
-                            <a href="{{ url('pages/gcns2026') }}#schedule" class="rdf-link-4">Schedule</a> -->
+                            <a href="{{ url('pages/gcns2026') }}#speakers" class="rdf-link-4">Speakers</a>
+                            <a href="{{ url('pages/gcns2026') }}#schedule" class="rdf-link-4">Schedule</a>
                             <div data-hover="true" data-delay="0" class="rdf-drop-down-1 w-dropdown">
                                 <div class="rdf-toggle-1 w-dropdown-toggle">
                                     <div class="rdf-text-drop-1">Publications</div>
@@ -202,7 +202,7 @@
                                     src="{{ URL::asset('gcns25/images/orca-white_1.svg') }}" loading="lazy"
                                     alt="" class="rdf-pic-1"></a>
                             <div class="rdf-decor-1"></div>
-                            <a href="{{ url('pages/gcns2026') }}" class="rdf-link-block-1 w-inline-block"><img
+                            <a href="{{ url('pages/gcns') }}" class="rdf-link-block-1 w-inline-block"><img
                                     src="{{ URL::asset('gcns25/images/gcns-ww.svg') }}" loading="lazy" alt=""
                                     class="rdf-pic-1"></a>
                         </div>
@@ -243,7 +243,7 @@
                                     </div>
                                 </nav>
                             </div>
-                            <!--<a href="{{ url('pages/gcns2026') }}#convenors" class="rdf-link-4">Convenors</a>-->
+                            <a href="{{ url('pages/gcns2026') }}#convenors" class="rdf-link-4">GCNS Team</a>
                         </div>
                         <div class="rdf-wrap-6"><img
                                 src="{{ URL::asset('gcns25/images/menu-alt-02-svgrepo-com.svg') }}" loading="lazy"
@@ -276,12 +276,12 @@
             </div>
             <div class="fra-wrap-1">
                 <div class="fra-grid-1">
-                    <!--<div id="w-node-_0df85482-465a-8633-f991-b354f9736be3-f9736bb6" class="fra-wrap-2">
+                    <div id="w-node-_0df85482-465a-8633-f991-b354f9736be3-f9736bb6" class="fra-wrap-2">
                         <a href="{{ url('pages/gcns2026') }}#speakers" class="fra-link-1">Speakers-</a>
                     </div>
                     <div id="w-node-_0df85482-465a-8633-f991-b354f9736be3-f9736bb8" class="fra-wrap-2">
                         <a href="{{ url('pages/gcns2026') }}#schedule" class="fra-link-1">Schedule</a>
-                    </div> -->
+                    </div>
                     <div id="w-node-_0df85482-465a-8633-f991-b354f9736bb7-f9736bb6" class="fra-wrap-3">
                         <div data-hover="false" data-delay="0" class="fra-drop-down-1 w-dropdown">
                             <div class="fra-toggle-1 w-dropdown-toggle" id="w-dropdown-toggle-4"
@@ -362,9 +362,9 @@
                             </nav>
                         </div>
                     </div>
-                    <!-- <div id="w-node-_0df85482-465a-8633-f991-b354f9736c15-f9736bb6" class="fra-wrap-2">
+                    <div id="w-node-_0df85482-465a-8633-f991-b354f9736c15-f9736bb6" class="fra-wrap-2">
                         <a href="{{ url('pages/gcns2026') }}#convenors" class="fra-link-1">Convenors</a>
-                    </div> -->
+                    </div>
                 </div>
             </div>
         </div>

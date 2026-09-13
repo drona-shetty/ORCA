@@ -6,21 +6,33 @@
 @section('og_image', asset('images/article/' . $article->title_image))
 
 @section('meta')
-    <link rel="canonical" href="{{ url()->current() }}">
+    {{-- =========================================
+        BASIC SEO
+    ========================================== --}}
+    <meta name="googlebot" content="index, follow">
+    <link rel="preload" as="image" href="{{ asset('images/article/' . $article->title_image) }}">
 
-    <meta property="og:url" content="{{ url()->current() }}" />
+    {{-- =========================================
+        OPEN GRAPH / FACEBOOK
+    ========================================== --}}
+
+    <meta property="og:locale" content="en_US" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="{{ $article->title }}" />
-    <meta property="og:description" content="{{ $article->introduction }}" />
-    <meta property="og:image" content="{{ asset('images/article/' . $article->title_image) }}" />
+    <meta property="og:site_name" content="ORCA" />
+    <meta property="og:image:secure_url" content="{{ url('images/article/' . $article->title_image) }}" />
+    <meta property="og:image:alt" content="{{ $article->title }}" />
+    <meta property="article:published_time" content="{{ $article->created_at->toIso8601String() }}" />
+    <meta property="article:modified_time" content="{{ $article->updated_at->toIso8601String() }}" />
+
+    @foreach ($authors as $author)
+        <meta property="article:author" content="{{ $author->name }}">
+    @endforeach
 
     {{-- AUTHOR SEO (OpenGraph) --}}
     @foreach ($authors as $author)
         <?php $author_meta = App\Models\UserMeta::where('user_id', $author->id)->first(); ?>
         <meta property="article:author" content="{{ url('author/' . $author_meta->slug) }}">
     @endforeach
-
-    <meta name="twitter:card" content="summary_large_image">
 
     {{-- JSON-LD SEO (IMPORTANT FOR GOOGLE AUTHOR UNDERSTANDING) --}}
     <script type="application/ld+json">
@@ -47,8 +59,15 @@
 @endsection
 
 @section('content')
-
+    <div class="print-watermark">
+        <img src="{{ URL::asset('images/ORCA Website Banner Logo PNG.png') }}"
+            alt="">
+    </div>
     <style>
+        .print-watermark {
+            display: none;
+        }
+
         img {
             max-width: 100%;
             height: auto;
@@ -68,6 +87,88 @@
         li {
             color: black;
         }
+
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            /* ==============================
+               PRINT LOGO AT TOP
+               ============================== */
+            .logo-print-only {
+                display: block !important;
+                text-align: center;
+                margin-bottom: 25px;
+            }
+
+            .print-logo {
+                width: 450px !important;
+                max-width: 80% !important;
+                height: auto !important;
+                object-fit: contain !important;
+            }
+
+            /* ==============================
+               WATERMARK
+               ============================== */
+            .print-watermark {
+                display: block !important;
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 450px;
+                opacity: 0.08;
+                z-index: -1;
+                pointer-events: none;
+            }
+
+            .print-watermark img {
+                width: 100% !important;
+                height: auto !important;
+                object-fit: contain !important;
+            }
+
+            /* ==============================
+               HIDE WEBSITE ELEMENTS
+               ============================== */
+            .print-button,
+            .side-widget,
+            .hidden-print {
+                display: none !important;
+            }
+
+            /* ==============================
+               PRINT PAGE
+               ============================== */
+            @page {
+                size: A4;
+                margin: 15mm;
+            }
+
+            /* Keep text above watermark */
+            .shock-section,
+            .container,
+            .content,
+            .article-content {
+                position: relative;
+                z-index: 1;
+            }
+
+            .text-white {
+                color: #fff !important;
+            }
+        }
+
+        @media (max-width:768px) {
+            .table-scroll {
+                overflow-x: auto;
+                width: 100%;
+                -webkit-overflow-scrolling: touch;
+            }
+        }
     </style>
 
     <!-- Banner -->
@@ -76,12 +177,15 @@
             <div class="content-wrapper">
 
                 <div class="extended-intro max-w-65 mb-25">
-                    <h1 class="title white">
-                        <div class="logo-print-only">
-                            <x-webp-image src="{{ asset('images/ORCA Website Banner Logo PNG.png') }}"
-                                style="width:200px;margin-bottom:2rem;" alt="ORCA" />
-                        </div>
-                        <span class="text-1 text-center text-style-3">{{ $article->title }}</span>
+                    <div class="logo-print-only">
+                        <img src="{{ URL::asset('images/ORCA Website Banner Logo PNG.png') }}"
+                            alt="ORCA"
+                            class="print-logo">
+                    </div>
+                    <h1 class="title white text-white">
+                        <span class="text-1 text-center text-style-3 text-white">
+                            {{ $article->title }}
+                        </span>
                     </h1>
 
                     <p class="aticlesubtitle text-style-8">{{ $article->subtitle }}</p>
@@ -196,28 +300,8 @@
     </section>
 
     <!-- Side Widget -->
-    <div class="side-widget to-left invert-color mix-blend-difference d-only-desktop">
-        <div class="item">
-            <span class="widget label-icons">
-                <a href="https://www.facebook.com/sharer.php?u={{ url()->current() }}" class="link black black-hover">
-                    <i class="icon fab fa-facebook-f"></i>
-                </a>
-
-                <a href="https://twitter.com/share?text={{ $article->title }}&url={{ url()->current() }}"
-                    class="link black black-hover">
-                    <i class="icon fab fa-twitter"></i>
-                </a>
-
-                <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ url()->current() }}"
-                    class="link black black-hover">
-                    <i class="icon fab fa-linkedin-in"></i>
-                </a>
-
-                <span class="label-line black"></span>
-            </span>
-        </div>
-    </div>
-
+    @include('frontend.article.share')
+    
 @endsection
 
 @php

@@ -13,6 +13,7 @@
                     <div class="date-card-div">
                         <h1 class="cards-date-num">{{ $convenor->title }}</h1>
                     </div>
+                    <h6 class="cards-subtitle">{{ $convenor->type }}</h6>
                     <h4 class="heading-2 event-title">{{ $convenor->content }}<br></h4>
                 </div>
                 <div class="grow-background"></div>

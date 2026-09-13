@@ -285,16 +285,16 @@
             </div>
             <main class="main-wrapper">
                 <div class="tabs">
-                    <a href="#" class="tabs_link w-inline-block active">
+                    <a href="#" class="tabs_link w-inline-block active" style="background-color:#e21f25">
                         <p class="tabs_heading">GCNS 2026</p>
                     </a>
                     <div class="tabs_content active">
                         <div class="tab_wrap">
                             <div class="break-left fullwidth">
-                                <div class="sepbar"></div>
+                                <div class="sepbar" style="background-color:#e21f25"></div>
                                 <h2 class="heading2">{{ $pre_26->title }}</h2>
                                 <h4 class="heading">{{ $pre_26->desc }}</h4>
-                                <a href="{{ url('pages/gcns2026') }}" class="rdf-button-1 editions w-button">Visit</a>
+                                <a href="{{ url('pages/gcns2026') }}" class="rdf-button-1 editions w-button" style="background-color:#e21f25">Visit</a>
                             </div>
                         </div>
                     </div>

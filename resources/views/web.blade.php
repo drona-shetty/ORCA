@@ -33,7 +33,6 @@ if (Auth::check()) {
     <meta property="og:description" content="@yield('meta_description')">
     <meta property="og:image" content="@yield('og_image', asset('images/ORCALogowhite.png'))">
     <meta property="og:url" content="{{ url()->current() }}">
-    <meta property="og:type" content="website">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">

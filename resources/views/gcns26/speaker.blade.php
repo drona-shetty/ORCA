@@ -1,4 +1,4 @@
-@extends('gcns25.main')
+@extends('gcns26.main')
 
 {{-- ================= SEO ================= --}}
 @section('title', $speaker->name . ' | GCNS 2026 Speaker ORCA Conference')
@@ -49,7 +49,7 @@
             position: relative;
             min-height: 55vh;
             display: flex;
-            align-items: center;
+            align-items: flex-end;
             background-size: cover;
             background-position: center;
         }
@@ -66,7 +66,7 @@
             width: 100%;
             text-align: center;
             color: #fff;
-            padding: 3rem 1rem;
+            padding: 4rem 1rem;
         }
 
         .speaker-hero h1 {
@@ -84,7 +84,7 @@
         /* PROFILE */
         .speaker-wrapper {
             max-width: 1100px;
-            margin: -80px auto 60px;
+            margin: 40px auto 60px;
             padding: 0 20px;
             position: relative;
             z-index: 2;
@@ -116,7 +116,7 @@
         .speaker-name {
             font-size: 1.8rem;
             font-weight: 700;
-            margin-bottom: 5px;
+            margin-bottom: 15px;
             color: #111;
         }
 
@@ -143,7 +143,7 @@
             }
 
             .speaker-wrapper {
-                margin-top: -40px;
+                margin-top: 20px;
             }
         }
     </style>
@@ -152,11 +152,11 @@
 
     <!-- HERO -->
     <section class="speaker-hero"
-        style="background-image: url('{{ asset('gcns26/images/Image_GCNS Speaker Section.jpg') }}');">
+        style="background-image: url('{{ asset('gcns25/images/Image_GCNS Speaker Section.jpg') }}');">
 
         <div class="speaker-hero-inner">
             <h1>{{ $speaker->name }}</h1>
-            <h2>{{ $speaker->designation }} — ORCA Global Conference on New Sinology 2026</h2>
+            <h2>{{ $speaker->designation }}</h2>
         </div>
 
     </section>
@@ -172,13 +172,8 @@
             </div>
 
             <div class="speaker-content">
-
-                <div class="speaker-name">{{ $speaker->name }}</div>
-
-                <div class="speaker-role">{{ $speaker->designation }}</div>
-
                 <div class="speaker-bio">
-                    {{ $speaker->content }}
+                    {!! $speaker->content !!}
                 </div>
             </div>
         </div>

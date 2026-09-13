@@ -7,21 +7,27 @@
 
 @section('meta')
 
-    {{-- Canonical URL --}}
-    <link rel="canonical" href="{{ url()->current() }}">
+    {{-- =========================================
+        BASIC SEO
+    ========================================== --}}
+    <meta name="googlebot" content="index, follow">
+    <link rel="preload" as="image" href="{{ asset('images/article/' . $article->title_image) }}">
 
-    {{-- Open Graph --}}
-    <meta property="og:url" content="{{ url()->current() }}" />
+    {{-- =========================================
+        OPEN GRAPH / FACEBOOK
+    ========================================== --}}
+
+    <meta property="og:locale" content="en_US" />
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="{{ $article->title }}" />
-    <meta property="og:description" content="{{ $article->introduction }}" />
-    <meta property="og:image" content="{{ asset('images/article/' . $article->title_image) }}" />
+    <meta property="og:site_name" content="ORCA" />
+    <meta property="og:image:secure_url" content="{{ url('images/article/' . $article->title_image) }}" />
+    <meta property="og:image:alt" content="{{ $article->title }}" />
+    <meta property="article:published_time" content="{{ $article->created_at->toIso8601String() }}" />
+    <meta property="article:modified_time" content="{{ $article->updated_at->toIso8601String() }}" />
 
-    {{-- Twitter --}}
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="{{ $article->title }}">
-    <meta name="twitter:description" content="{{ $article->introduction }}">
-    <meta name="twitter:image" content="{{ asset('images/article/' . $article->title_image) }}">
+    @foreach ($authors as $author)
+        <meta property="article:author" content="{{ $author->name }}">
+    @endforeach
 
     {{-- =========================
         ARTICLE SCHEMA (SEO BOOST)
@@ -92,6 +98,29 @@
         li {
             color: black;
         }
+
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .image-wrapper {
+                position: absolute;
+            }
+
+            .text-white {
+                color: #fff !important;
+            }
+        }
+
+        @media (max-width:768px) {
+            .table-scroll {
+                overflow-x: auto;
+                width: 100%;
+                -webkit-overflow-scrolling: touch;
+            }
+        }
     </style>
 
     <!-- Banner -->
@@ -159,17 +188,25 @@
                             @php
                                 $author_meta = App\Models\UserMeta::where('user_id', $author->id)->first();
                             @endphp
-
-                            <div class="comment">
-                                <div class="comment-author">
-                                    <a href="{{ url('author/' . $author_meta->slug) }}">
-                                        <h5 style="color:#000;" class="author-name">{{ $author->name }}</h5>
-                                    </a>
+                            <div class="comments-wrapper">
+                                <div class="comment">
+                                    <div class="comment-metadata">
+                                        <div class="comment-author">
+                                            <div class="author-photo">
+                                                <img src="{{ URL::asset('images/author/' . $author_meta->avatar) }}"
+                                                    class="image shadow" alt="{{ $author->name }}">
+                                            </div>
+                                            <a href="{{ url('author/' . $author_meta->slug) }}">
+                                                <h5 style="color:#000;" class="author-name">{{ $author->name }}</h5>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="comment-content">
+                                        <p>{{ $author_meta->about }}</p>
+                                    </div>
                                 </div>
-                                <p>{{ $author_meta->about }}</p>
                             </div>
                         @endforeach
-
                     </div>
 
                     <!-- Tags -->
@@ -190,5 +227,55 @@
             </div>
         </div>
     </section>
+
+    <!-- Side Widget
+    <div class="side-widget to-left invert-color mix-blend-difference d-only-desktop">
+        <div class="item">
+            <span class="widget label-icons">
+                {{-- Facebook Share --}}
+                <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(url()->current()) }}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="link black black-hover"
+                    aria-label="Share on Facebook"
+                    title="Share on Facebook">
+                    <i class="icon fab fa-facebook-f"></i>
+                </a>
+
+                {{-- X / Twitter Share --}}
+                <a href="https://twitter.com/intent/tweet?text={{ urlencode($article->title) }}&url={{ urlencode(url()->current()) }}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="link black black-hover"
+                    aria-label="Share on X"
+                    title="Share on X">
+                    <i class="icon fab fa-twitter"></i>
+                </a>
+
+                {{-- LinkedIn Share --}}
+                <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ urlencode(url()->current()) }}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="link black black-hover"
+                    aria-label="Share on LinkedIn"
+                    title="Share on LinkedIn">
+                    <i class="icon fab fa-linkedin-in"></i>
+                </a>
+
+                {{-- WhatsApp Share --}}
+                <a href="https://api.whatsapp.com/send?text={{ urlencode($article->title . ' - ' . url()->current()) }}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="link black black-hover"
+                    aria-label="Share on WhatsApp"
+                    title="Share on WhatsApp">
+                    <i class="icon fab fa-whatsapp"></i>
+                </a>
+
+                {{-- Vertical / Decorative Line --}}
+                <span class="label-line black"></span>
+            </span>
+        </div>
+    </div> -->
 
 @endsection

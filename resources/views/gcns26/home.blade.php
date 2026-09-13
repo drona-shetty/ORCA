@@ -156,7 +156,7 @@
     <!--FEATURES END-->
 
     <!--SPEAKERS-->
-    <!-- <section class="speakers" id="speakers">
+    <section class="speakers" id="speakers">
         <div data-w-id="1d87f775-9991-63f0-673c-26d16ffec647" style="opacity:1" class="left-event-wrap left">
             <div class="rotateblock">
                 <div class="sepbar-2 white _25"></div>
@@ -217,7 +217,7 @@
                 </div>
             </div>
         </div>
-    </section> -->
+    </section>
     <!--SPEAKERS END-->
 
     <!--FOCUS-->
@@ -226,10 +226,8 @@
     @endphp
     <section class="features">
         <div class="flexcontainer">
-            <div class="w-layout-grid grid">
-                <div id="w-node-c162a1ea-7beb-61c0-0ebb-c2289ee30f11-53d1b8f2"
-                    data-w-id="c162a1ea-7beb-61c0-0ebb-c2289ee30f11"
-                    style="opacity:1;background-image:url('{{ asset('images/event/media/' . $concept->image) }}')"
+            <div class="w-layout-grid">
+                <div style="opacity:1;background-image:url('{{ asset('images/event/media/' . $concept->image) }}')"
                     class="main_card_contain black _01">
                     <div class="div-contain">
                         <h3 class="cards-title">{{ $concept->title }}</h3>
@@ -239,9 +237,7 @@
                 @php
                     $concept = App\Models\Event\About::where('id', 30)->first();
                 @endphp
-                <div id="w-node-c162a1ea-7beb-61c0-0ebb-c2289ee30f18-53d1b8f2"
-                    data-w-id="c162a1ea-7beb-61c0-0ebb-c2289ee30f18"
-                    style="opacity:1;background-image:url('{{ asset('images/event/media/' . $concept->image) }}');background-size: contain;background-color: white;"
+                <div style="opacity:1;background-image:url('{{ asset('images/event/media/' . $concept->image) }}');background-size: contain;background-color: white;"
                     class="main_card_contain black _02">
                     <div class="div-contain">
                         <h1 class="cards-title blue">{{ $concept->title }}</h1>
@@ -257,23 +253,23 @@
     @php
         $concept = App\Models\Event\About::where('id', 31)->first();
     @endphp
-    <!-- <div class="scheduele--sect" id="schedule">
+    <div class="scheduele--sect" id="schedule">
         <div class="faq-container">
             <div class="faq-menu-wrapper">
                 <div class="faq-menu-title">
                     <div class="break-left fullwidth">
                         <div class="sepbar schedule-bar"></div>
                         <h2 class="schedule-title">schedule</h2>
-                        <h4 class="heading">{{ $concept->desc }}</h4>
+                        <!-- <h4 class="heading">{{ $concept->desc }}</h4>
                         <a href="https://orcasia.org/allfiles/ORCA_GCNS_2026_Agenda.pdf" download
                             style="text-decoration: none;"
-                            class="rdf-button-1">Download Schedule</a>
+                            class="rdf-button-1">Download Schedule</a> -->
                     </div>
                 </div>
             </div>
             @include('gcns26.partials.schedule')
         </div>
-    </div> -->
+    </div>
     <!--SCHEDULE END-->
 
     <!--MEDIA-->
@@ -377,42 +373,42 @@
             </div>
             <main class="main-wrapper">
                 <div class="tabs">
-                    <a href="#" class="tabs_link w-inline-block active">
+                    <a href="#" class="tabs_link w-inline-block active" style="background-color:#352e2f">
                         <p class="tabs_heading">GCNS 2025</p>
                     </a>
                     <div class="tabs_content active">
                         <div class="tab_wrap">
                             <div class="break-left fullwidth">
-                                <div class="sepbar"></div>
+                                <div class="sepbar" style="background-color:#352e2f"></div>
                                 <h2 class="heading2">{{ $pre_25->title }}</h2>
                                 <h4 class="heading">{{ $pre_25->desc }}</h4>
-                                <a href="{{ url('pages/gcns2025') }}" class="rdf-button-1 editions w-button">Visit</a>
+                                <a href="{{ url('pages/gcns2025') }}" class="rdf-button-1 editions w-button" style="background-color:#352e2f">Visit</a>
                             </div>
                         </div>
                     </div>
-                    <a href="#" class="tabs_link w-inline-block">
+                    <a href="#" class="tabs_link w-inline-block" style="background-color:#352e2f">
                         <p class="tabs_heading">GCNS 2024</p>
                     </a>
                     <div class="tabs_content">
                         <div class="tab_wrap">
                             <div class="break-left fullwidth">
-                                <div class="sepbar"></div>
+                                <div class="sepbar" style="background-color:#352e2f"></div>
                                 <h2 class="heading2">{{ $pre_24->title }}</h2>
                                 <h4 class="heading">{{ $pre_24->desc }}</h4>
-                                <a href="{{ url('pages/gcns2024') }}" class="rdf-button-1 editions w-button">Visit</a>
+                                <a href="{{ url('pages/gcns2024') }}" class="rdf-button-1 editions w-button" style="background-color:#352e2f">Visit</a>
                             </div>
                         </div>
                     </div>
-                    <a href="#" class="tabs_link w-inline-block">
+                    <a href="#" class="tabs_link w-inline-block" style="background-color:#352e2f">
                         <p class="tabs_heading">GCNS 2023</p>
                     </a>
                     <div class="tabs_content">
                         <div class="tab_wrap">
                             <div class="break-left fullwidth">
-                                <div class="sepbar"></div>
+                                <div class="sepbar" style="background-color:#352e2f"></div>
                                 <h2 class="heading2">{{ $pre_23->title }}</h2>
                                 <h4 class="heading">{{ $pre_23->desc }}</h4>
-                                <a href="{{ url('pages/gcns2023') }}" class="rdf-button-1 editions w-button">Visit</a>
+                                <a href="{{ url('pages/gcns2023') }}" class="rdf-button-1 editions w-button" style="background-color:#352e2f">Visit</a>
                             </div>
                         </div>
                     </div>
@@ -443,7 +439,7 @@
     <section class="partners" id="convenors">
         <div class="break-left">
             <div class="sepbar"></div>
-            <h2 class="heading2">Convenors</h2>
+            <h2 class="heading2">GCNS Team</h2>
             <h4 class="heading">{{ $concept->desc }}</h4>
         </div>
         @include('gcns26.partials.convenor')

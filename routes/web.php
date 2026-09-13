@@ -593,6 +593,8 @@ Route::get('gcns26/load-more-media', [App\Http\Controllers\GCNS26\MediaControlle
 Route::get('/event/speaker/{id}', [SpeakerController::class, 'getSpeakerData']);
 Route::post('pdf-log', [ArticleController::class, 'pdfCounter']);
 Route::post('add-consultancy-project', [ConsultancyController::class, 'add_project']);
+Route::post('/article/print', [ArticleController::class, 'trackPrint'])
+    ->name('article.print');
 //Route::view('/careers', 'career')->name('careers');
 //Route::view('/provincial', 'frontend.provincial.index')->name('provincial');
 
