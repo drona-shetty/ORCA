@@ -125,6 +125,9 @@
         }
 
         @media screen and (max-width: 991px) {
+            .orca-footer {
+                padding: 35px;
+            }
             .media-wrapper {
                 max-height: 300px;
             }
@@ -171,25 +174,40 @@
                                 <nav class="rdf-list-1 w-dropdown-list">
                                     <div class="rdf-wrap-drop-1">
                                         <div class="rdf-grid-drop-1">
-                                            <div id="w-node-_763f9bed-c1b6-f5cf-b1fb-817f4c5e1874-e42662e0"
-                                                class="rdf-wrap-drop-2">
+                                            <div class="rdf-wrap-drop-2">
                                                 <a href="https://orcasia.org/allfiles/GCNS_2023_Report.pdf"
-                                                    class="rdf-link-block-2 w-inline-block">
+                                                    class="rdf-link-block-2 w-inline-block" target="_blank">
                                                     <h2 class="rdf-heading-1">GCNS 2023 Conference Report</h2>
                                                 </a>
                                             </div>
-                                            <div id="w-node-_763f9bed-c1b6-f5cf-b1fb-817f4c5e187a-e42662e0"
-                                                class="rdf-wrap-drop-2">
+                                            <div class="rdf-wrap-drop-2">
                                                 <a href="https://orcasia.org/allfiles/ORCA's_GCNS_2024_Report.pdf"
-                                                    class="rdf-link-block-2 w-inline-block">
+                                                    class="rdf-link-block-2 w-inline-block" target="_blank">
                                                     <h2 class="rdf-heading-1">GCNS 2024 Conference Report</h2>
                                                 </a>
                                             </div>
-                                            <div id="w-node-_763f9bed-c1b6-f5cf-b1fb-817f4c5e187a-e42662e0"
-                                                class="rdf-wrap-drop-2">
+                                            <div class="rdf-wrap-drop-2">
                                                 <a href="https://orcasia.org/allfiles/ORCA%27s%20GCNS_2025%20Conference%20Report.pdf"
-                                                    class="rdf-link-block-2 w-inline-block">
+                                                    class="rdf-link-block-2 w-inline-block" target="_blank">
                                                     <h2 class="rdf-heading-1">GCNS 2025 Conference Report</h2>
+                                                </a>
+                                            </div>
+                                            <div class="rdf-wrap-drop-2">
+                                                <a href="https://orcasia.org/gcns/2023 GCNS Handbook.pdf"
+                                                    class="rdf-link-block-2 w-inline-block" target="_blank">
+                                                    <h2 class="rdf-heading-1">GCNS 2023 Handbook</h2>
+                                                </a>
+                                            </div>
+                                            <div class="rdf-wrap-drop-2">
+                                                <a href="https://orcasia.org/gcns/2024 GCNS Handbook.pdf"
+                                                    class="rdf-link-block-2 w-inline-block" target="_blank">
+                                                    <h2 class="rdf-heading-1">GCNS 2024 Handbook</h2>
+                                                </a>
+                                            </div>
+                                            <div class="rdf-wrap-drop-2">
+                                                <a href="https://orcasia.org/gcns/2025 GCNS Handbook.pdf"
+                                                    class="rdf-link-block-2 w-inline-block">
+                                                    <h2 class="rdf-heading-1">GCNS 2025 Handbook</h2>
                                                 </a>
                                             </div>
                                         </div>
@@ -293,25 +311,40 @@
                                 aria-labelledby="w-dropdown-toggle-4">
                                 <div class="fra-wrap-drop-1">
                                     <div class="fra-grid-2">
-                                        <div id="w-node-_0df85482-465a-8633-f991-b354f9736bbf-f9736bb6"
-                                            class="fra-wrap-drop-2">
+                                        <div class="fra-wrap-drop-2">
                                             <a href="https://orcasia.org/allfiles/GCNS_2023_Report.pdf"
-                                                class="fra-link-block-1 w-inline-block" tabindex="0">
+                                                class="fra-link-block-1 w-inline-block" tabindex="0" target="_blank">
                                                 <h2 class="fra-heading-1">GCNS 2023 Conference Report</h2>
                                             </a>
                                         </div>
-                                        <div id="w-node-_0df85482-465a-8633-f991-b354f9736bc5-f9736bb6"
-                                            class="fra-wrap-drop-2">
+                                        <div class="fra-wrap-drop-2">
                                             <a href="https://orcasia.org/allfiles/ORCA's_GCNS_2024_Report.pdf"
-                                                class="fra-link-block-1 w-inline-block" tabindex="0">
+                                                class="fra-link-block-1 w-inline-block" tabindex="0" target="_blank">
                                                 <h2 class="fra-heading-1">GCNS 2024 Conference Report</h2>
                                             </a>
                                         </div>
-                                        <div id="w-node-_0df85482-465a-8633-f991-b354f9736bbf-f9736bb6"
-                                            class="fra-wrap-drop-2">
+                                        <div class="fra-wrap-drop-2">
                                             <a href="https://orcasia.org/allfiles/ORCA%27s%20GCNS_2025%20Conference%20Report.pdf"
-                                                class="fra-link-block-1 w-inline-block" tabindex="0">
+                                                class="fra-link-block-1 w-inline-block" tabindex="0" target="_blank">
                                                 <h2 class="fra-heading-1">GCNS 2025 Conference Report</h2>
+                                            </a>
+                                        </div>
+                                        <div class="rdf-wrap-drop-2">
+                                            <a href="https://orcasia.org/gcns/2023 GCNS Handbook.pdf"
+                                                class="rdf-link-block-2 w-inline-block" target="_blank">
+                                                <h2 class="rdf-heading-1">GCNS 2023 Handbook</h2>
+                                            </a>
+                                        </div>
+                                        <div class="rdf-wrap-drop-2">
+                                            <a href="https://orcasia.org/gcns/2024 GCNS Handbook.pdf"
+                                                class="rdf-link-block-2 w-inline-block" target="_blank">
+                                                <h2 class="rdf-heading-1">GCNS 2024 Handbook</h2>
+                                            </a>
+                                        </div>
+                                        <div class="rdf-wrap-drop-2">
+                                            <a href="https://orcasia.org/gcns/2025 GCNS Handbook.pdf"
+                                                class="rdf-link-block-2 w-inline-block" target="_blank">
+                                                <h2 class="rdf-heading-1">GCNS 2025 Handbook</h2>
                                             </a>
                                         </div>
                                     </div>
@@ -449,7 +482,27 @@
                 if (!el) return;
 
                 new Swiper(el, {
-                    slidesPerView: "auto",
+                    slidesPerView: 1,
+                    spaceBetween: 10,
+                    centeredSlides: true,
+                    loop: true,
+
+                    breakpoints: {
+                        576: {
+                            slidesPerView: 1,
+                            spaceBetween: 15
+                        },
+
+                        768: {
+                            slidesPerView: 2,
+                            spaceBetween: 20
+                        },
+
+                        1024: {
+                            slidesPerView: 3,
+                            spaceBetween: 30
+                        }
+                    },
                     speed: 300,
                     keyboard: {
                         enabled: true

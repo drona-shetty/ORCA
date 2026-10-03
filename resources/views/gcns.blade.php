@@ -107,7 +107,7 @@
                 'description' =>
                     'The Global Conference on New Sinology (GCNS) 2026 will be held on 28th-29th September, 2026 at the India International Centre (IIC), New Delhi, under the theme "Zìlì Gēngshēng in an Era of Great Changes Unseen."',
                 'url' => '/pages/gcns2026',
-                'image' => asset('images/event/media/GCNS 2026 Poster.jpg'),
+                'image' => asset('gcns/img/GCNS 2026  Poster.png'),
             ],
             [
                 'year' => '2025',

@@ -1,6 +1,6 @@
 <div class="partners-grid">
     @php
-        $partners = App\Models\Event\Partner::where('gcns', 2026)->get();
+        $partners = App\Models\Event\Partner::where('gcns', 2026)->orderBy('id', 'asc')->get();
     @endphp
     @foreach ($partners as $partner)
         <a href="{{ $partner->link }}" class="partners-card w-inline-block">

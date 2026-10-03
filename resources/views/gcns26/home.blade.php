@@ -143,10 +143,12 @@
             <div data-w-id="0342cf17-6ce9-24ec-ad21-ce8afeaa85aa" class="break-right-4"><img loading="lazy"
                     src="{{ asset('gcns25/images/685d961c7776a97bf68b1764_box4.svg') }}" alt="" class="image">
             </div>
-            <!-- <div class="break-right-5">
-                <h1>DAY 1: REGISTRATIONS ARE CLOSED</h1>
-                <h1>DAY 2: INVITE-ONLY</h1>
-            </div> -->
+            <div class="break-right-5">
+                <a href="https://orcasia.org/gcns/GCNS 2026 Conference Agenda.pdf"
+                    class="rdf-link-block-2 w-inline-block">
+                    <h3>GCNS 2026 Conference Agenda</h3>
+                </a>
+            </div>
         </div>
         <!-- <div class="concept-note-schedule">
             <h1>DAY 1: REGISTRATIONS ARE CLOSED</h1>
@@ -181,6 +183,23 @@
                                 {
                                 .team-slider_cms_item.swiper-slide {
                                     width: calc(100% / 1.2);
+                                }
+                            }
+                            /* Tablet */
+                            @media screen and (max-width: 991px) {
+                                .w-layout-grid {
+                                    grid-template-columns: 1fr 1fr;
+                                    grid-column-gap: 12px;
+                                    grid-row-gap: 12px;
+                                }
+                            }
+
+                            /* Mobile */
+                            @media screen and (max-width: 767px) {
+                                .w-layout-grid {
+                                    grid-template-columns: 1fr;
+                                    grid-column-gap: 0;
+                                    grid-row-gap: 16px;
                                 }
                             }
                         </style>
@@ -224,7 +243,7 @@
     @php
         $concept = App\Models\Event\About::where('id', 29)->first();
     @endphp
-    <section class="features">
+    <section style="padding:20px">
         <div class="flexcontainer">
             <div class="w-layout-grid">
                 <div style="opacity:1;background-image:url('{{ asset('images/event/media/' . $concept->image) }}')"
@@ -420,16 +439,16 @@
 
     <!--PARTNERS-->
     @php
-        $concept = App\Models\Event\About::where('id', 36)->first();
+        $concept = App\Models\Event\About::where('id', 33)->first();
     @endphp
-    <!-- <section class="partners">
+    <section class="partners">
         <div class="break-left">
             <div class="sepbar"></div>
             <h2 class="heading2">Partners</h2>
             <h4 class="heading">{{ $concept->desc }}</h4>
         </div>
         @include('gcns26.partials.partner')
-    </section> -->
+    </section>
     <!--PARTNERS END-->
 
     <!--CONVENORS-->

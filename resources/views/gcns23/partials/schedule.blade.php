@@ -11,6 +11,11 @@
     .answer-block.w-dropdown-list.w--open {
         height: auto;
     }
+    .question-inner .period {
+        min-width: 150px;
+        justify-content: center;
+        max-height: 30px;
+    }
 </style>
 <?php $scheduleData = App\Models\Gcns\Schedule::orderBy('id', 'asc')->get(); ?>
 <div class="faq-groups-wrapper">
@@ -86,7 +91,7 @@
                                             <div class="question-inner">
                                                 <h1 class="cards-date-num schedule">{{ $session->title }}</h1>
                                                 <div class="div-block-8">
-                                                    <h3 class="cards-title schedule padding">{{ $convertedStartTime }} - {{ $convertedEndTime }}</h3>
+                                                    <h3 class="cards-title schedule padding period">{{ $convertedStartTime }} - {{ $convertedEndTime }}</h3>
                                                     @if ($session->sessionTag != null)
                                                         <h3 class="cards-title schedule padding session">{{ $session->sessionTag }}</h3>
                                                     @endif

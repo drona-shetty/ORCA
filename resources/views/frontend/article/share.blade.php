@@ -1,4 +1,4 @@
-<div class="side-widget to-left invert-color mix-blend-difference">
+<div class="side-widget to-right invert-color mix-blend-difference">
     <div class="item">
         <span class="widget label-icons">
             {{-- Facebook Share --}}
